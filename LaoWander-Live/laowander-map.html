@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Laos Interactive Map — LaoWander | Explore by City</title>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Laos Interactive Map — LaoWander | Explore by City">
+<meta name="twitter:description" content="Explore Laos on an interactive map. Click any city to discover hotels, restaurants and attractions — then open directly in Google Maps.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1582990253092-15a33e9fc5d0?w=1200&q=85">
+<meta property="og:site_name" content="LaoWander">
+<meta name="robots" content="index, follow">
+<meta property="og:url" content="https://laowander.pages.dev/laowander-map.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1582990253092-15a33e9fc5d0?w=1200&q=85">
+<meta property="og:description" content="Explore Laos on an interactive map. Click any city to discover hotels, restaurants and attractions — then open directly in Google Maps.">
+<meta property="og:title" content="Laos Interactive Map — LaoWander | Explore by City">
+<link rel="canonical" href="https://laowander.pages.dev/laowander-map.html">
+<meta name="description" content="Explore Laos on an interactive map. Click any city to discover hotels, restaurants and attractions — then open directly in Google Maps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9NZFE7GFGB"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-9NZFE7GFGB');</script>
+<style>
+:root{
+  --gold:#C9A84C;--gold-bright:#E2BC65;--gold-dim:rgba(201,168,76,0.12);
+  --gold-line:rgba(201,168,76,0.22);--bg:#111009;--surface:#1A1814;
+  --raised:#221F18;--rim:rgba(201,168,76,0.09);--muted:#6B6560;
+  --soft:rgba(255,248,235,0.52);--white:#FFF8EB;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;overflow:hidden;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);-webkit-font-smoothing:antialiased;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px;}
+a{text-decoration:none;color:inherit;}
+button{cursor:pointer;border:none;background:none;font-family:inherit;}
+
+/* NAV */
+nav{position:fixed;inset:0 0 auto 0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;background:rgba(17,16,9,0.92);backdrop-filter:blur(32px) saturate(1.6);border-bottom:1px solid var(--rim);}
+.logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;letter-spacing:-.5px;}
+.logo em{color:var(--gold);font-style:normal;}
+.nav-links{list-style:none;display:flex;align-items:center;gap:2px;}
+.nav-links a{padding:6px 12px;font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,248,235,.55);border-radius:6px;transition:color .2s,background .2s;white-space:nowrap;}
+.nav-links a:hover{color:var(--white);background:rgba(255,248,235,.07);}
+.nav-links a.active{color:var(--gold-bright);background:rgba(201,168,76,.12);}
+.nav-sep{width:1px;height:18px;background:var(--rim);margin:0 6px;}
+.nav-cta{background:var(--gold);color:#111009;font-size:.72rem;font-weight:700;padding:9px 20px;border-radius:30px;transition:background .2s,transform .2s;cursor:pointer;}
+.nav-cta:hover{background:var(--gold-bright);transform:translateY(-1px);}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;}
+.nav-drawer{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(17,16,9,.98);backdrop-filter:blur(24px);border-bottom:1px solid var(--rim);padding:12px 20px 20px;z-index:290;flex-direction:column;gap:2px;}
+.nav-drawer.open{display:flex;}
+.nav-drawer a{padding:12px 16px;font-size:.82rem;color:var(--soft);border-radius:10px;}
+.nav-drawer a:hover,.nav-drawer a.active{background:var(--gold-dim);color:var(--gold);}
+.drawer-cta{background:var(--gold);color:#141210;font-weight:700;text-align:center;padding:13px;border-radius:10px;margin-top:4px;cursor:pointer;}
+
+/* LAYOUT */
+.map-shell{position:fixed;top:68px;left:0;right:0;bottom:0;display:grid;grid-template-columns:400px 1fr;z-index:1;}
+
+/* SIDEBAR */
+.sidebar{background:var(--surface);border-right:1px solid var(--rim);display:flex;flex-direction:column;overflow:hidden;z-index:2;}
+.sidebar-head{padding:18px 18px 12px;border-bottom:1px solid var(--rim);flex-shrink:0;}
+.sidebar-eyebrow{font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.sidebar-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;line-height:1.1;margin-bottom:3px;}
+.sidebar-title em{color:var(--gold);font-style:italic;}
+.sidebar-sub{font-size:.7rem;color:var(--muted);}
+
+/* Search */
+.search-wrap{padding:10px 12px;border-bottom:1px solid var(--rim);flex-shrink:0;}
+.search-bar{display:flex;align-items:center;gap:7px;background:var(--raised);border:1px solid var(--rim);border-radius:10px;padding:8px 11px;transition:border-color .2s,box-shadow .2s;}
+.search-bar:focus-within{border-color:var(--gold-line);box-shadow:0 0 0 3px var(--gold-dim);}
+.search-bar input{flex:1;background:none;border:none;outline:none;font-family:'DM Sans',sans-serif;font-size:.8rem;color:var(--white);}
+.search-bar input::placeholder{color:var(--muted);}
+.s-clear{font-size:.72rem;color:var(--muted);cursor:pointer;display:none;}
+.s-clear.show{display:block;}
+
+/* City list */
+.city-list{flex:1;overflow-y:auto;padding:6px 10px 20px;}
+.city-list::-webkit-scrollbar{width:3px;}
+.city-list::-webkit-scrollbar-thumb{background:var(--rim);border-radius:4px;}
+
+/* City row */
+.city-row{margin-bottom:4px;border-radius:14px;overflow:hidden;border:1px solid transparent;transition:border-color .2s;}
+.city-row.open{border-color:var(--gold-line);}
+.city-btn{display:flex;align-items:center;gap:10px;padding:10px 12px;cursor:pointer;background:transparent;border-radius:14px;transition:background .2s;width:100%;text-align:left;}
+.city-btn:hover{background:var(--raised);}
+.city-row.open .city-btn{background:var(--raised);border-radius:14px 14px 0 0;}
+.city-thumb{width:52px;height:52px;border-radius:9px;overflow:hidden;flex-shrink:0;background:var(--raised);position:relative;display:flex;align-items:center;justify-content:center;}
+.city-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.city-thumb-init{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;color:var(--gold);position:relative;z-index:1;}
+.city-info{flex:1;min-width:0;}
+.city-label{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1px;}
+.city-name{font-family:'Playfair Display',serif;font-size:.92rem;font-weight:700;color:var(--white);}
+.city-count{font-size:.65rem;color:var(--muted);}
+.city-chevron{font-size:.7rem;color:var(--muted);flex-shrink:0;transition:transform .25s var(--ease);}
+.city-row.open .city-chevron{transform:rotate(180deg);color:var(--gold);}
+
+/* Dropdown items */
+.city-items{display:none;background:var(--raised);border-radius:0 0 14px 14px;overflow:hidden;}
+.city-row.open .city-items{display:block;}
+.place-item{display:flex;align-items:center;gap:9px;padding:9px 12px 9px 20px;cursor:pointer;transition:background .2s;border-top:1px solid var(--rim);}
+.place-item:hover{background:rgba(201,168,76,.06);}
+.place-icon{font-size:.9rem;width:20px;text-align:center;flex-shrink:0;}
+.place-info{flex:1;min-width:0;}
+.place-type{font-size:.57rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+.place-name{font-size:.8rem;font-weight:600;color:var(--white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.place-meta{font-size:.65rem;color:var(--muted);}
+.place-star{font-size:.7rem;flex-shrink:0;}
+.place-arrow{color:var(--muted);font-size:.75rem;flex-shrink:0;opacity:0;transition:opacity .15s;}
+.place-item:hover .place-arrow{opacity:1;}
+.place-item.active{background:rgba(201,168,76,.08);}
+.place-item.active .place-name{color:var(--gold);}
+
+/* Season strip */
+.season-strip{padding:7px 12px;border-bottom:1px solid var(--rim);display:flex;align-items:center;gap:7px;background:rgba(201,168,76,.03);flex-shrink:0;}
+.season-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.season-txt{font-size:.63rem;color:var(--soft);line-height:1.4;}
+.season-txt strong{color:var(--gold-bright);}
+
+/* MAP */
+.map-area{position:relative;background:#0a1208;overflow:hidden;}
+.map-embed{position:absolute;inset:0;width:100%;height:100%;border:none;opacity:0;transition:opacity .6s var(--ease);}
+.map-embed.loaded{opacity:1;}
+
+/* Placeholder */
+.map-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at 40% 50%,#142010 0%,#0a1208 50%,#060e06 100%);transition:opacity .5s,pointer-events .5s;z-index:3;}
+.map-ph.hidden{opacity:0;pointer-events:none;}
+.ph-icon{font-size:2.6rem;margin-bottom:12px;opacity:.45;}
+.ph-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;margin-bottom:7px;text-align:center;}
+.ph-sub{font-size:.76rem;color:var(--muted);text-align:center;max-width:240px;line-height:1.6;}
+.ph-hint{margin-top:14px;font-size:.7rem;color:var(--gold);opacity:.65;animation:pulse 1.8s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:.35;transform:translateX(0)}50%{opacity:.8;transform:translateX(-5px)}}
+
+/* Info panel */
+.info-panel{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(10,12,8,1) 0%,rgba(10,12,8,.97) 60%,rgba(10,12,8,0) 100%);padding:18px 22px 20px;transform:translateY(105%);transition:transform .4s var(--ease);z-index:4;}
+.info-panel.visible{transform:translateY(0);}
+.ip-row{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:7px;}
+.ip-eyebrow{font-size:.57rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;}
+.ip-name{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;line-height:1.1;}
+.ip-close{width:28px;height:28px;border-radius:50%;background:rgba(255,248,235,.07);color:var(--muted);font-size:.8rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;flex-shrink:0;}
+.ip-close:hover{background:rgba(255,248,235,.13);color:var(--white);}
+.ip-desc{font-size:.77rem;color:var(--soft);line-height:1.6;margin-bottom:11px;max-width:540px;}
+.ip-actions{display:flex;gap:7px;flex-wrap:wrap;}
+.ip-btn{display:inline-flex;align-items:center;gap:5px;padding:8px 15px;border-radius:30px;font-size:.73rem;font-weight:700;transition:all .2s;cursor:pointer;text-decoration:none;}
+.ip-primary{background:var(--gold);color:#111009;}
+.ip-primary:hover{background:var(--gold-bright);transform:translateY(-1px);box-shadow:0 5px 18px rgba(201,168,76,.3);}
+.ip-secondary{border:1px solid var(--rim);color:var(--soft);}
+.ip-secondary:hover{border-color:var(--gold-line);color:var(--white);}
+
+/* Controls */
+.map-ctrl-wrap{position:absolute;top:14px;right:14px;display:flex;flex-direction:column;gap:5px;z-index:5;}
+.ctrl-btn{width:34px;height:34px;border-radius:9px;background:rgba(10,12,8,.88);backdrop-filter:blur(14px);border:1px solid var(--rim);color:var(--soft);display:flex;align-items:center;justify-content:center;font-size:.8rem;cursor:pointer;transition:all .2s;}
+.ctrl-btn:hover{border-color:var(--gold-line);color:var(--gold);}
+
+/* Error fallback */
+.embed-err{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at center,#0e1a0c 0%,#080e08 100%);z-index:2;}
+.embed-err.show{display:flex;}
+.embed-err p{font-size:.8rem;color:var(--muted);margin-bottom:14px;text-align:center;max-width:260px;line-height:1.6;}
+.embed-err a{display:inline-flex;align-items:center;gap:5px;padding:10px 20px;border-radius:30px;background:var(--gold);color:#111009;font-size:.78rem;font-weight:700;}
+.embed-err a:hover{background:var(--gold-bright);}
+
+/* Mobile */
+@media(max-width:860px){
+  html,body{overflow:auto;}
+  .map-shell{position:relative;top:68px;grid-template-columns:1fr;grid-template-rows:auto 420px;height:auto;}
+  nav{padding:0 20px;}
+  .nav-links,.nav-sep{display:none;}
+  .nav-toggle{display:flex;}
+  .sidebar{border-right:none;border-bottom:1px solid var(--rim);}
+  .city-list{max-height:260px;}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Laos Interactive Map — LaoWander | Explore by City",
+  "description": "Explore Laos on an interactive map. Click any city to discover hotels, restaurants and attractions — then open directly in Google Maps.",
+  "url": "https://laowander.pages.dev/laowander-map.html",
+  "image": "https://images.unsplash.com/photo-1582990253092-15a33e9fc5d0?w=1200&q=85",
+  "publisher": {
+    "@type": "Organization",
+    "name": "LaoWander",
+    "url": "https://laowander.pages.dev/laowander"
+  },
+  "description":"Interactive map of Laos destinations"
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="laowander.html" class="logo">Lao<em>Wander</em></a>
+  <ul class="nav-links">
+    <li><a href="laowander.html">Destinations</a></li>
+    <li><a href="laowander-events.html">Events</a></li>
+    <li><a href="laowander-hotels.html">Hotels</a></li>
+    <li><a href="laowander-food.html">Food</a></li>
+    <li><a href="laowander-guide.html">Guide</a></li>
+    <li><a href="laowander-map.html" class="active">🗺 Map</a></li>
+    <li><a href="laowander-flights.html">✈ Flights</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div class="nav-sep"></div>
+    <button class="nav-cta" onclick="window.location.href='laowander-itineraries.html'">Plan Your Trip</button>
+    <div class="nav-toggle" id="nav-toggle" onclick="toggleNav()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="nav-drawer" id="nav-drawer">
+  <a href="laowander.html" onclick="closeNav()">Destinations</a>
+  <a href="laowander-events.html" onclick="closeNav()">Events</a>
+  <a href="laowander-hotels.html" onclick="closeNav()">Hotels</a>
+  <a href="laowander-food.html" onclick="closeNav()">Food</a>
+  <a href="laowander-guide.html" onclick="closeNav()">Guide</a>
+  <a href="laowander-map.html" class="active" onclick="closeNav()">🗺 Map</a>
+  <a href="laowander-flights.html" onclick="closeNav()">✈ Flights</a>
+  <button class="drawer-cta" onclick="closeNav();window.location.href='laowander-itineraries.html'">Plan Your Trip</button>
+</div>
+
+<div class="map-shell">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <div class="sidebar-eyebrow">✦ Explore by City</div>
+      <h1 class="sidebar-title">Laos <em>Map</em></h1>
+      <p class="sidebar-sub">Select a city — then explore hotels, restaurants & attractions.</p>
+    </div>
+    <div class="search-wrap">
+      <div class="search-bar">
+        <span>🔍</span>
+        <input type="text" id="s-input" placeholder="Search cities or places…" oninput="handleSearch(this.value)">
+        <span class="s-clear" id="s-clear" onclick="clearSearch()">✕</span>
+      </div>
+    </div>
+    <div class="season-strip">
+      <div class="season-dot" id="s-dot"></div>
+      <div class="season-txt" id="s-txt"></div>
+    </div>
+    <div class="city-list" id="city-list"></div>
+  </aside>
+
+  <div class="map-area">
+    <div class="map-ph" id="map-ph">
+      <div class="ph-icon">🗺️</div>
+      <div class="ph-title">Explore Laos</div>
+      <div class="ph-sub">Select a city to view it on Google Maps, then explore hotels, restaurants and attractions</div>
+      <div class="ph-hint">← Select a city to begin</div>
+    </div>
+    <iframe id="map-frame" class="map-embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" src=""></iframe>
+    <div class="embed-err" id="embed-err">
+      <p>Map couldn't load in browser. Open directly instead.</p>
+      <a id="err-link" href="#" target="_blank">📍 Open in Google Maps ↗</a>
+    </div>
+    <div class="map-ctrl-wrap">
+      <button class="ctrl-btn" title="View all Laos" onclick="showAllLaos()">🌏</button>
+      <button class="ctrl-btn" id="open-btn" title="Open in Google Maps" onclick="openGMaps()" style="display:none">↗</button>
+      <button class="ctrl-btn" id="dir-btn" title="Get directions" onclick="getDirections()" style="display:none">🧭</button>
+    </div>
+    <div class="info-panel" id="info-panel">
+      <div class="ip-row">
+        <div>
+          <div class="ip-eyebrow" id="ip-eyebrow"></div>
+          <div class="ip-name" id="ip-name"></div>
+        </div>
+        <button class="ip-close" onclick="closeInfo()">✕</button>
+      </div>
+      <div class="ip-desc" id="ip-desc"></div>
+      <div class="ip-actions" id="ip-actions"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ════════════════════════════════════════
+   DATA — Cities with nested places
+════════════════════════════════════════ */
+const CITIES = [
+  {
+    id:'vientiane-city', name:'Vientiane', province:'Vientiane Prefecture',
+    lat:17.9757, lng:102.6331,
+    desc:'The world\'s most laid-back capital. Golden temples, French colonial boulevards and the Mekong promenade.',
+    img:'https://images.unsplash.com/photo-1582990253092-15a33e9fc5d0?w=200&q=80',
+    bestMonths:[11,12,1,2,3],
+    places:[
+      { type:'hotel', icon:'🏨', name:'Settha Palace Hotel', meta:'★★★★★ · From $145/night', lat:17.9617, lng:102.6142, link:'https://www.booking.com/searchresults.html?ss=Settha+Palace+Vientiane' },
+      { type:'hotel', icon:'🏨', name:'Amari Vientiane', meta:'★★★★★ · From $93/night', lat:17.9784, lng:102.6246, link:'https://www.booking.com/searchresults.html?ss=Amari+Vientiane' },
+      { type:'hotel', icon:'🏨', name:'Lao Poet Hotel', meta:'★★★★ · From $90/night', lat:17.9636, lng:102.6147, link:'https://www.booking.com/searchresults.html?ss=Lao+Poet+Hotel+Vientiane' },
+      { type:'restaurant', icon:'🍜', name:'MakPhet Restaurant', meta:'Contemporary Lao · $$', lat:17.9621, lng:102.6133, link:'laowander-food.html' },
+      { type:'restaurant', icon:'🍜', name:'Lao Kitchen', meta:'Traditional · $', lat:17.9643, lng:102.6151, link:'laowander-food.html' },
+      { type:'restaurant', icon:'☕', name:'Rue Namphu Café', meta:'French-Lao · $', lat:17.9660, lng:102.6158, link:'laowander-food.html' },
+      { type:'attraction', icon:'🏛', name:'Pha That Luang', meta:'National symbol · Free', lat:17.9762, lng:102.6343, link:'https://www.google.com/maps/search/?api=1&query=17.9762,102.6343' },
+      { type:'attraction', icon:'🏛', name:'Patuxai Monument', meta:'Victory Gate · Free', lat:17.9692, lng:102.6221, link:'https://www.google.com/maps/search/?api=1&query=17.9692,102.6221' },
+    ]
+  },
+  {
+    id:'luangprabang-city', name:'Luang Prabang', province:'Luang Prabang Province',
+    lat:19.8845, lng:102.1347,
+    desc:'UNESCO World Heritage city. Ancient temples, monks at dawn, jungle waterfalls and the most beautiful small city in Southeast Asia.',
+    img:'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=200&q=80',
+    bestMonths:[10,11,12,1,2,3,4],
+    places:[
+      { type:'hotel', icon:'🏨', name:'Rosewood Luang Prabang', meta:'★★★★★ · From $420/night', lat:19.8973, lng:102.1268, link:'https://www.booking.com/searchresults.html?ss=Rosewood+Luang+Prabang' },
+      { type:'hotel', icon:'🏨', name:'Amantaka', meta:'★★★★★ · From $680/night', lat:19.8881, lng:102.1352, link:'https://www.booking.com/searchresults.html?ss=Amantaka+Luang+Prabang' },
+      { type:'hotel', icon:'🏨', name:'Satri House', meta:'★★★★★ · From $180/night', lat:19.8889, lng:102.1332, link:'https://www.booking.com/searchresults.html?ss=Satri+House+Luang+Prabang' },
+      { type:'restaurant', icon:'🍜', name:'Tamarind Restaurant', meta:'Contemporary Lao · $$', lat:19.8887, lng:102.1362, link:'laowander-food.html' },
+      { type:'restaurant', icon:'🍜', name:'Manda de Laos', meta:'Fine Lao Dining · $$$', lat:19.8902, lng:102.1340, link:'laowander-food.html' },
+      { type:'restaurant', icon:'☕', name:'Blue Lagoon Bakery', meta:'Café & Bakery · $', lat:19.8875, lng:102.1370, link:'laowander-food.html' },
+      { type:'attraction', icon:'🏯', name:'Wat Xieng Thong', meta:'15th century temple · $1', lat:19.8953, lng:102.1394, link:'https://www.google.com/maps/search/?api=1&query=19.8953,102.1394' },
+      { type:'attraction', icon:'💧', name:'Kuang Si Falls', meta:'30km from town · $3', lat:19.7227, lng:101.9773, link:'https://www.google.com/maps/search/?api=1&query=19.7227,101.9773' },
+    ]
+  },
+  {
+    id:'vangvieng-city', name:'Vang Vieng', province:'Vientiane Province',
+    lat:18.9232, lng:102.4481,
+    desc:'Karst mountains over the Nam Song River. Kayaking, caves, hot air balloons and the most dramatic scenery in Laos.',
+    img:'https://images.unsplash.com/photo-1570366583862-f91883984fde?w=200&q=80',
+    bestMonths:[10,11,12,1,2,3,4],
+    places:[
+      { type:'hotel', icon:'🏨', name:'Riverside Boutique Resort', meta:'★★★★ · From $78/night', lat:18.9265, lng:102.4432, link:'https://www.booking.com/searchresults.html?ss=Riverside+Boutique+Resort+Vang+Vieng' },
+      { type:'hotel', icon:'🏨', name:'Amari Vang Vieng', meta:'★★★★★ · From $78/night', lat:18.9241, lng:102.4459, link:'https://www.booking.com/searchresults.html?ss=Amari+Vang+Vieng' },
+      { type:'hotel', icon:'🏨', name:'Vang Vieng Boutique Resort', meta:'★★★★ · From $65/night', lat:18.9220, lng:102.4470, link:'https://www.booking.com/searchresults.html?ss=Vang+Vieng+Boutique+Resort' },
+      { type:'restaurant', icon:'🥗', name:'Organic Mulberry Farm', meta:'Farm-to-table · $', lat:18.9180, lng:102.4420, link:'laowander-food.html' },
+      { type:'attraction', icon:'🏔', name:'Blue Lagoon', meta:'Swimming & caves · Free', lat:18.9455, lng:102.4090, link:'https://www.google.com/maps/search/?api=1&query=18.9455,102.4090' },
+      { type:'attraction', icon:'🎈', name:'Hot Air Balloon', meta:'Sunrise flights · $80+', lat:18.9232, lng:102.4481, link:'https://www.google.com/maps/search/?api=1&query=18.9232,102.4481' },
+    ]
+  },
+  {
+    id:'pakse-city', name:'Pakse & Champasak', province:'Champasak Province',
+    lat:15.1202, lng:105.7997,
+    desc:'Gateway to southern Laos. Coffee country, Wat Phu ruins, the Bolaven Plateau and the 4,000 Islands all begin here.',
+    img:'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=200&q=80',
+    bestMonths:[11,12,1,2,3],
+    places:[
+      { type:'hotel', icon:'🏨', name:'Sala Done Khone', meta:'★★★ · From $55/night', lat:14.1167, lng:105.9167, link:'https://www.booking.com/searchresults.html?ss=Sala+Done+Khone+Laos' },
+      { type:'restaurant', icon:'🍜', name:'Champa Restaurant', meta:'Lao & Thai · $', lat:15.1190, lng:105.7980, link:'laowander-food.html' },
+      { type:'restaurant', icon:'🍜', name:'Jasmine Restaurant', meta:'Lao & Khmer · $', lat:15.1210, lng:105.8010, link:'laowander-food.html' },
+      { type:'attraction', icon:'🏛', name:'Wat Phu Champasak', meta:'UNESCO · $5 · 45km', lat:14.8484, lng:105.8483, link:'https://www.google.com/maps/search/?api=1&query=14.8484,105.8483' },
+      { type:'attraction', icon:'☕', name:'Bolaven Plateau', meta:'Coffee & waterfalls · 60km', lat:15.3000, lng:106.1500, link:'https://www.google.com/maps/search/?api=1&query=15.3,106.15' },
+    ]
+  },
+  {
+    id:'4000islands', name:'Si Phan Don — 4,000 Islands', province:'Champasak Province',
+    lat:13.9731, lng:105.9228,
+    desc:'The 4,000 Islands archipelago on the Mekong. Island-hop by boat, watch Irrawaddy dolphins at dawn, and sleep in riverside bungalows.',
+    img:'https://res.cloudinary.com/dzxg1vyi8/image/upload/c_fill,g_auto,ar_16:9,y_0.3/v1774005646/sunin_hotel_e1usdh.jpg',
+    bestMonths:[11,12,1,2,3,4],
+    places:[
+      { type:'hotel', icon:'⭐', name:'Sunin Hotel — Don Det', meta:'★★★ · $45/night · Friend\'s Pick', lat:13.9731, lng:105.9228, link:'https://www.booking.com/hotel/la/sunin-dondet-riverside-okhng.html', star:true },
+      { type:'attraction', icon:'🐬', name:'Irrawaddy Dolphin Watching', meta:'Dawn boat tour · $10', lat:14.0050, lng:105.9600, link:'https://www.google.com/maps/search/?api=1&query=14.005,105.96' },
+      { type:'attraction', icon:'💧', name:'Khone Phapheng Falls', meta:'Largest waterfall in SE Asia', lat:13.9667, lng:105.9833, link:'https://www.google.com/maps/search/?api=1&query=13.9667,105.9833' },
+      { type:'attraction', icon:'🚂', name:'Don Det–Don Khon Railway', meta:'Historic colonial railway', lat:14.0010, lng:105.9820, link:'https://www.google.com/maps/search/?api=1&query=14.001,105.982' },
+    ]
+  },
+  {
+    id:'nongkhiaw-city', name:'Nong Khiaw & Muang Ngoi', province:'Luang Prabang Province',
+    lat:20.5631, lng:102.6119,
+    desc:'Dramatic limestone cliffs over the Nam Ou river. The silence that Vang Vieng lost decades ago — trekking, caves and river villages.',
+    img:'https://images.unsplash.com/photo-1559628376-f3fe5f782a2e?w=200&q=80',
+    bestMonths:[10,11,12,1,2,3],
+    places:[
+      { type:'attraction', icon:'🌄', name:'Pha Daeng Peak Viewpoint', meta:'Sunrise hike · Free', lat:20.5680, lng:102.6080, link:'https://www.google.com/maps/search/?api=1&query=20.568,102.608' },
+      { type:'attraction', icon:'🚣', name:'Nam Ou River Kayaking', meta:'Half day · $15', lat:20.5631, lng:102.6119, link:'https://www.google.com/maps/search/?api=1&query=20.5631,102.6119' },
+      { type:'attraction', icon:'🏘', name:'Muang Ngoi Neua', meta:'No roads village · 1hr by boat', lat:20.7167, lng:102.6833, link:'https://www.google.com/maps/search/?api=1&query=20.7167,102.6833' },
+    ]
+  },
+  {
+    id:'plainjars-city', name:'Phonsavan — Plain of Jars', province:'Xieng Khouang Province',
+    lat:19.4500, lng:103.1833,
+    desc:'The eerie highland plateau dotted with thousands of ancient stone jars. 2,000 years of mystery still unsolved by archaeologists.',
+    img:'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=200&q=80',
+    bestMonths:[10,11,12,1,2,3,4],
+    places:[
+      { type:'attraction', icon:'🏺', name:'Plain of Jars Site 1', meta:'UNESCO · $3 entry', lat:19.4481, lng:103.1572, link:'https://www.google.com/maps/search/?api=1&query=19.4481,103.1572' },
+      { type:'attraction', icon:'🏺', name:'Plain of Jars Site 2', meta:'Less visited · $3 entry', lat:19.4050, lng:103.1280, link:'https://www.google.com/maps/search/?api=1&query=19.405,103.128' },
+      { type:'attraction', icon:'🏛', name:'UXO Laos Visitor Centre', meta:'History museum · Free', lat:19.4520, lng:103.1840, link:'https://www.google.com/maps/search/?api=1&query=19.452,103.184' },
+    ]
+  },
+  {
+    id:'savannakhet-city', name:'Savannakhet', province:'Savannakhet Province',
+    lat:16.5569, lng:104.7496,
+    desc:'Laos\' second city. Crumbling French colonial architecture on the Mekong — authentic, unhurried and rarely visited by tourists.',
+    img:'https://images.unsplash.com/photo-1559563362-c667ba5f5480?w=200&q=80',
+    bestMonths:[11,12,1,2,3],
+    places:[
+      { type:'attraction', icon:'🦕', name:'Dinosaur Museum', meta:'Sauropod fossils · $1', lat:16.5540, lng:104.7450, link:'https://www.google.com/maps/search/?api=1&query=16.554,104.745' },
+      { type:'attraction', icon:'⛪', name:'St. Theresa Catholic Church', meta:'Colonial era · Free', lat:16.5575, lng:104.7512, link:'https://www.google.com/maps/search/?api=1&query=16.5575,104.7512' },
+    ]
+  },
+  {
+    id:'luangnamtha-city', name:'Luang Namtha', province:'Luang Namtha Province',
+    lat:20.9500, lng:101.4167,
+    desc:'Gateway to Nam Ha National Protected Area. The best trekking in Laos through ancient forest and ethnic minority villages.',
+    img:'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=200&q=80',
+    bestMonths:[10,11,12,1,2,3,4],
+    places:[
+      { type:'attraction', icon:'🌲', name:'Nam Ha National Park', meta:'Trekking · $20+/day', lat:21.0000, lng:101.5000, link:'https://www.google.com/maps/search/?api=1&query=21.0,101.5' },
+      { type:'attraction', icon:'🏘', name:'Muang Sing Market', meta:'Ethnic minorities · Free', lat:21.1833, lng:101.1500, link:'https://www.google.com/maps/search/?api=1&query=21.1833,101.15' },
+    ]
+  },
+];
+
+/* ════════════════════════════════════════
+   SEASON
+════════════════════════════════════════ */
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const NOW_MONTH = new Date().getMonth() + 1;
+
+function initSeason() {
+  const good  = [11,12,1,2,3].includes(NOW_MONTH);
+  const ok    = [10,4].includes(NOW_MONTH);
+  const dot   = good ? '#52b788' : ok ? '#E2BC65' : '#e07a5f';
+  const label = good ? '<strong>Great time to visit Laos</strong> — cool dry season.'
+              : ok   ? '<strong>Shoulder season</strong> — some rain, fewer crowds.'
+              :         '<strong>Rainy season</strong> — lush but wet. Pick highland spots.';
+  document.getElementById('s-dot').style.background = dot;
+  document.getElementById('s-txt').innerHTML = `${MONTHS[NOW_MONTH-1]} — ${label}`;
+}
+
+/* ════════════════════════════════════════
+   STATE
+════════════════════════════════════════ */
+let openCityId    = null;
+let currentLat    = null;
+let currentLng    = null;
+let currentName   = '';
+let searchQ       = '';
+
+/* ════════════════════════════════════════
+   RENDER CITY LIST
+════════════════════════════════════════ */
+function renderCities() {
+  const list = document.getElementById('city-list');
+  let cities = CITIES;
+
+  if (searchQ) {
+    const q = searchQ.toLowerCase();
+    cities = CITIES.filter(c =>
+      c.name.toLowerCase().includes(q) ||
+      c.province.toLowerCase().includes(q) ||
+      c.places.some(p => p.name.toLowerCase().includes(q))
+    );
+  }
+
+  if (!cities.length) {
+    list.innerHTML = '<div style="padding:20px;text-align:center;font-size:.78rem;color:var(--muted);">No results found.</div>';
+    return;
+  }
+
+  list.innerHTML = cities.map(city => {
+    const isOpen = city.id === openCityId;
+    const goodNow = city.bestMonths.includes(NOW_MONTH);
+    const placeCount = city.places.length;
+    return `
+    <div class="city-row${isOpen ? ' open' : ''}" id="cr-${city.id}">
+      <div class="city-btn" onclick="toggleCity('${city.id}',${city.lat},${city.lng},'${escQ(city.name)}','${escQ(city.desc)}')">
+        <div class="city-thumb">
+          <span class="city-thumb-init">${city.name.charAt(0)}</span>
+          <img src="${city.img}" alt="${city.name}" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="city-info">
+          <div class="city-label">${city.province}</div>
+          <div class="city-name">${city.name}</div>
+          <div class="city-count">${goodNow ? '<span style="color:#52b788">✓ Great now</span>' : city.bestMonths.map(m=>MONTHS[m-1]).slice(0,3).join('·')} · ${placeCount} places</div>
+        </div>
+        <span class="city-chevron">▾</span>
+      </div>
+      <div class="city-items">
+        ${city.places.map(p => `
+          <div class="place-item${p.star?' active':''}" onclick="selectPlace(${p.lat},${p.lng},'${escQ(p.name)}','${escQ(p.type)}','${escQ(p.link)}')">
+            <span class="place-icon">${p.icon}</span>
+            <div class="place-info">
+              <div class="place-type">${p.type}${p.star?' · ⭐ Featured':''}</div>
+              <div class="place-name">${p.name}</div>
+              <div class="place-meta">${p.meta}</div>
+            </div>
+            <span class="place-arrow">›</span>
+          </div>`).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function escQ(s) { return (s||'').replace(/'/g,"\\'"); }
+
+/* ════════════════════════════════════════
+   TOGGLE CITY
+════════════════════════════════════════ */
+function toggleCity(id, lat, lng, name, desc) {
+  if (openCityId === id) {
+    openCityId = null;
+    renderCities();
+    return;
+  }
+  openCityId = id;
+  currentLat  = lat;
+  currentLng  = lng;
+  currentName = name;
+  renderCities();
+  loadMap(lat, lng, 13);
+  showInfo(name, 'City / Province', desc, [
+    { label:'📍 Open in Google Maps', href:`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`, primary:true },
+    { label:'🧭 Get Directions', href:`https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`, primary:false },
+    { label:'🏨 Find Hotels', href:`laowander-hotels.html`, primary:false },
+  ]);
+  document.getElementById('open-btn').style.display = 'flex';
+  document.getElementById('dir-btn').style.display  = 'flex';
+  const el = document.getElementById(`cr-${id}`);
+  if (el) el.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+/* ════════════════════════════════════════
+   SELECT INDIVIDUAL PLACE
+════════════════════════════════════════ */
+function selectPlace(lat, lng, name, type, link) {
+  currentLat  = lat;
+  currentLng  = lng;
+  currentName = name;
+  loadMap(lat, lng, 16);
+
+  const isExternal = link.startsWith('http');
+  const gmapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+
+  showInfo(name, type.charAt(0).toUpperCase()+type.slice(1), '', [
+    { label:'📍 Open in Google Maps', href:gmapsUrl, primary:true },
+    { label:'🧭 Get Directions', href:`https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`, primary:false },
+    { label: isExternal ? '🏨 Book Now' : '→ View on LaoWander', href:link, primary:false },
+  ]);
+  document.getElementById('open-btn').style.display = 'flex';
+  document.getElementById('dir-btn').style.display  = 'flex';
+}
+
+/* ════════════════════════════════════════
+   LOAD MAP
+════════════════════════════════════════ */
+function loadMap(lat, lng, zoom) {
+  const frame = document.getElementById('map-frame');
+  const err   = document.getElementById('embed-err');
+  err.classList.remove('show');
+  frame.classList.remove('loaded');
+  frame.src = `https://maps.google.com/maps?q=${lat},${lng}&z=${zoom}&output=embed&hl=en`;
+  document.getElementById('err-link').href = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+  const timer = setTimeout(() => { if(!frame.classList.contains('loaded')) err.classList.add('show'); }, 7000);
+  frame.onload = () => { clearTimeout(timer); frame.classList.add('loaded'); err.classList.remove('show'); };
+  document.getElementById('map-ph').classList.add('hidden');
+}
+
+/* ════════════════════════════════════════
+   SHOW INFO PANEL
+════════════════════════════════════════ */
+function showInfo(name, eyebrow, desc, actions) {
+  document.getElementById('ip-eyebrow').textContent = eyebrow;
+  document.getElementById('ip-name').textContent    = name;
+  document.getElementById('ip-desc').textContent    = desc;
+  document.getElementById('ip-actions').innerHTML   = actions.map(a =>
+    `<a href="${a.href}" target="${a.href.startsWith('http')?'_blank':'_self'}" rel="noopener" class="ip-btn ${a.primary?'ip-primary':'ip-secondary'}">${a.label}</a>`
+  ).join('');
+  document.getElementById('info-panel').classList.add('visible');
+}
+
+function closeInfo() { document.getElementById('info-panel').classList.remove('visible'); }
+
+/* ════════════════════════════════════════
+   SEARCH
+════════════════════════════════════════ */
+function handleSearch(v) {
+  searchQ = v.trim();
+  document.getElementById('s-clear').classList.toggle('show', searchQ.length > 0);
+  renderCities();
+}
+function clearSearch() {
+  document.getElementById('s-input').value = '';
+  searchQ = '';
+  document.getElementById('s-clear').classList.remove('show');
+  renderCities();
+}
+
+/* ════════════════════════════════════════
+   MAP CONTROLS
+════════════════════════════════════════ */
+function showAllLaos() {
+  loadMap(18.0, 103.0, 6);
+  closeInfo();
+  openCityId = null;
+  renderCities();
+  document.getElementById('open-btn').style.display = 'none';
+  document.getElementById('dir-btn').style.display  = 'none';
+}
+function openGMaps() {
+  if (currentLat) window.open(`https://www.google.com/maps/search/?api=1&query=${currentLat},${currentLng}`, '_blank');
+}
+function getDirections() {
+  if (currentLat) window.open(`https://www.google.com/maps/dir/?api=1&destination=${currentLat},${currentLng}&destination_place_name=${encodeURIComponent(currentName)}`, '_blank');
+}
+
+/* NAV */
+function toggleNav() { document.getElementById('nav-drawer').classList.toggle('open'); }
+function closeNav()  { document.getElementById('nav-drawer').classList.remove('open'); }
+
+/* ════════════════════════════════════════
+   INIT
+════════════════════════════════════════ */
+initSeason();
+renderCities();
+showAllLaos();
+</script>
+</body>
+</html>

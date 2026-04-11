@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>About LaoWander — Independent Laos Travel Guide</title>
+<meta property="og:url" content="https://laowander.pages.dev/laowander-about.html">
+<meta name="description" content="LaoWander is an independent travel guide to Laos — built by someone who lives there. No sponsored content, no paid placements. Just honest travel advice.">
+<meta name="keywords" content="about LaoWander, Laos travel blog, independent Laos guide, LaoWander team, Laos travel website">
+<meta name="robots" content="index, follow">
+<meta name="author" content="LaoWander">
+<link rel="canonical" href="https://laowander.pages.dev/laowander-about.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="About LaoWander — Independent Laos Travel Guide">
+<meta property="og:description" content="LaoWander is an independent travel guide to Laos — built by someone who lives there. No sponsored content, no paid placements. Just honest travel advice.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1200&q=85">
+<meta property="og:site_name" content="LaoWander">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#C9A84C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+img{content-visibility:auto;}
+:root{
+  --gold:#C9A84C;--gold-bright:#E2BC65;--gold-dim:rgba(201,168,76,0.14);
+  --gold-line:rgba(201,168,76,0.22);--bg:#111009;--surface:#1A1814;
+  --raised:#221F18;--rim:rgba(201,168,76,0.09);--muted:#6B6560;
+  --soft:rgba(255,248,235,0.52);--white:#FFF8EB;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px;}
+a{text-decoration:none;color:inherit;}
+
+/* NAV */
+nav{position:fixed;inset:0 0 auto 0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:0 64px;height:76px;background:transparent;border-bottom:1px solid transparent;transition:height .4s var(--ease),background .4s,border-color .4s,box-shadow .4s;}
+nav.scrolled{height:62px;background:rgba(17,16,9,0.88);backdrop-filter:blur(32px) saturate(1.6);border-bottom:1px solid var(--rim);box-shadow:0 4px 40px rgba(0,0,0,.5);}
+.logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;letter-spacing:-.5px;}
+.logo em{font-style:normal;color:var(--gold);}
+.nav-links{list-style:none;display:flex;align-items:center;gap:2px;}
+.nav-links a{padding:6px 14px;font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,248,235,.6);border-radius:6px;transition:color .2s,background .2s;white-space:nowrap;position:relative;}
+.nav-links a:hover{color:var(--white);background:rgba(255,248,235,.08);}
+.nav-links a.active{color:var(--gold-bright);background:rgba(201,168,76,.12);}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.nav-sep{width:1px;height:20px;background:rgba(201,168,76,.2);}
+.nav-cta{background:var(--gold);color:#111009;font-size:.75rem;font-weight:700;padding:10px 24px;border-radius:30px;transition:background .2s,transform .2s var(--ease);}
+.nav-cta:hover{background:var(--gold-bright);transform:translateY(-1px);}
+.nav-toggle{display:none;flex-direction:column;gap:5px;width:34px;height:34px;align-items:center;justify-content:center;border:1px solid rgba(255,248,235,.15);border-radius:8px;}
+.nav-toggle span{display:block;width:18px;height:1.5px;background:var(--soft);border-radius:2px;transition:all .3s var(--ease);}
+.nav-toggle.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.nav-drawer{display:none;position:fixed;top:76px;left:0;right:0;background:rgba(17,16,9,.99);backdrop-filter:blur(24px);border-bottom:1px solid var(--rim);padding:12px 20px 24px;z-index:290;flex-direction:column;gap:2px;}
+.nav-drawer.open{display:flex;}
+.nav-drawer a{padding:12px 14px;font-size:.88rem;font-weight:500;color:var(--soft);border-radius:8px;transition:all .2s;}
+.nav-drawer a:hover{color:var(--white);background:rgba(255,248,235,.05);}
+.drawer-sep{height:1px;background:var(--rim);margin:8px 0;}
+.drawer-cta{background:var(--gold);color:#111009;font-weight:700;text-align:center;padding:14px;border-radius:10px;margin-top:4px;}
+
+/* HERO */
+.page-hero{position:relative;min-height:60vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:76px 24px 0;}
+.page-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,rgba(201,168,76,.08) 0%,transparent 60%),linear-gradient(180deg,rgba(17,16,9,0) 50%,rgba(17,16,9,1) 100%),url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1800&q=90') center 30%/cover no-repeat;animation:bgDrift 22s ease-in-out infinite alternate;}
+@keyframes bgDrift{from{transform:scale(1)}to{transform:scale(1.05)}}
+.hero-inner{position:relative;z-index:2;text-align:center;max-width:700px;padding:80px 0 100px;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.12);border:1px solid var(--gold-line);border-radius:30px;padding:5px 16px;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;animation:fadeUp .8s var(--ease) .1s both;}
+.hero-eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);}
+.hero-inner h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,6vw,5rem);font-weight:900;letter-spacing:-.03em;line-height:1.0;margin-bottom:24px;animation:fadeUp .8s var(--ease) .2s both;}
+.hero-inner h1 em{font-style:italic;color:var(--gold);}
+.hero-inner p{font-size:1.05rem;color:var(--soft);line-height:1.8;max-width:540px;margin:0 auto;animation:fadeUp .8s var(--ease) .35s both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* MAIN */
+.about-wrap{max-width:860px;margin:0 auto;padding:80px 64px;}
+
+/* STORY */
+.story-section{margin-bottom:72px;}
+.section-label{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.section-label::after{content:'';width:40px;height:1px;background:var(--gold-line);}
+.story-section h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;letter-spacing:-.03em;line-height:1.08;margin-bottom:24px;}
+.story-section h2 em{font-style:italic;color:var(--gold);}
+.story-section p{font-size:.95rem;color:var(--soft);line-height:1.85;margin-bottom:18px;}
+.story-section p:last-child{margin-bottom:0;}
+.pull-quote{font-family:'Playfair Display',serif;font-size:1.2rem;font-style:italic;color:var(--white);line-height:1.6;border-left:3px solid var(--gold);padding:18px 24px;margin:32px 0;background:rgba(201,168,76,.05);border-radius:0 12px 12px 0;}
+
+/* VALUES GRID */
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:40px 0;}
+.value-card{background:var(--surface);border:1px solid var(--rim);border-radius:18px;padding:28px 24px;transition:border-color .3s,transform .3s var(--ease);}
+.value-card:hover{border-color:var(--gold-line);transform:translateY(-3px);}
+.value-icon{font-size:1.8rem;margin-bottom:14px;}
+.value-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;margin-bottom:8px;}
+.value-desc{font-size:.8rem;color:var(--soft);line-height:1.7;}
+
+/* STATS */
+.about-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--rim);border-radius:20px;overflow:hidden;margin:48px 0;}
+.about-stat{padding:28px 20px;text-align:center;border-right:1px solid var(--rim);}
+.about-stat:last-child{border-right:none;}
+.as-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--white);line-height:1;}
+.as-num em{font-style:normal;color:var(--gold);}
+.as-label{font-size:.68rem;color:var(--muted);margin-top:6px;}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--rim);margin:64px 0;}
+
+/* TRANSPARENCY BOX */
+.transparency-box{background:linear-gradient(135deg,#1e1a0e 0%,var(--surface) 100%);border:1px solid var(--gold-line);border-radius:20px;padding:36px 40px;margin:48px 0;}
+.tb-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin-bottom:16px;}
+.tb-item{display:flex;gap:12px;margin-bottom:14px;font-size:.85rem;color:var(--soft);line-height:1.7;}
+.tb-item:last-child{margin-bottom:0;}
+.tb-icon{flex-shrink:0;font-size:1rem;}
+.tb-item strong{color:var(--white);}
+
+/* CTA SECTION */
+.cta-section{text-align:center;padding:64px 0;border-top:1px solid var(--rim);}
+.cta-section h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:900;letter-spacing:-.03em;margin-bottom:14px;}
+.cta-section h2 em{font-style:italic;color:var(--gold);}
+.cta-section p{font-size:.92rem;color:var(--soft);line-height:1.75;max-width:480px;margin:0 auto 36px;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-primary{background:var(--gold);color:#111009;font-size:.85rem;font-weight:700;padding:14px 32px;border-radius:30px;display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .2s var(--ease),box-shadow .2s;}
+.btn-primary:hover{background:var(--gold-bright);transform:translateY(-2px);box-shadow:0 10px 28px rgba(201,168,76,.3);}
+.btn-ghost{color:var(--white);font-size:.85rem;font-weight:500;padding:14px 28px;border-radius:30px;border:1px solid rgba(255,248,235,.2);display:inline-flex;align-items:center;gap:8px;transition:border-color .2s,background .2s,transform .2s var(--ease);}
+.btn-ghost:hover{border-color:var(--gold-line);background:var(--gold-dim);transform:translateY(-1px);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease);}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* FOOTER */
+footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid var(--rim);background:var(--bg);}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px;}
+.footer-brand .logo{font-size:1.3rem;margin-bottom:14px;display:block;}
+.footer-brand p{font-size:.78rem;color:var(--muted);line-height:1.7;max-width:240px;}
+.footer-col h4{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.footer-col a{display:block;font-size:.8rem;color:var(--muted);margin-bottom:10px;transition:color .2s;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid var(--rim);}
+.footer-copy{font-size:.72rem;color:var(--muted);}
+.footer-socials{display:flex;gap:12px;}
+.footer-social{width:34px;height:34px;border:1px solid var(--rim);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--muted);transition:all .2s;cursor:pointer;}
+.footer-social:hover{border-color:var(--gold-line);color:var(--gold);background:var(--gold-dim);}
+
+@media(max-width:860px){
+  nav{padding:0 20px;}
+  .nav-links,.nav-sep{display:none;}
+  .nav-toggle{display:flex;}
+  .about-wrap{padding:60px 20px;}
+  .values-grid{grid-template-columns:1fr;}
+  .about-stats{grid-template-columns:repeat(2,1fr);}
+  .about-stat:nth-child(2){border-right:none;}
+  .about-stat:nth-child(3){border-top:1px solid var(--rim);}
+  .transparency-box{padding:28px 24px;}
+  footer{padding:48px 20px 28px;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px;}
+}
+@media(max-width:480px){
+  .about-stats{grid-template-columns:1fr 1fr;}
+  .footer-top{grid-template-columns:1fr;}
+}
+</style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9NZFE7GFGB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9NZFE7GFGB');
+  </script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-9NZFE7GFGB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9NZFE7GFGB');
+  </script> -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About LaoWander — Independent Laos Travel Guide",
+  "description": "LaoWander is an independent travel guide to Laos — built by someone who lives there. No sponsored content, no paid placements. Just honest travel advice.",
+  "url": "https://laowander.pages.dev/laowander-about.html",
+  "image": "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1200&q=85",
+  "publisher": {
+    "@type": "Organization",
+    "name": "LaoWander",
+    "url": "https://laowander.pages.dev/laowander"
+  },
+  "publisher":{"@type":"Organization","name":"LaoWander","url":"https://laowander.pages.dev/laowander"}
+}
+</script>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="laowander.html" class="logo">Lao<em>Wander</em></a>
+    <ul class="nav-links">
+    <li><a href="laowander.html#destinations">Destinations</a></li>
+    <li><a href="laowander-events.html">Events</a></li>
+    <li><a href="laowander-hotels.html">Hotels</a></li>
+    <li><a href="laowander-food.html">Food</a></li>
+    <li><a href="laowander-guide.html">Guide</a></li>
+    <li><a href="laowander-map.html">🗺 Map</a></li>
+    <li><a href="laowander-flights.html">✈ Flights</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-sep"></div>
+    <a href="laowander.html#newsletter" class="nav-cta">Get Inspired</a>
+    <div class="nav-toggle" id="nav-toggle" onclick="toggleNav()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="nav-drawer" id="nav-drawer">
+  <a href="laowander.html#destinations" onclick="closeNav()">Destinations</a>
+  <a href="laowander-events.html" onclick="closeNav()">Events</a>
+  <a href="laowander-hotels.html" onclick="closeNav()">Hotels</a>
+  <a href="laowander-food.html" onclick="closeNav()">Food</a>
+  <a href="laowander-guide.html" onclick="closeNav()">Guide</a>
+  <a href="laowander-map.html" onclick="closeNav()">🗺 Map</a>
+  <a href="laowander-flights.html" onclick="closeNav()">✈ Flights</a>
+  <div class="drawer-sep"></div>
+  <a href="laowander.html#newsletter" class="drawer-cta" onclick="closeNav()">Get Inspired</a>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Our story</div>
+    <h1>Built for people who want to <em>really</em> see Laos.</h1>
+    <p>Not the highlights reel. Not the Instagram spots. The real thing — the slow mornings, the temple silence, the food that nobody told you about.</p>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="about-wrap">
+
+  <!-- STORY -->
+  <div class="story-section reveal">
+    <div class="section-label">Why LaoWander exists</div>
+    <h2>Laos is the most <em>underrated</em> country in Southeast Asia.</h2>
+    <p>Most travel sites treat Laos as a footnote — two days in Luang Prabang sandwiched between Thailand and Vietnam. They miss the point entirely. Laos is a destination that rewards the people who slow down, go off-route, and pay attention.</p>
+    <p>LaoWander was built to be the resource we wished existed when we first arrived. Not a list of the same ten things everyone says to do. Not filler content optimised for search engines. An honest, practical, genuinely useful guide — written by people who care about the country.</p>
+    <div class="pull-quote">"Laos doesn't try to impress you. It just is — quietly, unhurriedly, beautifully. That's exactly why it gets under your skin."</div>
+    <p>Every hotel recommendation has been vetted. Every restaurant has been eaten at. Every itinerary has been walked. The budget numbers are real. The phrasebook works. The map pins are accurate to the metre.</p>
+  </div>
+
+  <!-- VALUES -->
+  <div class="reveal">
+    <div class="section-label">What we stand for</div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">🔍</div>
+        <div class="value-title">Honest</div>
+        <div class="value-desc">We say when something isn't worth it. We include budget options alongside luxury ones. We don't inflate ratings because a hotel paid for placement.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🗺️</div>
+        <div class="value-title">Independent</div>
+        <div class="value-desc">LaoWander is not owned by a travel conglomerate. No corporate mandates, no paid-for rankings, no agenda other than helping you have a better trip.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🌿</div>
+        <div class="value-title">Responsible</div>
+        <div class="value-desc">We highlight locally-owned businesses, promote respectful tourism, and never recommend anything that we believe harms Lao communities or the environment.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">📍</div>
+        <div class="value-title">Accurate</div>
+        <div class="value-desc">Prices are updated regularly. Maps use real GPS coordinates. Opening hours are verified. We'd rather admit we don't know something than make something up.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <div class="value-title">Accessible</div>
+        <div class="value-desc">A backpacker on $25/day and a couple spending $500/day both deserve good advice. LaoWander covers every budget without favouring either.</div>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">💛</div>
+        <div class="value-title">Made with love</div>
+        <div class="value-desc">That sounds like a cliché, but it's true. Every page reflects a genuine care for Laos and a genuine desire for you to have an extraordinary time there.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="about-stats reveal">
+    <div class="about-stat"><div class="as-num">11<em>+</em></div><div class="as-label">Pages of content</div></div>
+    <div class="about-stat"><div class="as-num">10<em>+</em></div><div class="as-label">Curated hotels</div></div>
+    <div class="about-stat"><div class="as-num">29<em>+</em></div><div class="as-label">Events & festivals</div></div>
+    <div class="about-stat"><div class="as-num">100<em>+</em></div><div class="as-label">Lao phrases</div></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- TRANSPARENCY -->
+  <div class="transparency-box reveal">
+    <div class="tb-title">Transparency — how we make money</div>
+    <div class="tb-item"><span class="tb-icon">🏨</span><div><strong>Affiliate commissions:</strong> When you click a "Book on Booking.com" button and complete a stay, we earn a small commission from Booking.com. This doesn't add anything to your price. We only link to hotels we'd genuinely recommend.</div></div>
+    <div class="tb-item"><span class="tb-icon">🎯</span><div><strong>Activity bookings:</strong> Some tour and activity links on the Events page are affiliate links to GetYourGuide and Viator. Same principle — no extra cost to you, small commission to us.</div></div>
+    <div class="tb-item"><span class="tb-icon">🚫</span><div><strong>What we don't do:</strong> We don't accept payment for hotel, restaurant, or destination placement. We don't have sponsored posts. We don't inflate scores or write dishonest reviews because someone paid us.</div></div>
+    <div class="tb-item"><span class="tb-icon">💬</span><div><strong>Reader reviews:</strong> The reviews on hotel and restaurant cards are submitted by real travellers. We don't write fake reviews or inflate ratings.</div></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CONTACT / CTA -->
+  <div class="cta-section reveal">
+    <h2>Ready to start planning your <em>Laos adventure?</em></h2>
+    <p>Everything you need is here — hotels, restaurants, events, maps, itineraries, budget tools, and 100+ Lao phrases to get you started.</p>
+    <div class="cta-btns">
+      <a href="laowander-itineraries.html" class="btn-primary">Browse itineraries →</a>
+      <a href="laowander-guide.html" class="btn-ghost">Read the travel guide</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="laowander.html" class="logo">Lao<em>Wander</em></a>
+      <p>An independent travel guide to the most underrated country in Southeast Asia.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="laowander.html#destinations">Destinations</a>
+      <a href="laowander-map.html">Interactive Map</a>
+      <a href="laowander-events.html">Events &amp; Festivals</a>
+      <a href="laowander-itineraries.html">Itineraries</a>
+    </div>
+    <div class="footer-col">
+      <h4>Plan</h4>
+      <a href="laowander-hotels.html">Hotels &amp; Stays</a>
+      <a href="laowander-food.html">Food &amp; Restaurants</a>
+      <a href="laowander-flights.html">Flights to Laos</a>
+      <a href="laowander-guide.html">Travel Guide</a>
+      <a href="laowander-calculator.html">Budget Calculator</a>
+    </div>
+    <div class="footer-col">
+      <h4>LaoWander</h4>
+      <a href="laowander-about.html" style="color:var(--gold)">About Us</a>
+      <a href="laowander-phrasebook.html">Lao Phrasebook</a>
+      <a href="laowander-guide.html#health">Health &amp; Safety</a>
+      <a href="laowander.html#newsletter">Newsletter</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2025 LaoWander. All rights reserved.</div>
+    <div class="footer-socials">
+      <div class="footer-social">&#120143;</div>
+      <div class="footer-social">ig</div>
+      <div class="footer-social">yt</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>80);
+},{passive:true});
+function toggleNav(){document.getElementById('nav-toggle').classList.toggle('open');document.getElementById('nav-drawer').classList.toggle('open');}
+function closeNav(){document.getElementById('nav-toggle').classList.remove('open');document.getElementById('nav-drawer').classList.remove('open');}
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:0.06});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
