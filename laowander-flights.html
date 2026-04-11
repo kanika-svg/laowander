@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flights to Laos — LaoWander | Compare Cheap Flights</title>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Flights to Laos — LaoWander | Compare Cheap Flights">
+<meta name="twitter:description" content="Find and compare cheap flights to Laos. Flights to Vientiane, Luang Prabang and Pakse from Bangkok, Singapore, Hanoi and beyond. Powered by Skyscanner.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=85">
+<meta property="og:site_name" content="LaoWander">
+<meta name="robots" content="index, follow">
+<meta property="og:url" content="https://laowander.pages.dev/laowander-flights.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=85">
+<meta property="og:description" content="Find and compare cheap flights to Laos. Flights to Vientiane, Luang Prabang and Pakse from Bangkok, Singapore, Hanoi and beyond. Powered by Skyscanner.">
+<meta property="og:title" content="Flights to Laos — LaoWander | Compare Cheap Flights">
+<link rel="canonical" href="https://laowander.pages.dev/laowander-flights.html">
+<meta name="description" content="Find and compare cheap flights to Laos. Flights to Vientiane, Luang Prabang and Pakse from Bangkok, Singapore, Hanoi and beyond. Powered by Skyscanner.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:#C9A84C; --gold-bright:#E2BC65; --gold-dim:rgba(201,168,76,0.14);
+  --gold-line:rgba(201,168,76,0.22); --bg:#111009; --surface:#1A1814;
+  --raised:#221F18; --rim:rgba(201,168,76,0.09); --muted:#6B6560;
+  --soft:rgba(255,248,235,0.52); --white:#FFF8EB;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+  --radius:16px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px;}
+a{text-decoration:none;color:inherit;}
+img{display:block;width:100%;height:100%;object-fit:cover;}
+button{cursor:pointer;border:none;background:none;font-family:inherit;}
+
+/* NAV */
+nav{position:fixed;inset:0 0 auto 0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:0 64px;height:76px;background:transparent;border-bottom:1px solid transparent;transition:height .4s var(--ease),background .4s,border-color .4s,box-shadow .4s;}
+nav.scrolled{height:62px;background:rgba(17,16,9,0.82);backdrop-filter:blur(32px) saturate(1.6);border-bottom:1px solid var(--rim);box-shadow:0 4px 40px rgba(0,0,0,.5);}
+.logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;letter-spacing:-.5px;}
+.logo em{color:var(--gold);font-style:normal;}
+.nav-links{list-style:none;display:flex;align-items:center;gap:2px;}
+.nav-links a{padding:6px 14px;font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,248,235,.6);border-radius:6px;transition:color .2s,background .2s;white-space:nowrap;position:relative;}
+.nav-links a:hover{color:var(--white);background:rgba(255,248,235,.08);}
+.nav-links a.active{color:var(--gold-bright);background:rgba(201,168,76,.12);}
+.nav-links a.active::after{content:'';position:absolute;bottom:-1px;left:14px;right:14px;height:2px;border-radius:2px 2px 0 0;background:var(--gold);}
+.nav-sep{width:1px;height:20px;background:var(--rim);margin:0 8px;}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.nav-cta{background:var(--gold);color:#111009;font-size:.75rem;font-weight:700;letter-spacing:.04em;padding:10px 24px;border-radius:30px;transition:background .2s,transform .2s var(--ease),box-shadow .2s;}
+.nav-cta:hover{background:var(--gold-bright);transform:translateY(-1px);box-shadow:0 8px 24px rgba(201,168,76,.35);}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:all .3s;}
+.nav-drawer{display:none;position:fixed;top:76px;left:0;right:0;background:rgba(20,18,16,.99);backdrop-filter:blur(24px);border-bottom:1px solid rgba(201,168,76,.12);padding:12px 20px 20px;z-index:190;flex-direction:column;gap:2px;}
+.nav-drawer.open{display:flex;}
+.nav-drawer a{padding:12px 16px;font-size:.82rem;font-weight:500;color:var(--soft);border-radius:10px;}
+.nav-drawer a:hover,.nav-drawer a.active{background:var(--gold-dim);color:var(--gold);}
+.drawer-cta{background:var(--gold);color:#141210;font-weight:700;text-align:center;padding:13px;border-radius:10px;margin-top:4px;}
+
+/* HERO */
+.page-hero{position:relative;padding-top:76px;height:420px;display:flex;align-items:flex-end;overflow:hidden;}
+.page-hero-bg{position:absolute;inset:0;}
+.page-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 60%;}
+.page-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(17,16,9,.85) 0%,rgba(17,16,9,.3) 60%),linear-gradient(to top,rgba(17,16,9,1) 0%,rgba(17,16,9,0) 50%);}
+.page-hero-content{position:relative;z-index:2;padding:0 64px 48px;}
+.breadcrumb{font-size:.7rem;color:var(--muted);margin-bottom:12px;letter-spacing:.04em;}
+.breadcrumb a{color:var(--muted);transition:color .2s;}
+.breadcrumb a:hover{color:var(--gold);}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:1.05;margin-bottom:12px;}
+.page-hero h1 em{color:var(--gold);font-style:italic;}
+.page-hero p{font-size:.9rem;color:var(--soft);max-width:480px;line-height:1.7;}
+
+/* SEARCH WIDGET */
+.search-section{position:relative;z-index:10;padding:0 64px;margin-top:-40px;}
+.search-card{background:var(--surface);border:1px solid var(--gold-line);border-radius:24px;padding:36px;box-shadow:0 24px 60px rgba(0,0,0,.5);}
+.search-card-title{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.search-card-title::before{content:'✈';font-size:.9rem;}
+.search-tabs{display:flex;gap:6px;margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--rim);}
+.search-tab{padding:9px 22px;border-radius:30px;font-size:.8rem;font-weight:600;color:var(--muted);cursor:pointer;border:1px solid transparent;transition:all .2s;}
+.search-tab.active{background:var(--gold-dim);border-color:var(--gold-line);color:var(--gold);}
+.search-tab:hover:not(.active){color:var(--white);background:rgba(255,248,235,.05);}
+
+/* Search row 1: From / swap / To */
+.search-row{display:flex;gap:12px;align-items:flex-end;margin-bottom:12px;}
+.search-row-dates{display:flex;gap:12px;align-items:flex-end;}
+.search-field{flex:1;display:flex;flex-direction:column;gap:7px;}
+.search-field label{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+.search-input-wrap{position:relative;}
+.search-input-wrap .ic{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:.95rem;pointer-events:none;z-index:1;}
+.search-input{width:100%;background:var(--raised);border:1px solid var(--rim);border-radius:12px;padding:13px 14px 13px 42px;font-size:.88rem;color:var(--white);font-family:'DM Sans',sans-serif;transition:border-color .2s,box-shadow .2s;outline:none;height:48px;}
+.search-input:focus{border-color:var(--gold-line);box-shadow:0 0 0 3px var(--gold-dim);}
+.search-input::placeholder{color:var(--muted);}
+.search-swap{background:var(--raised);border:1px solid var(--rim);border-radius:50%;width:40px;height:40px;min-width:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);font-size:1rem;transition:all .25s;margin-bottom:4px;}
+.search-swap:hover{background:var(--gold-dim);border-color:var(--gold-line);color:var(--gold);transform:rotate(180deg);}
+.search-btn-main{background:var(--gold);color:#111009;font-size:.88rem;font-weight:700;padding:0 32px;border-radius:12px;display:flex;align-items:center;gap:8px;transition:background .2s,transform .2s var(--ease),box-shadow .2s;white-space:nowrap;height:48px;cursor:pointer;font-family:'DM Sans',sans-serif;border:none;}
+.search-btn-main:hover{background:var(--gold-bright);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.35);}
+.search-note{font-size:.7rem;color:var(--muted);margin-top:18px;padding-top:16px;border-top:1px solid var(--rim);display:flex;align-items:center;gap:6px;}
+.search-note a{color:var(--gold);text-decoration:underline;text-underline-offset:3px;}
+
+/* Quick destination chips */
+.dest-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;}
+.dest-chip{padding:6px 14px;border-radius:20px;background:var(--raised);border:1px solid var(--rim);font-size:.75rem;color:var(--soft);cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:5px;}
+.dest-chip:hover{border-color:var(--gold-line);color:var(--white);background:var(--gold-dim);}
+.dest-chips-label{font-size:.65rem;color:var(--muted);font-weight:600;letter-spacing:.08em;text-transform:uppercase;align-self:center;}
+
+
+/* QUICK ROUTES */
+.section{padding:80px 64px;position:relative;z-index:1;}
+.section-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.section-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold-line);}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;line-height:1.1;margin-bottom:8px;}
+.section-title em{color:var(--gold);font-style:italic;}
+.section-sub{font-size:.88rem;color:var(--soft);line-height:1.7;max-width:540px;margin-bottom:48px;}
+
+.routes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.route-card{background:var(--surface);border:1px solid var(--rim);border-radius:var(--radius);overflow:hidden;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s;cursor:pointer;}
+.route-card:hover{transform:translateY(-6px);border-color:var(--gold-line);box-shadow:0 20px 50px rgba(0,0,0,.4);}
+.route-img{height:160px;position:relative;overflow:hidden;}
+.route-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.route-card:hover .route-img img{transform:scale(1.06);}
+.route-badge{position:absolute;top:12px;left:12px;background:rgba(17,16,9,.75);backdrop-filter:blur(8px);border:1px solid rgba(201,168,76,.25);border-radius:20px;padding:4px 12px;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);}
+.route-body{padding:18px 20px 20px;}
+.route-airports{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.route-iata{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;color:var(--white);}
+.route-arrow{color:var(--muted);font-size:.8rem;}
+.route-name{font-size:.75rem;color:var(--muted);margin-bottom:12px;}
+.route-from{font-size:.68rem;color:var(--muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.08em;}
+.route-price{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;color:var(--gold);}
+.route-price span{font-family:'DM Sans',sans-serif;font-size:.72rem;color:var(--muted);font-weight:400;}
+.route-airlines{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap;}
+.route-airline{font-size:.65rem;color:var(--muted);background:var(--raised);border:1px solid var(--rim);border-radius:6px;padding:3px 8px;}
+.route-btn{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:14px;border-top:1px solid var(--rim);}
+.route-btn-link{font-size:.75rem;font-weight:700;color:var(--gold);display:flex;align-items:center;gap:5px;transition:gap .2s;}
+.route-card:hover .route-btn-link{gap:8px;}
+
+/* AIRPORTS INFO */
+.airports-section{padding:0 64px 80px;position:relative;z-index:1;}
+.airports-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.airport-card{background:var(--surface);border:1px solid var(--rim);border-radius:var(--radius);overflow:hidden;transition:transform .3s var(--ease),border-color .3s;}
+.airport-card:hover{transform:translateY(-4px);border-color:var(--gold-line);}
+.airport-photo{height:180px;position:relative;overflow:hidden;}
+.airport-photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.airport-card:hover .airport-photo img{transform:scale(1.05);}
+.airport-photo-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(17,16,9,.8) 0%,transparent 60%);}
+.airport-photo-iata{position:absolute;bottom:14px;left:16px;font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:#FFF8EB;line-height:1;}
+.airport-photo-badge{position:absolute;top:12px;right:12px;background:rgba(17,16,9,.75);backdrop-filter:blur(8px);border:1px solid rgba(201,168,76,.25);border-radius:20px;padding:4px 10px;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);}
+.airport-body{padding:20px 22px 22px;}
+.airport-name{font-size:.88rem;font-weight:700;color:var(--white);margin-bottom:3px;}
+.airport-city{font-size:.72rem;color:var(--muted);margin-bottom:14px;}
+.airport-detail{font-size:.78rem;color:var(--soft);line-height:1.7;}
+.airport-detail strong{color:var(--white);}
+
+/* TIPS SECTION */
+.tips-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px;}
+.tip-card{background:var(--surface);border:1px solid var(--rim);border-radius:14px;padding:22px 24px;display:flex;gap:16px;align-items:flex-start;}
+.tip-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px;}
+.tip-title{font-size:.85rem;font-weight:700;color:var(--white);margin-bottom:6px;}
+.tip-desc{font-size:.78rem;color:var(--soft);line-height:1.65;}
+
+/* AIRLINES SECTION */
+.airlines-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px;}
+.airline-card{background:var(--surface);border:1px solid var(--rim);border-radius:14px;padding:20px;text-align:center;transition:border-color .2s,transform .2s;}
+.airline-card:hover{border-color:var(--gold-line);transform:translateY(-3px);}
+.airline-emoji{font-size:2rem;margin-bottom:10px;}
+.airline-name{font-size:.85rem;font-weight:700;color:var(--white);margin-bottom:4px;}
+.airline-hub{font-size:.7rem;color:var(--muted);margin-bottom:12px;}
+.airline-link{font-size:.72rem;color:var(--gold);font-weight:600;}
+
+/* CTA BANNER */
+.cta-banner{margin:0 64px 80px;background:linear-gradient(135deg,#1e1a0e 0%,#1a1208 50%,var(--surface) 100%);border:1px solid var(--gold-line);border-radius:24px;padding:56px 64px;display:flex;align-items:center;justify-content:space-between;gap:40px;position:relative;overflow:hidden;}
+.cta-banner::before{content:'✈';position:absolute;right:48px;top:50%;transform:translateY(-50%);font-size:8rem;opacity:.04;pointer-events:none;}
+.cta-title{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:900;margin-bottom:10px;}
+.cta-title em{color:var(--gold);font-style:italic;}
+.cta-sub{font-size:.88rem;color:var(--soft);line-height:1.7;max-width:480px;}
+.cta-actions{display:flex;gap:12px;flex-shrink:0;}
+.cta-btn{padding:14px 32px;border-radius:30px;font-size:.85rem;font-weight:700;transition:all .2s var(--ease);white-space:nowrap;}
+.cta-btn-primary{background:var(--gold);color:#111009;}
+.cta-btn-primary:hover{background:var(--gold-bright);transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.35);}
+.cta-btn-secondary{border:1px solid var(--rim);color:var(--soft);}
+.cta-btn-secondary:hover{border-color:var(--gold-line);color:var(--white);}
+
+/* FOOTER */
+footer{background:var(--surface);border-top:1px solid var(--rim);padding:48px 64px 32px;}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+.footer-brand .logo{font-size:1.3rem;margin-bottom:14px;display:block;}
+.footer-brand p{font-size:.78rem;color:var(--soft);line-height:1.7;max-width:260px;}
+.footer-col h4{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+.footer-col a{display:block;font-size:.8rem;color:var(--soft);margin-bottom:8px;transition:color .2s;}
+.footer-col a:hover{color:var(--gold);}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid var(--rim);font-size:.72rem;color:var(--muted);}
+.footer-bottom a{color:var(--muted);transition:color .2s;}
+.footer-bottom a:hover{color:var(--gold);}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .search-row{flex-wrap:wrap;}
+  .search-row .search-field{flex:1 1 calc(50% - 30px);}
+  .search-btn-main{width:100%;}
+  .routes-grid{grid-template-columns:repeat(2,1fr);}
+  .airlines-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:860px){
+  nav{padding:0 20px;}
+  .nav-links,.nav-sep{display:none;}
+  .nav-toggle{display:flex;}
+  .page-hero-content,.search-section,.section,.airports-section{padding-left:20px;padding-right:20px;}
+  .cta-banner{margin:0 20px 60px;padding:32px 24px;flex-direction:column;}
+  .cta-actions{flex-direction:column;width:100%;}
+  .routes-grid,.airports-grid,.tips-grid{grid-template-columns:1fr;}
+  .airlines-grid{grid-template-columns:repeat(2,1fr);}
+  .search-row{flex-direction:column;}
+  .search-swap{align-self:center;transform:rotate(90deg);}
+  .search-swap:hover{transform:rotate(270deg);}
+  footer{padding:40px 20px 24px;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px;}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Flights to Laos — LaoWander | Compare Cheap Flights",
+  "description": "Find and compare cheap flights to Laos. Flights to Vientiane, Luang Prabang and Pakse from Bangkok, Singapore, Hanoi and beyond. Powered by Skyscanner.",
+  "url": "https://laowander.pages.dev/laowander-flights.html",
+  "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=85",
+  "publisher": {
+    "@type": "Organization",
+    "name": "LaoWander",
+    "url": "https://laowander.pages.dev/laowander"
+  },
+  "description":"Find cheap flights to Laos"
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="laowander.html" class="logo">Lao<em>Wander</em></a>
+  <ul class="nav-links">
+    <li><a href="laowander.html">Destinations</a></li>
+    <li><a href="laowander-events.html">Events</a></li>
+    <li><a href="laowander-hotels.html">Hotels</a></li>
+    <li><a href="laowander-food.html">Food</a></li>
+    <li><a href="laowander-guide.html">Guide</a></li>
+    <li><a href="laowander-map.html">🗺 Map</a></li>
+    <li><a href="laowander-flights.html" class="active">✈ Flights</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-sep"></div>
+    <button class="nav-cta" onclick="window.location.href='laowander-itineraries.html'">Plan Your Trip</button>
+    <div class="nav-toggle" id="nav-toggle" onclick="toggleNav()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="nav-drawer" id="nav-drawer">
+  <a href="laowander.html" onclick="closeNav()">Destinations</a>
+  <a href="laowander-events.html" onclick="closeNav()">Events</a>
+  <a href="laowander-hotels.html" onclick="closeNav()">Hotels</a>
+  <a href="laowander-food.html" onclick="closeNav()">Food</a>
+  <a href="laowander-guide.html" onclick="closeNav()">Guide</a>
+  <a href="laowander-map.html" onclick="closeNav()">🗺 Map</a>
+  <a href="laowander-flights.html" onclick="closeNav()">✈ Flights</a>
+  <button class="drawer-cta" onclick="closeNav();window.location.href='laowander-itineraries.html'">Plan Your Trip</button>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg">
+    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1600&q=85" alt="Flights to Laos">
+  </div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="laowander.html">Home</a> › Flights to Laos</div>
+    <h1>Fly into<br><em>Laos</em></h1>
+    <p>Compare flights to Vientiane, Luang Prabang and Pakse. Find the best deals from your city to the heart of Southeast Asia.</p>
+  </div>
+</div>
+
+<!-- SEARCH WIDGET -->
+<div class="search-section">
+  <div class="search-card">
+    <div class="search-card-title">Search flights to Laos</div>
+    <div class="search-tabs">
+      <div class="search-tab active" onclick="setTab(this,'return')">↔ Return</div>
+      <div class="search-tab" onclick="setTab(this,'oneway')">→ One way</div>
+    </div>
+
+    <!-- Row 1: From → To -->
+    <div class="search-row">
+      <div class="search-field" style="flex:2;">
+        <label>From</label>
+        <div class="search-input-wrap">
+          <span class="ic">🛫</span>
+          <input class="search-input" id="origin" type="text" placeholder="Your city or airport…">
+        </div>
+      </div>
+      <button class="search-swap" onclick="swapFields()" title="Swap origin and destination">⇄</button>
+      <div class="search-field" style="flex:2;">
+        <label>To</label>
+        <div class="search-input-wrap">
+          <span class="ic">🛬</span>
+          <input class="search-input" id="dest" type="text" value="Vientiane, Laos" placeholder="Vientiane, Luang Prabang…">
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2: Dates + Search button -->
+    <div class="search-row" style="margin-bottom:0;">
+      <div class="search-field" style="flex:2;">
+        <label>Depart</label>
+        <div class="search-input-wrap">
+          <span class="ic">📅</span>
+          <input class="search-input" id="depart" type="date">
+        </div>
+      </div>
+      <div class="search-field" id="return-field" style="flex:2;">
+        <label>Return</label>
+        <div class="search-input-wrap">
+          <span class="ic">📅</span>
+          <input class="search-input" id="return" type="date">
+        </div>
+      </div>
+      <div class="search-field" style="flex:0 0 auto;">
+        <label style="opacity:0;">Search</label>
+        <button class="search-btn-main" onclick="searchFlights()">
+          ✈&nbsp; Search flights
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick destination chips -->
+    <div class="dest-chips">
+      <span class="dest-chips-label">Fly to:</span>
+      <div class="dest-chip" onclick="setDest('Vientiane, Laos')">🏙️ Vientiane</div>
+      <div class="dest-chip" onclick="setDest('Luang Prabang, Laos')">🏛️ Luang Prabang</div>
+      <div class="dest-chip" onclick="setDest('Pakse, Laos')">🌿 Pakse</div>
+    </div>
+
+    <div class="search-note">
+      ℹ️ Powered by <a href="https://www.skyscanner.net" target="_blank" rel="noopener">Skyscanner</a> — we may earn a small commission at no extra cost to you.
+    </div>
+  </div>
+</div>
+
+<!-- POPULAR ROUTES -->
+<div class="section">
+  <div class="section-eyebrow">Popular routes</div>
+  <h2 class="section-title">Top flights to <em>Laos</em></h2>
+  <p class="section-sub">The most searched flight routes to Laos from around the world. Prices are approximate and vary by season.</p>
+
+  <div class="routes-grid">
+
+    <!-- Bangkok → Vientiane -->
+    <div class="route-card" onclick="searchRoute('Bangkok','Vientiane')">
+      <div class="route-img">
+        <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=600&q=80" alt="Bangkok to Vientiane">
+        <div class="route-badge">Most popular</div>
+      </div>
+      <div class="route-body">
+        <div class="route-airports">
+          <span class="route-iata">BKK</span>
+          <span class="route-arrow">✈</span>
+          <span class="route-iata">VTE</span>
+        </div>
+        <div class="route-name">Bangkok → Vientiane · 1h 10m</div>
+        <div class="route-from">From approx.</div>
+        <div class="route-price">$60 <span>one way</span></div>
+        <div class="route-airlines">
+          <span class="route-airline">Bangkok Airways</span>
+          <span class="route-airline">Lao Airlines</span>
+          <span class="route-airline">Thai AirAsia</span>
+        </div>
+        <div class="route-btn">
+          <span class="route-btn-link">Search on Skyscanner →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Singapore → Vientiane -->
+    <div class="route-card" onclick="searchRoute('Singapore','Vientiane')">
+      <div class="route-img">
+        <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=600&q=80" alt="Singapore to Vientiane">
+        <div class="route-badge">Great value</div>
+      </div>
+      <div class="route-body">
+        <div class="route-airports">
+          <span class="route-iata">SIN</span>
+          <span class="route-arrow">✈</span>
+          <span class="route-iata">VTE</span>
+        </div>
+        <div class="route-name">Singapore → Vientiane · 2h 30m</div>
+        <div class="route-from">From approx.</div>
+        <div class="route-price">$120 <span>one way</span></div>
+        <div class="route-airlines">
+          <span class="route-airline">Lao Airlines</span>
+          <span class="route-airline">Silk Air</span>
+        </div>
+        <div class="route-btn">
+          <span class="route-btn-link">Search on Skyscanner →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bangkok → Luang Prabang -->
+    <div class="route-card" onclick="searchRoute('Bangkok','Luang Prabang')">
+      <div class="route-img">
+        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80" alt="Bangkok to Luang Prabang">
+        <div class="route-badge">Direct flight</div>
+      </div>
+      <div class="route-body">
+        <div class="route-airports">
+          <span class="route-iata">BKK</span>
+          <span class="route-arrow">✈</span>
+          <span class="route-iata">LPQ</span>
+        </div>
+        <div class="route-name">Bangkok → Luang Prabang · 1h 45m</div>
+        <div class="route-from">From approx.</div>
+        <div class="route-price">$85 <span>one way</span></div>
+        <div class="route-airlines">
+          <span class="route-airline">Bangkok Airways</span>
+          <span class="route-airline">Lao Airlines</span>
+        </div>
+        <div class="route-btn">
+          <span class="route-btn-link">Search on Skyscanner →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kuala Lumpur → Vientiane -->
+    <div class="route-card" onclick="searchRoute('Kuala Lumpur','Vientiane')">
+      <div class="route-img">
+        <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=600&q=80" alt="Kuala Lumpur to Vientiane">
+        <div class="route-badge">Budget friendly</div>
+      </div>
+      <div class="route-body">
+        <div class="route-airports">
+          <span class="route-iata">KUL</span>
+          <span class="route-arrow">✈</span>
+          <span class="route-iata">VTE</span>
+        </div>
+        <div class="route-name">Kuala Lumpur → Vientiane · 2h 45m</div>
+        <div class="route-from">From approx.</div>
+        <div class="route-price">$95 <span>one way</span></div>
+        <div class="route-airlines">
+          <span class="route-airline">AirAsia</span>
+          <span class="route-airline">Malindo Air</span>
+        </div>
+        <div class="route-btn">
+          <span class="route-btn-link">Search on Skyscanner →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hanoi → Vientiane -->
+    <div class="route-card" onclick="searchRoute('Hanoi','Vientiane')">
+      <div class="route-img">
+        <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600&q=80" alt="Hanoi to Vientiane">
+        <div class="route-badge">Short hop</div>
+      </div>
+      <div class="route-body">
+        <div class="route-airports">
+          <span class="route-iata">HAN</span>
+          <span class="route-arrow">✈</span>
+          <span class="route-iata">VTE</span>
+        </div>
+        <div class="route-name">Hanoi → Vientiane · 1h 0m</div>
+        <div class="route-from">From approx.</div>
+        <div class="route-price">$75 <span>one way</span></div>
+        <div class="route-airlines">
+          <span class="route-airline">Vietnam Airlines</span>
+          <span class="route-airline">Lao Airlines</span>
+        </div>
+        <div class="route-btn">
+          <span class="route-btn-link">Search on Skyscanner →</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ho Chi Minh → Luang Prabang -->
+    <div class="route-card" onclick="searchRoute('Ho Chi Minh City','Luang Prabang')">
+      <div class="route-img">
+        <img src="https://images.unsplash.com/photo-1559628376-f3fe5f782a2e?w=600&q=80" alt="Ho Chi Minh to Luang Prabang">
+        <div class="route-badge">Scenic route</div>
+      </div>
+      <div class="route-body">
+        <div class="route-airports">
+          <span class="route-iata">SGN</span>
+          <span class="route-arrow">✈</span>
+          <span class="route-iata">LPQ</span>
+        </div>
+        <div class="route-name">Ho Chi Minh → Luang Prabang · 1h 55m</div>
+        <div class="route-from">From approx.</div>
+        <div class="route-price">$110 <span>one way</span></div>
+        <div class="route-airlines">
+          <span class="route-airline">Vietnam Airlines</span>
+          <span class="route-airline">Lao Airlines</span>
+        </div>
+        <div class="route-btn">
+          <span class="route-btn-link">Search on Skyscanner →</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- AIRPORTS INFO -->
+<div class="airports-section">
+  <div class="section-eyebrow" style="padding:0">Laos airports</div>
+  <h2 class="section-title" style="margin-bottom:8px;">Know before <em>you fly</em></h2>
+  <p class="section-sub">Laos has three international airports. Here's what you need to know about each one.</p>
+  <div class="airports-grid">
+    <div class="airport-card">
+      <div class="airport-photo">
+        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=85" alt="Wattay International Airport Vientiane">
+        <div class="airport-photo-overlay"></div>
+        <div class="airport-photo-iata">VTE</div>
+        <div class="airport-photo-badge">Main gateway</div>
+      </div>
+      <div class="airport-body">
+        <div class="airport-name">Wattay International Airport</div>
+        <div class="airport-city">Vientiane · Capital city · 3km from centre</div>
+        <div class="airport-detail">
+          <strong>Laos' busiest airport.</strong> Modern international terminal with direct connections to Bangkok, Singapore, Hanoi, KL, Guangzhou and beyond. Visa on arrival available. Tuk-tuk to city centre takes 10 minutes and costs around $3-5.
+        </div>
+      </div>
+    </div>
+    <div class="airport-card">
+      <div class="airport-photo">
+        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=85" alt="Luang Prabang International Airport">
+        <div class="airport-photo-overlay"></div>
+        <div class="airport-photo-iata">LPQ</div>
+        <div class="airport-photo-badge">UNESCO city</div>
+      </div>
+      <div class="airport-body">
+        <div class="airport-name">Luang Prabang International Airport</div>
+        <div class="airport-city">Luang Prabang · Heritage city · 4km from centre</div>
+        <div class="airport-detail">
+          <strong>Most scenic airport in SE Asia.</strong> You land surrounded by jungle and temples — extraordinary arrival. Direct flights from Bangkok, Singapore, Chiang Mai and Hanoi. Walk or tuk-tuk to most hotels in 5-15 minutes.
+        </div>
+      </div>
+    </div>
+    <div class="airport-card">
+      <div class="airport-photo">
+        <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&q=85" alt="Pakse International Airport Southern Laos">
+        <div class="airport-photo-overlay"></div>
+        <div class="airport-photo-iata">PKZ</div>
+        <div class="airport-photo-badge">Southern gateway</div>
+      </div>
+      <div class="airport-body">
+        <div class="airport-name">Pakse International Airport</div>
+        <div class="airport-city">Pakse · Southern Laos · 3km from centre</div>
+        <div class="airport-detail">
+          <strong>Gateway to the south.</strong> Best entry point for 4,000 Islands, Bolaven Plateau coffee country and Champasak ruins. Direct flights from Bangkok and Siem Reap. Small and easy to navigate — visa on arrival available.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FLIGHT TIPS -->
+<div class="section" style="padding-top:0;">
+  <div class="section-eyebrow">Travel tips</div>
+  <h2 class="section-title">Smart flying tips for <em>Laos</em></h2>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-icon">💰</div>
+      <div>
+        <div class="tip-title">Book via Bangkok for best prices</div>
+        <div class="tip-desc">The cheapest way to reach Laos from Europe, Australia or North America is to fly to Bangkok first, then take a short connecting flight to Vientiane or Luang Prabang. Bangkok Airways and Lao Airlines offer multiple daily connections.</div>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">📅</div>
+      <div>
+        <div class="tip-title">Best time to fly: October – February</div>
+        <div class="tip-desc">Cool dry season means comfortable travel. Avoid April (Bun Pi Mai — everything closes for 3 days) unless you want to experience the water festival. March-May sees higher temperatures and cheaper flights.</div>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🛂</div>
+      <div>
+        <div class="tip-title">Visa on arrival at all 3 airports</div>
+        <div class="tip-desc">Most nationalities can get a visa on arrival at Wattay, Luang Prabang and Pakse airports. Cost is $30-42 USD. Bring 2 passport photos and cash. Alternatively, apply for an e-Visa at laoevisa.gov.la before you fly — saves queuing time.</div>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">✈️</div>
+      <div>
+        <div class="tip-title">Lao Airlines for domestic flights</div>
+        <div class="tip-desc">If you're combining Vientiane and Luang Prabang, Lao Airlines and Lao Skyway operate domestic routes. The 40-minute flight beats the 10-hour bus ride significantly. Book early — domestic flights sell out during peak season.</div>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🎒</div>
+      <div>
+        <div class="tip-title">Pack light — 20kg is usually enough</div>
+        <div class="tip-desc">Most budget and regional airlines serving Laos allow 20kg checked baggage. Laos is hot and casual — light clothing is all you need. Laundry services are cheap and available everywhere. Avoid paying excess baggage fees.</div>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🔄</div>
+      <div>
+        <div class="tip-title">Consider a multi-city routing</div>
+        <div class="tip-desc">Fly into Luang Prabang and out of Vientiane (or vice versa) to avoid backtracking. Most booking platforms allow one-way in/out on the same trip. This is the smartest way to see the full country without retracing your steps.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AIRLINES -->
+<div class="section" style="padding-top:0;">
+  <div class="section-eyebrow">Airlines</div>
+  <h2 class="section-title">Who flies to <em>Laos</em></h2>
+  <div class="airlines-grid">
+    <div class="airline-card">
+      <div class="airline-emoji">✈️</div>
+      <div class="airline-name">Lao Airlines</div>
+      <div class="airline-hub">National carrier · Vientiane</div>
+      <a href="https://www.skyscanner.net/flights-to/vte/cheap-flights-to-vientiane-wattay-international-airport.html" target="_blank" rel="noopener" class="airline-link">Search flights →</a>
+    </div>
+    <div class="airline-card">
+      <div class="airline-emoji">🇹🇭</div>
+      <div class="airline-name">Bangkok Airways</div>
+      <div class="airline-hub">Bangkok · BKK hub</div>
+      <a href="https://www.skyscanner.net/flights/bkk/vte/cheap-flights-from-bangkok-to-vientiane.html" target="_blank" rel="noopener" class="airline-link">Search flights →</a>
+    </div>
+    <div class="airline-card">
+      <div class="airline-emoji">🇻🇳</div>
+      <div class="airline-name">Vietnam Airlines</div>
+      <div class="airline-hub">Hanoi & Ho Chi Minh City</div>
+      <a href="https://www.skyscanner.net/flights/han/vte/cheap-flights-from-hanoi-to-vientiane.html" target="_blank" rel="noopener" class="airline-link">Search flights →</a>
+    </div>
+    <div class="airline-card">
+      <div class="airline-emoji">🇸🇬</div>
+      <div class="airline-name">Singapore Airlines</div>
+      <div class="airline-hub">Singapore · SIN hub</div>
+      <a href="https://www.skyscanner.net/flights/sin/vte/cheap-flights-from-singapore-to-vientiane.html" target="_blank" rel="noopener" class="airline-link">Search flights →</a>
+    </div>
+    <div class="airline-card">
+      <div class="airline-emoji">🇲🇾</div>
+      <div class="airline-name">AirAsia</div>
+      <div class="airline-hub">Kuala Lumpur · KUL hub</div>
+      <a href="https://www.skyscanner.net/flights/kul/vte/cheap-flights-from-kuala-lumpur-to-vientiane.html" target="_blank" rel="noopener" class="airline-link">Search flights →</a>
+    </div>
+    <div class="airline-card">
+      <div class="airline-emoji">🇨🇳</div>
+      <div class="airline-name">China Southern</div>
+      <div class="airline-hub">Guangzhou · CAN hub</div>
+      <a href="https://www.skyscanner.net/flights/can/vte/cheap-flights-from-guangzhou-to-vientiane.html" target="_blank" rel="noopener" class="airline-link">Search flights →</a>
+    </div>
+    <div class="airline-card">
+      <div class="airline-emoji">🇰🇷</div>
+      <div class="airline-name">Korean Air</div>
+      <div class="airline-hub">Seoul · ICN hub</div>
+      <a href="https://www.skyscanner.net/flights/icn/vte/cheap-flights-from-seoul-to-vientiane.html" target="_blank" rel="noopener" class="airline-link">Search flights →</a>
+    </div>
+    <div class="airline-card">
+      <div class="airline-emoji">🇹🇭</div>
+      <div class="airline-name">Thai Airways</div>
+      <div class="airline-hub">Bangkok · BKK hub</div>
+      <a href="https://www.skyscanner.net/flights/bkk/lpq/cheap-flights-from-bangkok-to-luang-prabang.html" target="_blank" rel="noopener" class="airline-link">Search flights →</a>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div>
+    <h2 class="cta-title">Ready to plan your<br><em>Laos adventure?</em></h2>
+    <p class="cta-sub">You've found your flight — now build your perfect itinerary. Hotels, restaurants, events and hidden gems across the whole country.</p>
+  </div>
+  <div class="cta-actions">
+    <a href="laowander-itineraries.html" class="cta-btn cta-btn-primary">Build my itinerary →</a>
+    <a href="laowander-hotels.html" class="cta-btn cta-btn-secondary">Browse hotels</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="laowander.html" class="logo">Lao<em>Wander</em></a>
+      <p>An independent travel guide to the most underrated country in Southeast Asia. Made with genuine love for Laos.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="laowander.html">Home</a>
+      <a href="laowander-hotels.html">Hotels</a>
+      <a href="laowander-food.html">Food</a>
+      <a href="laowander-events.html">Events</a>
+    </div>
+    <div class="footer-col">
+      <h4>Plan</h4>
+      <a href="laowander-flights.html">Flights</a>
+      <a href="laowander-itineraries.html">Itineraries</a>
+      <a href="laowander-guide.html">Travel Guide</a>
+      <a href="laowander-calculator.html">Budget Calculator</a>
+    </div>
+    <div class="footer-col">
+      <h4>More</h4>
+      <a href="laowander-map.html">Interactive Map</a>
+      <a href="laowander-phrasebook.html">Lao Phrasebook</a>
+      <a href="laowander-about.html">About LaoWander</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 LaoWander · Independent travel guide</span>
+    <span>Affiliate links help keep this site free</span>
+  </div>
+</footer>
+
+<script>
+/* Set destination from chip */
+function setDest(val) {
+  document.getElementById('dest').value = val;
+  document.getElementById('dest').focus();
+}
+
+/* Nav */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 80);
+}, {passive:true});
+
+function toggleNav() {
+  document.getElementById('nav-toggle').classList.toggle('open');
+  document.getElementById('nav-drawer').classList.toggle('open');
+}
+function closeNav() {
+  document.getElementById('nav-toggle').classList.remove('open');
+  document.getElementById('nav-drawer').classList.remove('open');
+}
+
+/* Set default dates */
+const today = new Date();
+const twoWeeks = new Date(today.getTime() + 14 * 24 * 60 * 60 * 1000);
+const threeWeeks = new Date(today.getTime() + 21 * 24 * 60 * 60 * 1000);
+const fmt = d => d.toISOString().split('T')[0];
+document.getElementById('depart').value = fmt(twoWeeks);
+document.getElementById('return').value = fmt(threeWeeks);
+
+/* Tab toggle */
+function setTab(el, type) {
+  document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('return-field').style.display = type === 'return' ? '' : 'none';
+}
+
+/* Swap fields */
+function swapFields() {
+  const o = document.getElementById('origin');
+  const d = document.getElementById('dest');
+  [o.value, d.value] = [d.value, o.value];
+}
+
+/* Search flights — opens Skyscanner */
+function searchFlights() {
+  const origin = document.getElementById('origin').value || 'anywhere';
+  const dest = document.getElementById('dest').value || 'Vientiane';
+  const depart = document.getElementById('depart').value?.replace(/-/g,'') || '';
+  const ret = document.getElementById('return').value?.replace(/-/g,'') || '';
+
+  // Map common destinations to IATA codes
+  const iataMap = {
+    'vientiane': 'VTE', 'luang prabang': 'LPQ', 'pakse': 'PKZ',
+    'bangkok': 'BKK', 'singapore': 'SIN', 'kuala lumpur': 'KUL',
+    'hanoi': 'HAN', 'ho chi minh': 'SGN', 'ho chi minh city': 'SGN',
+    'seoul': 'ICN', 'tokyo': 'TYO', 'sydney': 'SYD',
+    'london': 'LON', 'paris': 'PAR', 'new york': 'NYC',
+  };
+
+  const getIATA = str => iataMap[str.toLowerCase().trim()] || str.trim();
+  const from = getIATA(origin);
+  const to = getIATA(dest);
+
+  const url = `https://www.skyscanner.net/transport/flights/${from.toLowerCase()}/${to.toLowerCase()}/${depart}/${ret}/`;
+  window.open(url, '_blank');
+}
+
+/* Quick route search */
+function searchRoute(from, to) {
+  const iataMap = {
+    'Bangkok': 'BKK', 'Singapore': 'SIN', 'Kuala Lumpur': 'KUL',
+    'Hanoi': 'HAN', 'Ho Chi Minh City': 'SGN',
+    'Vientiane': 'VTE', 'Luang Prabang': 'LPQ', 'Pakse': 'PKZ',
+  };
+  const f = iataMap[from] || from;
+  const t = iataMap[to] || to;
+  window.open(`https://www.skyscanner.net/transport/flights/${f.toLowerCase()}/${t.toLowerCase()}/`, '_blank');
+}
+
+/* Reveal animation */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; io.unobserve(e.target); }});
+}, {threshold:0.08});
+document.querySelectorAll('.route-card,.airport-card,.tip-card,.airline-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity .5s var(--ease), transform .5s var(--ease)';
+  io.observe(el);
+});
+</script>
+</body>
+</html>

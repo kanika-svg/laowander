@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LaoWander — Discover Laos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+
+/* ══════════════════════════════════════════
+   TOKENS — Warm Charcoal palette
+══════════════════════════════════════════ */
+:root {
+  --gold:        #C9A84C;
+  --gold-bright: #E2BC65;
+  --gold-dim:    rgba(201,168,76,0.15);
+  --gold-line:   rgba(201,168,76,0.25);
+
+  /* warm charcoal: brown-grey with gold undertones */
+  --bg:      #141210;
+  --surface: #1C1915;
+  --raised:  #252119;
+  --rim:     rgba(201,168,76,0.1);
+  --muted:   #6B6560;
+  --soft:    rgba(255,248,235,0.55);
+  --white:   #FFF8EB;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ══════════════════════════════════════════
+   RESET & BASE
+══════════════════════════════════════════ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* subtle warm grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+nav, section, .search-anchor, .ticker, .nl-wrap, footer, .divider { position: relative; z-index: 1; }
+
+img { display: block; width: 100%; height: 100%; object-fit: cover; }
+a { text-decoration: none; color: inherit; }
+
+/* ── Image fallback gradients ── */
+/* Each data-fallback value maps to a unique warm gradient */
+img[data-fallback="hero"]     { background: linear-gradient(135deg, #2a1f0a 0%, #1a1208 50%, #0e1a12 100%); }
+img[data-fallback="lprabang"] { background: linear-gradient(135deg, #1e1508 0%, #2d1f0a 60%, #1a1010 100%); }
+img[data-fallback="vangvieng"]{ background: linear-gradient(135deg, #0a1a12 0%, #0e2010 60%, #141208 100%); }
+img[data-fallback="bolaven"]  { background: linear-gradient(135deg, #0f1a0a 0%, #162010 60%, #1a1508 100%); }
+img[data-fallback="vientiane"]{ background: linear-gradient(135deg, #1a1208 0%, #251808 60%, #1e1010 100%); }
+img[data-fallback="pakse"]    { background: linear-gradient(135deg, #1a0e08 0%, #200e0a 60%, #141210 100%); }
+img[data-fallback="nongkhiaw"]{ background: linear-gradient(135deg, #0a1208 0%, #0e1a0a 60%, #101808 100%); }
+img[data-fallback="kuangsi"]  { background: linear-gradient(135deg, #081418 0%, #0a1a20 60%, #08100e 100%); }
+img[data-fallback="jars"]     { background: linear-gradient(135deg, #181008 0%, #201408 60%, #141008 100%); }
+img[data-fallback="hotel"]    { background: linear-gradient(135deg, #1a1408 0%, #221808 60%, #181210 100%); }
+
+/* Fallback label shown over blank images */
+img.fallback-shown {
+  position: relative;
+}
+.img-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  pointer-events: none;
+}
+.img-placeholder .ph-icon { font-size: 2rem; opacity: 0.4; }
+.img-placeholder .ph-text {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.4);
+}
+
+/* ══════════════════════════════════════════
+   UTILITY
+══════════════════════════════════════════ */
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 14px;
+}
+.label::before {
+  content: '';
+  display: inline-block;
+  width: 20px; height: 1px;
+  background: var(--gold);
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.5px;
+  margin-bottom: 14px;
+}
+
+.subtitle {
+  font-size: 0.92rem;
+  color: var(--soft);
+  line-height: 1.75;
+  max-width: 420px;
+}
+
+.sec-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 44px;
+  gap: 24px;
+}
+
+.see-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s, gap 0.25s var(--ease);
+  flex-shrink: 0;
+}
+.see-all:hover { border-color: var(--gold); gap: 10px; }
+
+section { padding: 96px 72px; }
+
+.divider {
+  height: 1px;
+  background: var(--rim);
+  margin: 0 72px;
+}
+
+/* ══════════════════════════════════════════
+   NAV
+══════════════════════════════════════════ */
+nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 72px;
+  height: 68px;
+  background: rgba(20,18,16,0.75);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  transition: height 0.35s var(--ease), background 0.35s, border-color 0.35s, box-shadow 0.35s;
+}
+nav.scrolled {
+  height: 60px;
+  background: rgba(20,18,16,0.97);
+  border-color: rgba(201,168,76,0.18);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.45);
+}
+
+/* Logo */
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: -0.4px;
+  color: var(--white);
+  flex-shrink: 0;
+  transition: opacity 0.2s;
+}
+.logo:hover { opacity: 0.8; }
+.logo em { font-style: normal; color: var(--gold); }
+
+/* Nav center links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 2px;
+}
+
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 13px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,248,235,0.5);
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+  position: relative;
+  white-space: nowrap;
+}
+.nav-links a:hover {
+  color: var(--white);
+  background: rgba(255,248,235,0.05);
+}
+
+/* Active: gold pill background */
+.nav-links a.active {
+  color: var(--gold-bright);
+  background: rgba(201,168,76,0.12);
+  border-radius: 6px;
+}
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 13px; right: 13px;
+  height: 2px;
+  border-radius: 2px 2px 0 0;
+  background: var(--gold);
+}
+
+/* Nav right side */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* Separator before CTA */
+.nav-sep {
+  width: 1px;
+  height: 20px;
+  background: rgba(201,168,76,0.2);
+  margin: 0 4px;
+}
+
+/* Hotels quick link */
+.nav-hotels {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255,248,235,0.55);
+  padding: 6px 13px;
+  border: 1px solid rgba(201,168,76,0.18);
+  border-radius: 8px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav-hotels:hover {
+  border-color: var(--gold-line);
+  color: var(--gold-bright);
+  background: rgba(201,168,76,0.07);
+}
+
+/* CTA button */
+.nav-cta {
+  background: var(--gold);
+  color: #141210;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 9px 22px;
+  border-radius: 30px;
+  transition: background 0.2s, transform 0.2s var(--ease), box-shadow 0.2s;
+  white-space: nowrap;
+}
+.nav-cta:hover {
+  background: var(--gold-bright);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(201,168,76,0.35);
+}
+
+/* Mobile toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 34px; height: 34px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid var(--rim);
+  transition: background 0.2s, border-color 0.2s;
+}
+.nav-toggle:hover { background: rgba(255,248,235,0.05); border-color: var(--gold-line); }
+.nav-toggle span {
+  display: block;
+  height: 1.5px;
+  background: var(--soft);
+  border-radius: 2px;
+  transition: all 0.3s var(--ease);
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile drawer */
+.nav-drawer {
+  display: none;
+  position: fixed;
+  top: 68px; left: 0; right: 0;
+  background: rgba(20,18,16,0.99);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+  padding: 12px 20px 20px;
+  z-index: 190;
+  flex-direction: column;
+  gap: 2px;
+}
+.nav-drawer.open { display: flex; }
+.nav-drawer a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--soft);
+  padding: 11px 14px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+.nav-drawer a:hover { color: var(--white); background: rgba(255,248,235,0.05); }
+.nav-drawer a.active { color: var(--gold-bright); background: rgba(201,168,76,0.1); }
+.nav-drawer .drawer-sep {
+  height: 1px;
+  background: var(--rim);
+  margin: 8px 0;
+}
+.nav-drawer .drawer-cta {
+  background: var(--gold);
+  color: #141210;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-align: center;
+  padding: 13px;
+  border-radius: 10px;
+  margin-top: 4px;
+  transition: background 0.2s;
+}
+.nav-drawer .drawer-cta:hover { background: var(--gold-bright); }
+
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 680px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 0 72px 100px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, #2a1f0a 0%, #1a1208 50%, #0e1a12 100%),
+    url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=85') center/cover no-repeat;
+  animation: heroZoom 22s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(20,18,16,0.92) 38%, rgba(20,18,16,0.15) 100%),
+    linear-gradient(to top,   rgba(20,18,16,1)    0%,  rgba(20,18,16,0)    55%);
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1.0); }
+  to   { transform: scale(1.07); }
+}
+
+.hero-content {
+  position: relative;
+  max-width: 640px;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-line);
+  border-radius: 30px;
+  padding: 5px 14px 5px 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  margin-bottom: 26px;
+  opacity: 0;
+  animation: riseIn 0.7s 0.1s var(--ease) forwards;
+}
+
+.pulse-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+@keyframes dotPulse {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(0.6); opacity: 0.4; }
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.2rem, 6.5vw, 6rem);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: riseIn 0.8s 0.25s var(--ease) forwards;
+}
+.hero h1 em { font-style: italic; color: var(--gold); }
+
+.hero-sub {
+  font-size: 1rem;
+  color: var(--soft);
+  line-height: 1.75;
+  max-width: 460px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: riseIn 0.8s 0.4s var(--ease) forwards;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 14px;
+  opacity: 0;
+  animation: riseIn 0.8s 0.55s var(--ease) forwards;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: #0E0E0E;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 13px 28px;
+  border-radius: 40px;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, transform 0.2s var(--ease), box-shadow 0.2s;
+}
+.btn-gold:hover {
+  background: var(--gold-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(201,168,76,0.35);
+}
+
+.btn-outline {
+  background: rgba(255,255,255,0.06);
+  color: var(--white);
+  font-weight: 400;
+  font-size: 0.875rem;
+  padding: 13px 28px;
+  border-radius: 40px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  backdrop-filter: blur(6px);
+}
+.btn-outline:hover {
+  background: rgba(201,168,76,0.08);
+  border-color: var(--gold-line);
+  color: var(--gold-bright);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 36px;
+  right: 72px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeIn 1.5s 1.2s ease forwards;
+}
+.scroll-bar {
+  width: 36px; height: 1px;
+  background: linear-gradient(to right, var(--gold), transparent);
+  animation: scrollPulse 2.4s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%,100% { opacity: 0.4; transform: scaleX(1); }
+  50%      { opacity: 1;   transform: scaleX(1.2); }
+}
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ══════════════════════════════════════════
+   SEARCH BAR
+══════════════════════════════════════════ */
+.search-anchor {
+  position: relative;
+  z-index: 10;
+  padding: 0 72px;
+  margin-top: -32px;
+}
+
+.search-box {
+  display: flex;
+  align-items: stretch;
+  background: var(--raised);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.55), 0 0 0 1px rgba(201,168,76,0.08);
+  max-width: 880px;
+}
+
+.sf {
+  flex: 1;
+  padding: 20px 24px;
+  border-right: 1px solid var(--rim);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: background 0.2s;
+}
+.sf:hover { background: rgba(255,255,255,0.03); }
+
+.sf label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.sf input, .sf select {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  cursor: pointer;
+  width: 100%;
+}
+.sf input::placeholder { color: var(--muted); }
+.sf select option { background: #1E1E1E; }
+
+.search-btn {
+  background: var(--gold);
+  border: none;
+  color: #0E0E0E;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0 32px;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.search-btn:hover { background: var(--gold-bright); }
+.search-btn svg { width: 15px; height: 15px; }
+
+/* ══════════════════════════════════════════
+   TICKER
+══════════════════════════════════════════ */
+.ticker {
+  background: var(--gold);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 12px 0;
+  margin-top: 52px;
+}
+.ticker-track {
+  display: inline-flex;
+  animation: tickerScroll 36s linear infinite;
+}
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 32px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #0E0E0E;
+}
+.ticker-sep { opacity: 0.35; font-size: 0.5rem; }
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ══════════════════════════════════════════
+   TRENDING
+══════════════════════════════════════════ */
+#trending { background: var(--bg); }
+
+.trending-grid {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+  height: 580px;
+}
+
+.tc {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+}
+.tc.hero-card { grid-row: 1 / 3; }
+
+.tc img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease);
+}
+.tc:hover img { transform: scale(1.05); }
+
+.tc-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.08) 55%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  transition: background 0.3s;
+}
+.tc:hover .tc-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.15) 65%);
+}
+
+.tc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--gold);
+  color: #0E0E0E;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+  width: fit-content;
+}
+
+.tc-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.hero-card .tc-title { font-size: 1.75rem; }
+.tc:not(.hero-card) .tc-title { font-size: 1.05rem; }
+
+.tc-meta {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.55);
+}
+
+/* ══════════════════════════════════════════
+   DESTINATIONS
+══════════════════════════════════════════ */
+#destinations { background: var(--surface); }
+
+.dest-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.dc {
+  background: var(--raised);
+  border: 1px solid var(--rim);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.25s;
+}
+.dc:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+  border-color: var(--gold-line);
+}
+
+.dc-img {
+  position: relative;
+  height: 198px;
+  overflow: hidden;
+}
+.dc-img img { transition: transform 0.55s var(--ease); }
+.dc:hover .dc-img img { transform: scale(1.07); }
+
+.dc-tag {
+  position: absolute;
+  top: 12px; left: 12px;
+  background: rgba(14,14,14,0.72);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--gold-line);
+  color: var(--gold-bright);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.dc-body { padding: 18px 20px 20px; }
+.dc-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+.dc-body p {
+  font-size: 0.8rem;
+  color: var(--soft);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.dc-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  border-top: 1px solid var(--rim);
+}
+.dc-rating {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.dc-rating span { color: var(--muted); font-weight: 400; font-size: 0.72rem; }
+.dc-region { font-size: 0.72rem; color: var(--muted); }
+
+/* ══════════════════════════════════════════
+   EVENTS
+══════════════════════════════════════════ */
+#events { background: var(--bg); }
+
+.events-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 860px;
+}
+
+.ec {
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  align-items: center;
+  gap: 24px;
+  background: var(--raised);
+  border: 1px solid var(--rim);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  cursor: pointer;
+  transition: border-color 0.25s, transform 0.3s var(--ease), background 0.25s;
+}
+.ec:hover {
+  border-color: var(--gold-line);
+  transform: translateX(5px);
+  background: rgba(201,168,76,0.04);
+}
+
+.ec-date { text-align: center; }
+.ec-date .d {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+}
+.ec-date .m {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.ec-info h3 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+  line-height: 1.35;
+}
+.ec-info p {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.ec-tag {
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-line);
+  color: var(--gold-bright);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════
+   HIDDEN GEMS
+══════════════════════════════════════════ */
+#gems { background: var(--surface); }
+
+.gems-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.gem {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  cursor: pointer;
+}
+.gem img {
+  width: 100%; height: 100%;
+  transition: transform 0.6s var(--ease);
+}
+.gem:hover img { transform: scale(1.06); }
+
+.gem-mask {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.05) 52%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+  transition: background 0.35s;
+}
+.gem:hover .gem-mask {
+  background: linear-gradient(to top, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.2) 65%);
+}
+
+.gem-icon-wrap {
+  width: 40px; height: 40px;
+  background: var(--gold);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.gem-mask h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 7px;
+  line-height: 1.2;
+}
+.gem-mask p {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.58);
+  line-height: 1.65;
+}
+
+/* ══════════════════════════════════════════
+   TRAVEL TIPS
+══════════════════════════════════════════ */
+#tips { background: var(--bg); }
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.tip {
+  background: var(--raised);
+  border: 1px solid var(--rim);
+  border-radius: var(--radius-md);
+  padding: 28px 26px 30px;
+  transition: border-color 0.25s, transform 0.3s var(--ease);
+}
+.tip:hover {
+  border-color: var(--gold-line);
+  transform: translateY(-4px);
+}
+
+.tip-emoji {
+  font-size: 1.7rem;
+  margin-bottom: 16px;
+  display: block;
+  line-height: 1;
+}
+
+.tip h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.tip p {
+  font-size: 0.82rem;
+  color: var(--soft);
+  line-height: 1.72;
+}
+
+/* ══════════════════════════════════════════
+   NEWSLETTER
+══════════════════════════════════════════ */
+.nl-wrap {
+  padding: 0 72px 96px;
+}
+
+.nl-inner {
+  background: linear-gradient(135deg, #1A1508 0%, #0E0E0E 100%);
+  border: 1px solid var(--gold-line);
+  border-radius: var(--radius-lg);
+  padding: 72px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.nl-left .label { margin-bottom: 16px; }
+.nl-left h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+  line-height: 1.1;
+}
+.nl-left p { font-size: 0.88rem; color: var(--soft); line-height: 1.75; }
+
+.nl-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nl-input {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--rim);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  color: var(--white);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.nl-input::placeholder { color: var(--muted); }
+.nl-input:focus {
+  border-color: var(--gold-line);
+  background: rgba(201,168,76,0.05);
+}
+
+.nl-btn {
+  background: var(--gold);
+  color: #0E0E0E;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 14px 24px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.nl-btn:hover { background: var(--gold-bright); transform: translateY(-1px); }
+
+.nl-note {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--rim);
+  padding: 64px 72px 40px;
+}
+
+.ft-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 52px;
+}
+
+.ft-brand .logo { font-size: 1.35rem; display: inline-block; margin-bottom: 14px; }
+.ft-brand p {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.72;
+  margin-bottom: 22px;
+  max-width: 270px;
+}
+
+.socials { display: flex; gap: 10px; }
+.soc {
+  width: 34px; height: 34px;
+  border: 1px solid var(--rim);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 600;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+.soc:hover { border-color: var(--gold-line); color: var(--gold); transform: translateY(-2px); }
+
+.ft-col h4 {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+.ft-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.ft-col ul a {
+  font-size: 0.82rem;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.ft-col ul a:hover { color: var(--white); }
+
+.ft-bottom {
+  border-top: 1px solid var(--rim);
+  padding-top: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* ══════════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  section { padding: 72px 36px; }
+  .divider { margin: 0 36px; }
+  nav { padding: 0 36px; }
+  .hero { padding: 0 36px 90px; }
+  .search-anchor { padding: 0 36px; }
+  .nl-wrap { padding: 0 36px 72px; }
+  footer { padding: 52px 36px 32px; }
+  .trending-grid { grid-template-columns: 1fr 1fr; height: auto; }
+  .tc.hero-card { grid-column: 1 / 3; grid-row: auto; height: 320px; }
+  .tc:not(.hero-card) { height: 220px; }
+  .dest-grid { grid-template-columns: 1fr 1fr; }
+  .gems-grid { grid-template-columns: 1fr 1fr; }
+  .gems-grid .gem:last-child { display: none; }
+  .tips-grid { grid-template-columns: 1fr 1fr; }
+  .nl-inner { grid-template-columns: 1fr; padding: 48px 40px; gap: 36px; }
+  .ft-grid { grid-template-columns: 1fr 1fr; }
+  .search-box { flex-direction: column; border-radius: var(--radius-md); }
+  .sf { border-right: none; border-bottom: 1px solid var(--rim); }
+  .search-btn { width: 100%; justify-content: center; padding: 16px; }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .nav-hotels { display: none; }
+  .nav-sep { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-drawer { top: 68px; }
+}
+
+@media (max-width: 640px) {
+  section { padding: 60px 20px; }
+  .hero { padding: 0 20px 80px; }
+  .search-anchor { padding: 0 20px; }
+  .nl-wrap { padding: 0 20px 60px; }
+  footer { padding: 48px 20px 28px; }
+  .trending-grid { grid-template-columns: 1fr; height: auto; }
+  .tc.hero-card { grid-column: auto; height: 260px; }
+  .dest-grid, .gems-grid, .tips-grid { grid-template-columns: 1fr; }
+  .ec { grid-template-columns: 56px 1fr; }
+  .ec-tag { display: none; }
+  .ft-grid { grid-template-columns: 1fr; }
+  .nl-inner { padding: 36px 24px; }
+  .sec-head { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- ░░ NAV ░░ -->
+<nav id="nav">
+  <a href="#" class="logo">Lao<em>Wander</em></a>
+
+  <ul class="nav-links">
+    <li><a href="#trending" class="active">Trending</a></li>
+    <li><a href="#destinations">Destinations</a></li>
+    <li><a href="laowander-events.html">Events</a></li>
+    <li><a href="#gems">Hidden Gems</a></li>
+    <li><a href="#tips">Travel Tips</a></li>
+    <li><a href="laowander-map.html">🗺 Map</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <a href="laowander-hotels.html" class="nav-hotels">🏨 Hotels</a>
+    <div class="nav-sep"></div>
+    <a href="#newsletter" class="nav-cta">Get Inspired</a>
+    <div class="nav-toggle" id="nav-toggle" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="nav-drawer" id="nav-drawer">
+  <a href="#trending" class="active" onclick="closeNav()">Trending</a>
+  <a href="#destinations" onclick="closeNav()">Destinations</a>
+  <a href="#events" onclick="closeNav()">Events</a>
+  <a href="#gems" onclick="closeNav()">Hidden Gems</a>
+  <a href="#tips" onclick="closeNav()">Travel Tips</a>
+  <div class="drawer-sep"></div>
+  <a href="laowander-hotels.html" onclick="closeNav()">🏨 Hotels & Stays</a>
+  <a href="#newsletter" class="drawer-cta" onclick="closeNav()">Get Inspired</a>
+</div>
+
+<!-- ░░ HERO ░░ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-pill">
+      <div class="pulse-dot"></div>
+      Your Laos travel guide — updated weekly
+    </div>
+    <h1>Discover the<br><em>Soul</em> of Laos</h1>
+    <p class="hero-sub">From golden temple spires in Vientiane to mist-covered mountains in Luang Prabang — find your Laos, for locals and travellers alike.</p>
+    <div class="hero-btns">
+      <a href="#destinations" class="btn-gold">Explore Destinations</a>
+      <a href="#events" class="btn-outline">Upcoming Events</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    Scroll to explore
+    <div class="scroll-bar"></div>
+  </div>
+</section>
+
+<!-- ░░ SEARCH ░░ -->
+<div class="search-anchor">
+  <div class="search-box">
+    <div class="sf">
+      <label>Where to?</label>
+      <input type="text" placeholder="Luang Prabang, Vang Vieng…">
+    </div>
+    <div class="sf">
+      <label>Category</label>
+      <select>
+        <option>All Experiences</option>
+        <option>Temples & Culture</option>
+        <option>Nature & Trekking</option>
+        <option>Food & Nightlife</option>
+        <option>Festivals & Events</option>
+        <option>River & Boat</option>
+      </select>
+    </div>
+    <div class="sf">
+      <label>When</label>
+      <input type="text" placeholder="Any time">
+    </div>
+    <button class="search-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      Search
+    </button>
+  </div>
+</div>
+
+<!-- ░░ TICKER ░░ -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">🔥 Boun Pi Mai — Lao New Year, April 14–16 <span class="ticker-sep">●</span></span>
+    <span class="ticker-item">✨ That Luang Festival — November 2026 <span class="ticker-sep">●</span></span>
+    <span class="ticker-item">🏍️ Bolaven Plateau off-road tours now open <span class="ticker-sep">●</span></span>
+    <span class="ticker-item">🍜 Vientiane Night Market — every Fri–Sun <span class="ticker-sep">●</span></span>
+    <span class="ticker-item">🛶 Mekong Sunset Cruises — Book Early <span class="ticker-sep">●</span></span>
+    <span class="ticker-item">🎨 Vientiane Art Week — March 20–27 <span class="ticker-sep">●</span></span>
+    <span class="ticker-item">🔥 Boun Pi Mai — Lao New Year, April 14–16 <span class="ticker-sep">●</span></span>
+    <span class="ticker-item">✨ That Luang Festival — November 2026 <span class="ticker-sep">●</span></span>
+    <span class="ticker-item">🏍️ Bolaven Plateau off-road tours now open <span class="ticker-sep">●</span></span>
+    <span class="ticker-item">🍜 Vientiane Night Market — every Fri–Sun <span class="ticker-sep">●</span></span>
+    <span class="ticker-item">🛶 Mekong Sunset Cruises — Book Early <span class="ticker-sep">●</span></span>
+    <span class="ticker-item">🎨 Vientiane Art Week — March 20–27 <span class="ticker-sep">●</span></span>
+  </div>
+</div>
+
+<!-- ░░ TRENDING ░░ -->
+<section id="trending">
+  <div class="sec-head">
+    <div>
+      <p class="label">What's Hot Right Now</p>
+      <h2 class="title">Trending in Laos</h2>
+      <p class="subtitle">The experiences everyone's talking about this season.</p>
+    </div>
+    <a href="#" class="see-all">View all trends →</a>
+  </div>
+  <div class="trending-grid">
+    <div class="tc hero-card reveal">
+      <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&q=85" alt="Luang Prabang" data-fallback="lprabang" onerror="imgFail(this)">
+      <div class="tc-overlay">
+        <div class="tc-badge">🔥 #1 Trending</div>
+        <div class="tc-title">Luang Prabang's Alms Giving Ceremony</div>
+        <div class="tc-meta">📍 Luang Prabang &nbsp;·&nbsp; Cultural &nbsp;·&nbsp; ★ 4.9</div>
+      </div>
+    </div>
+    <div class="tc reveal">
+      <img src="https://images.unsplash.com/photo-1553708881-112abc53fe54?w=700&q=80" alt="Vang Vieng" data-fallback="vangvieng" onerror="imgFail(this)">
+      <div class="tc-overlay">
+        <div class="tc-badge">🌿 Adventure</div>
+        <div class="tc-title">Vang Vieng Kayaking & Caves</div>
+        <div class="tc-meta">📍 Vang Vieng &nbsp;·&nbsp; Nature</div>
+      </div>
+    </div>
+    <div class="tc reveal">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80" alt="Bolaven" data-fallback="bolaven" onerror="imgFail(this)">
+      <div class="tc-overlay">
+        <div class="tc-badge">🏍️ Road Trip</div>
+        <div class="tc-title">Bolaven Plateau Loop</div>
+        <div class="tc-meta">📍 Pakse &nbsp;·&nbsp; Waterfalls & Coffee</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ░░ DESTINATIONS ░░ -->
+<section id="destinations">
+  <div class="sec-head">
+    <div>
+      <p class="label">Across the Country</p>
+      <h2 class="title">Top Destinations</h2>
+      <p class="subtitle">From buzzing capitals to untouched wilderness — explore at your own pace.</p>
+    </div>
+    <a href="#" class="see-all">All destinations →</a>
+  </div>
+  <div class="dest-grid">
+    <div class="dc reveal">
+      <div class="dc-img">
+        <img src="https://images.unsplash.com/photo-1592395701536-4e6da6a3958d?w=600&q=80" alt="Vientiane" data-fallback="vientiane" onerror="imgFail(this)">
+        <span class="dc-tag">Capital City</span>
+      </div>
+      <div class="dc-body">
+        <h3>Vientiane</h3>
+        <p>A laid-back capital where gilded temples meet French colonial cafés along the Mekong.</p>
+        <div class="dc-footer">
+          <div class="dc-rating">★ 4.7 <span>(2.4k reviews)</span></div>
+          <span class="dc-region">Central Laos</span>
+        </div>
+      </div>
+    </div>
+    <div class="dc reveal">
+      <div class="dc-img">
+        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80" alt="Luang Prabang" data-fallback="lprabang" onerror="imgFail(this)">
+        <span class="dc-tag">UNESCO Heritage</span>
+      </div>
+      <div class="dc-body">
+        <h3>Luang Prabang</h3>
+        <p>Ancient royal city framed by sacred temples, mountain mist, and the Nam Khan River.</p>
+        <div class="dc-footer">
+          <div class="dc-rating">★ 4.9 <span>(5.1k reviews)</span></div>
+          <span class="dc-region">North Laos</span>
+        </div>
+      </div>
+    </div>
+    <div class="dc reveal">
+      <div class="dc-img">
+        <img src="https://images.unsplash.com/photo-1553708881-112abc53fe54?w=600&q=80" alt="Vang Vieng" data-fallback="vangvieng" onerror="imgFail(this)">
+        <span class="dc-tag">Adventure Hub</span>
+      </div>
+      <div class="dc-body">
+        <h3>Vang Vieng</h3>
+        <p>Dramatic karst scenery, turquoise lagoons, river tubing, and cave adventures.</p>
+        <div class="dc-footer">
+          <div class="dc-rating">★ 4.6 <span>(3.8k reviews)</span></div>
+          <span class="dc-region">Central Laos</span>
+        </div>
+      </div>
+    </div>
+    <div class="dc reveal">
+      <div class="dc-img">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Pakse" data-fallback="pakse" onerror="imgFail(this)">
+        <span class="dc-tag">Southern Gateway</span>
+      </div>
+      <div class="dc-body">
+        <h3>Pakse & 4,000 Islands</h3>
+        <p>Gateway to Si Phan Don — where life moves to the slow rhythm of the Mekong.</p>
+        <div class="dc-footer">
+          <div class="dc-rating">★ 4.8 <span>(1.9k reviews)</span></div>
+          <span class="dc-region">South Laos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ░░ EVENTS ░░ -->
+<section id="events">
+  <div class="sec-head">
+    <div>
+      <p class="label">Mark Your Calendar</p>
+      <h2 class="title">Upcoming Events</h2>
+      <p class="subtitle">Festivals, markets, and cultural moments not to miss.</p>
+    </div>
+    <a href="#" class="see-all">Full calendar →</a>
+  </div>
+  <div class="events-stack">
+    <div class="ec reveal">
+      <div class="ec-date"><div class="d">14</div><div class="m">Apr</div></div>
+      <div class="ec-info"><h3>Boun Pi Mai — Lao New Year Water Festival</h3><p>📍 Nationwide &nbsp;·&nbsp; Outdoors &nbsp;·&nbsp; Free Entry</p></div>
+      <span class="ec-tag">🎉 Festival</span>
+    </div>
+    <div class="ec reveal">
+      <div class="ec-date"><div class="d">20</div><div class="m">Mar</div></div>
+      <div class="ec-info"><h3>Vientiane International Art Week</h3><p>📍 Vientiane Arts Centre &nbsp;·&nbsp; Exhibitions & Performances</p></div>
+      <span class="ec-tag">🎨 Art</span>
+    </div>
+    <div class="ec reveal">
+      <div class="ec-date"><div class="d">28</div><div class="m">Mar</div></div>
+      <div class="ec-info"><h3>Mekong Night Market Opening Weekend</h3><p>📍 Vientiane Riverfront &nbsp;·&nbsp; Street Food & Crafts &nbsp;·&nbsp; Every Fri–Sun</p></div>
+      <span class="ec-tag">🌙 Market</span>
+    </div>
+    <div class="ec reveal">
+      <div class="ec-date"><div class="d">05</div><div class="m">May</div></div>
+      <div class="ec-info"><h3>Boat Racing Festival — Luang Prabang</h3><p>📍 Nam Khan River &nbsp;·&nbsp; Traditional Longboat Races</p></div>
+      <span class="ec-tag">🚣 Cultural</span>
+    </div>
+    <div class="ec reveal">
+      <div class="ec-date"><div class="d">12</div><div class="m">Nov</div></div>
+      <div class="ec-info"><h3>That Luang National Festival (Boun That Luang)</h3><p>📍 Pha That Luang, Vientiane &nbsp;·&nbsp; Laos' most sacred annual celebration</p></div>
+      <span class="ec-tag">🏛️ Sacred</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ░░ HIDDEN GEMS ░░ -->
+<section id="gems">
+  <div class="sec-head">
+    <div>
+      <p class="label">Off the Beaten Path</p>
+      <h2 class="title">Hidden Gems</h2>
+      <p class="subtitle">Places the guidebooks haven't fully caught up with yet.</p>
+    </div>
+    <a href="#" class="see-all">Discover more →</a>
+  </div>
+  <div class="gems-grid">
+    <div class="gem reveal">
+      <img src="https://images.unsplash.com/photo-1559563362-c667ba5f5480?w=600&q=80" alt="Nong Khiaw" data-fallback="nongkhiaw" onerror="imgFail(this)">
+      <div class="gem-mask">
+        <div class="gem-icon-wrap">🏞️</div>
+        <h3>Nong Khiaw Viewpoint</h3>
+        <p>Vertigo-inducing cliffs over the Nam Ou valley — striking scenery with almost no crowds.</p>
+      </div>
+    </div>
+    <div class="gem reveal">
+      <img src="https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?w=600&q=80" alt="Tat Kuang Si" data-fallback="kuangsi" onerror="imgFail(this)">
+      <div class="gem-mask">
+        <div class="gem-icon-wrap">💧</div>
+        <h3>Tat Kuang Si Falls</h3>
+        <p>Turquoise tiered waterfalls near Luang Prabang — best at dawn before the tour buses arrive.</p>
+      </div>
+    </div>
+    <div class="gem reveal">
+      <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=600&q=80" alt="Plain of Jars" data-fallback="jars" onerror="imgFail(this)">
+      <div class="gem-mask">
+        <div class="gem-icon-wrap">🏺</div>
+        <h3>Plain of Jars</h3>
+        <p>Thousands of ancient stone jars on highland meadows — one of Asia's great unsolved mysteries.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ░░ TRAVEL TIPS ░░ -->
+<section id="tips">
+  <div class="sec-head">
+    <div>
+      <p class="label">For First-Time Visitors</p>
+      <h2 class="title">Know Before You Go</h2>
+      <p class="subtitle">Practical guidance to make your trip seamless and respectful.</p>
+    </div>
+  </div>
+  <div class="tips-grid">
+    <div class="tip reveal"><span class="tip-emoji">💰</span><h3>Currency & Payments</h3><p>The Lao Kip (LAK) is official. USD and Thai Baht are widely accepted. ATMs in cities — carry cash in rural areas. Tipping appreciated but not mandatory.</p></div>
+    <div class="tip reveal"><span class="tip-emoji">🛂</span><h3>Visas & Entry</h3><p>Most nationalities get Visa on Arrival (30 days) at major crossings and airports — around $30–35 USD. ASEAN members often enter visa-free.</p></div>
+    <div class="tip reveal"><span class="tip-emoji">🧘</span><h3>Temple Etiquette</h3><p>Cover knees and shoulders. Remove shoes at entrances. Never touch monks. Walk clockwise around stupas. Speak softly in sacred spaces.</p></div>
+    <div class="tip reveal"><span class="tip-emoji">🌡️</span><h3>Best Time to Visit</h3><p>November–February is cool and dry — ideal. March–May is hot. June–October is rainy but lush. Lao New Year in April is unforgettable.</p></div>
+    <div class="tip reveal"><span class="tip-emoji">🛺</span><h3>Getting Around</h3><p>Tuk-tuks in cities. Scooters for flexibility (valid licence required). Mekong slow boats are a highlight. Domestic flights link major towns.</p></div>
+    <div class="tip reveal"><span class="tip-emoji">🍛</span><h3>Food & Water</h3><p>Try laap, khao niao, and tam mak houng. Drink bottled or filtered water only. Street food is safe at busy stalls. Sabaidee! 🙏</p></div>
+  </div>
+</section>
+
+<!-- ░░ NEWSLETTER ░░ -->
+<div class="nl-wrap" id="newsletter">
+  <div class="nl-inner">
+    <div class="nl-left">
+      <p class="label">Stay Connected</p>
+      <h2>Laos, delivered<br>to your inbox.</h2>
+      <p>Weekly picks of hidden spots, upcoming events, and travel stories from across the country. No spam, ever.</p>
+    </div>
+    <div class="nl-right">
+      <div class="nl-form">
+        <input class="nl-input" type="text" placeholder="Your name">
+        <input class="nl-input" type="email" placeholder="your@email.com" id="nl-email">
+        <button class="nl-btn" id="nl-submit">Subscribe — it's free</button>
+        <p class="nl-note">No spam. Unsubscribe any time.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ░░ FOOTER ░░ -->
+<footer>
+  <div class="ft-grid">
+    <div class="ft-brand">
+      <a href="#" class="logo">Lao<em>Wander</em></a>
+      <p>Your trusted guide to travel, culture, events, and adventures across the Land of a Million Elephants.</p>
+      <div class="socials">
+        <a href="#" class="soc">f</a>
+        <a href="#" class="soc">ig</a>
+        <a href="#" class="soc">tt</a>
+        <a href="#" class="soc">yt</a>
+      </div>
+    </div>
+    <div class="ft-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#">Vientiane</a></li>
+        <li><a href="#">Luang Prabang</a></li>
+        <li><a href="#">Vang Vieng</a></li>
+        <li><a href="#">Pakse</a></li>
+        <li><a href="#">4,000 Islands</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Discover</h4>
+      <ul>
+        <li><a href="#">Trending Now</a></li>
+        <li><a href="#">Events Calendar</a></li>
+        <li><a href="#">Hidden Gems</a></li>
+        <li><a href="#">Food Guide</a></li>
+        <li><a href="#">Photo Spots</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Travel Info</h4>
+      <ul>
+        <li><a href="#">Visa Guide</a></li>
+        <li><a href="#">Getting Here</a></li>
+        <li><a href="#">Local Tips</a></li>
+        <li><a href="#">Safety</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span>© 2026 LaoWander. Made with ❤️ in Vientiane.</span>
+    <span>Privacy · Terms · Cookies</span>
+  </div>
+</footer>
+
+<script>
+  /* Nav: scrolled class */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* Mobile nav */
+  function toggleNav() {
+    const toggle = document.getElementById('nav-toggle');
+    const drawer = document.getElementById('nav-drawer');
+    toggle.classList.toggle('open');
+    drawer.classList.toggle('open');
+  }
+  function closeNav() {
+    document.getElementById('nav-toggle').classList.remove('open');
+    document.getElementById('nav-drawer').classList.remove('open');
+  }
+
+  /* Image fallback — fires when Unsplash fails to load */
+  function imgFail(img) {
+    img.style.opacity = '0'; // hide broken img element
+    img.onerror = null;      // prevent infinite loop
+    const wrap = img.closest('.tc, .dc-img, .gem, .hc-img');
+    if (!wrap) return;
+    // apply matching gradient to the wrapper
+    const map = {
+      lprabang:  'linear-gradient(135deg,#1e1508 0%,#2d1f0a 60%,#1a1010 100%)',
+      vangvieng: 'linear-gradient(135deg,#0a1a12 0%,#0e2010 60%,#141208 100%)',
+      bolaven:   'linear-gradient(135deg,#0f1a0a 0%,#162010 60%,#1a1508 100%)',
+      vientiane: 'linear-gradient(135deg,#1a1208 0%,#251808 60%,#1e1010 100%)',
+      pakse:     'linear-gradient(135deg,#1a0e08 0%,#200e0a 60%,#141210 100%)',
+      nongkhiaw: 'linear-gradient(135deg,#0a1208 0%,#0e1a0a 60%,#101808 100%)',
+      kuangsi:   'linear-gradient(135deg,#081418 0%,#0a1a20 60%,#08100e 100%)',
+      jars:      'linear-gradient(135deg,#181008 0%,#201408 60%,#141008 100%)',
+      hotel:     'linear-gradient(135deg,#1a1408 0%,#221808 60%,#181210 100%)',
+    };
+    const key = img.dataset.fallback;
+    wrap.style.background = map[key] || map.hotel;
+    // show a placeholder label
+    const label = document.createElement('div');
+    label.className = 'img-placeholder';
+    label.innerHTML = `<span class="ph-icon">🏔️</span><span class="ph-text">${img.alt || 'Photo coming soon'}</span>`;
+    wrap.style.position = 'relative';
+    wrap.appendChild(label);
+  }
+
+  /* Staggered scroll reveal */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const siblings = [...entry.target.parentElement.children].filter(el => el.classList.contains('reveal'));
+        const idx = siblings.indexOf(entry.target);
+        setTimeout(() => entry.target.classList.add('visible'), idx * 85);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* Newsletter */
+  document.getElementById('nl-submit').addEventListener('click', function () {
+    const emailInput = document.getElementById('nl-email');
+    if (emailInput.value.includes('@')) {
+      this.textContent = "✓ You're on the list!";
+      this.style.background = '#2d6a4f';
+      emailInput.value = '';
+    } else {
+      emailInput.style.borderColor = 'rgba(255,80,80,0.6)';
+      setTimeout(() => emailInput.style.borderColor = '', 1600);
+    }
+  });
+</script>
+</body>
+</html>
