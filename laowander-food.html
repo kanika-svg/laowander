@@ -954,5 +954,23 @@ observeReveal();
   </div>
 </footer>
 
+<script>
+  /* Awin affiliate wrapper — merchant 18117, affiliate 2820670 */
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest('a');
+    if (!a) return;
+    var href = a.getAttribute('href');
+    if (!href || href.indexOf('booking.com') === -1) return;
+    if (href.indexOf('awin1.com') !== -1) return;
+    if (href.indexOf('affiliate-program') !== -1) return;
+    if (href.indexOf('partners.agoda') !== -1) return;
+    if (href.indexOf('hostelworld.com/affiliate') !== -1) return;
+    e.preventDefault();
+    window.open(
+      'https://www.awin1.com/cread.php?awinmid=18117&awinaffid=2820670&ued=' + encodeURIComponent(href),
+      '_blank'
+    );
+  });
+</script>
 </body>
 </html>
