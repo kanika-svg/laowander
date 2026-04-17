@@ -639,12 +639,21 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
   footer{padding:48px 20px 28px;}
   .footer-top{grid-template-columns:1fr 1fr;}
   .hf-1,.hf-2,.hf-3{display:none;}
+  /* Fix 2: hide CTA button on mobile — drawer has it */
+  .nav-cta{display:none;}
+  /* Fix 3: reduce full-screen hero height so less empty space shows below content */
+  .hero{min-height:90svh;}
+  /* Fix 4: collapse inline-styled 2-col flights section to single column */
+  #flights-feature{padding:60px 20px !important;}
+  #flights-feature > div > div{grid-template-columns:1fr !important;gap:40px !important;}
 }
 @media(max-width:500px){
   .dest-mosaic{grid-template-columns:1fr;grid-template-rows:repeat(5,220px);}
   .dest-card:first-child{grid-column:1;}
   .footer-top{grid-template-columns:1fr;}
   .hero h1{font-size:2.8rem;}
+  /* Fix 3: further reduce hero on small phones */
+  .hero{min-height:86svh;}
 }
 </style>
   <!-- Google Analytics -->
@@ -832,7 +841,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
 </div>
 
 <!-- FLIGHTS SECTION -->
-<section style="position:relative;z-index:1;padding:100px 64px;border-top:1px solid var(--rim);background:linear-gradient(180deg,var(--bg) 0%,#0e120e 50%,var(--bg) 100%);">
+<section id="flights-feature" style="position:relative;z-index:1;padding:100px 64px;border-top:1px solid var(--rim);background:linear-gradient(180deg,var(--bg) 0%,#0e120e 50%,var(--bg) 100%);">
   <div style="max-width:1200px;margin:0 auto;">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
       <div>
@@ -1240,7 +1249,8 @@ function doSearch(){
   const url=dest[activeCategory]||(q?'laowander-map.html':'#destinations');
   window.location.href=url;
 }
-document.getElementById('search-input').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
+/* Fix 1: guard against missing search-input element */
+const _si=document.getElementById('search-input');if(_si)_si.addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
 
 /* Countdown to next Bun Pi Mai — Apr 13 */
 (function(){

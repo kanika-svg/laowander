@@ -214,6 +214,11 @@ footer{background:var(--surface);border-top:1px solid var(--rim);padding:48px 64
   .search-swap:hover{transform:rotate(270deg);}
   footer{padding:40px 20px 24px;}
   .footer-top{grid-template-columns:1fr 1fr;gap:32px;}
+  /* Fix 5: reduce negative margin on mobile so search card doesn't visually
+     bleed into routes section; add top padding to airports section so it
+     has clear separation from the routes grid above it */
+  .search-section{margin-top:-20px;}
+  .airports-section{padding-top:60px;}
 }
 </style>
 <script type="application/ld+json">
