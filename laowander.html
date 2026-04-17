@@ -668,8 +668,13 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
 .happening-sub{font-size:.9rem;color:var(--soft);line-height:1.7;max-width:520px;}
 .happening-row-wrap{position:relative;}
 .happening-row-wrap::after{content:'';position:absolute;top:0;right:0;bottom:0;width:80px;background:linear-gradient(to right,transparent,var(--bg));pointer-events:none;z-index:2;}
-.happening-row{display:flex;gap:20px;padding:12px 64px 28px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.happening-row{display:flex;gap:20px;padding:12px 0 28px;padding-left:64px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:64px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
 .happening-row::-webkit-scrollbar{display:none;}
+.happening-row::after{content:'';flex:0 0 64px;}
+@media(max-width:860px){
+  .happening-row{padding-left:20px;scroll-padding-left:20px;}
+  .happening-row::after{flex:0 0 20px;}
+}
 .happening-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:44px;height:44px;background:rgba(26,24,20,.92);backdrop-filter:blur(12px);border:1px solid var(--gold-line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s,background .2s,color .2s;}
 .happening-arrow:hover{background:var(--gold);color:#111009;}
 .happening-arrow.arr-left{left:16px;}
@@ -696,7 +701,6 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
 @media(max-width:860px){
   .happening-section{padding:80px 0;}
   .happening-header{padding:0 20px;}
-  .happening-row{padding:12px 20px 28px;gap:16px;}
   .happening-row-wrap::after{display:none;}
   .happening-arrow{display:none;}
   .hcard{flex:0 0 80vw;}
@@ -903,7 +907,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 1: Boun Ok Phansa -->
       <a class="hcard" href="laowander-events.html">
         <div class="hcard-img">
-          <img src="https://images.unsplash.com/photo-1604608672516-f1b9b1d0e1d2?w=600&q=85" alt="Boun Ok Phansa lantern festival on the Mekong" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1533577116850-9cc66cad8a9b?w=600&q=85" alt="Boun Ok Phansa lantern festival on the Mekong" loading="lazy" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-event"><span class="pulse-dot"></span> Event · Live Soon</div>
@@ -918,7 +922,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 2: Kuang Si Falls -->
       <a class="hcard" href="laowander.html#destinations">
         <div class="hcard-img">
-          <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=600&q=85" alt="Kuang Si Falls turquoise tiered pools" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=600&q=85" alt="Kuang Si Falls turquoise tiered pools" loading="lazy" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-trending">Trending</div>
@@ -933,7 +937,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 3: That Luang Festival -->
       <a class="hcard" href="laowander-events.html">
         <div class="hcard-img">
-          <img src="https://images.unsplash.com/photo-1572983018437-b79b3c6f5c65?w=600&q=85" alt="That Luang golden stupa Vientiane" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=600&q=85" alt="That Luang golden stupa Vientiane" loading="lazy" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-event">Event</div>
@@ -948,7 +952,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 4: Plain of Jars -->
       <a class="hcard" href="laowander.html#destinations">
         <div class="hcard-img">
-          <img src="https://images.unsplash.com/photo-1569418447738-96856b87cf11?w=600&q=85" alt="Plain of Jars megalithic site Xiangkhouang" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1552084117-56a987666449?w=600&q=85" alt="Plain of Jars megalithic site Xiangkhouang" loading="lazy" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-muted">Must-See</div>
@@ -963,7 +967,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 5: Lao New Year / Pi Mai -->
       <a class="hcard" href="laowander-events.html">
         <div class="hcard-img">
-          <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=600&q=85" alt="Pi Mai Lao New Year water festival celebrations" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=600&q=85" alt="Pi Mai Lao New Year water festival celebrations" loading="lazy" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-event"><span class="pulse-dot"></span> Happening Now</div>
@@ -978,7 +982,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 6: Kong Lor Cave -->
       <a class="hcard" href="laowander.html#destinations">
         <div class="hcard-img">
-          <img src="https://images.unsplash.com/photo-1528372444986-efb2a3a53d4f?w=600&q=85" alt="Kong Lor cave underground river jungle" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1516638261969-0098c6a3ffb1?w=600&q=85" alt="Kong Lor cave underground river jungle" loading="lazy" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-outline">Hidden Gem</div>
@@ -1424,6 +1428,22 @@ const io=new IntersectionObserver(entries=>{
   });
 },{threshold:0.01, rootMargin:"0px 0px -50px 0px"});
 document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>io.observe(el));
+
+/* Happening Now card image fallback */
+function hcardFail(img){
+  img.style.display='none';
+  img.onerror=null;
+  const wrap=img.closest('.hcard-img');
+  if(!wrap)return;
+  wrap.style.background='linear-gradient(135deg,#1a1508 0%,#221c0a 55%,#181210 100%)';
+  if(!wrap.querySelector('.hcard-ph')){
+    const ph=document.createElement('div');
+    ph.className='hcard-ph';
+    ph.style.cssText='position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;';
+    ph.innerHTML='<span style="font-size:2rem;opacity:.4">✦</span><span style="font-size:.65rem;color:rgba(201,168,76,.5);font-weight:700;letter-spacing:.1em;text-transform:uppercase;">Photo coming soon</span>';
+    wrap.appendChild(ph);
+  }
+}
 
 /* Newsletter form */
 function handleNewsletterSubmit(e) {
