@@ -655,6 +655,55 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
   /* Fix 3: further reduce hero on small phones */
   .hero{min-height:86svh;}
 }
+
+/* ── HAPPENING NOW ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s var(--ease),transform .65s var(--ease);}
+.happening-section{position:relative;z-index:1;padding:100px 0;border-top:1px solid var(--rim);}
+.happening-header{padding:0 64px;margin-bottom:40px;}
+.happening-kicker{display:inline-flex;align-items:center;gap:8px;font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+@keyframes pulseDot{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.4);opacity:.55;}}
+.pulse-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:pulseDot 1.5s ease-in-out infinite;}
+.happening-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:900;line-height:1.05;letter-spacing:-.02em;margin-bottom:12px;}
+.happening-title em{font-style:italic;color:var(--gold);}
+.happening-sub{font-size:.9rem;color:var(--soft);line-height:1.7;max-width:520px;}
+.happening-row-wrap{position:relative;}
+.happening-row-wrap::after{content:'';position:absolute;top:0;right:0;bottom:0;width:80px;background:linear-gradient(to right,transparent,var(--bg));pointer-events:none;z-index:2;}
+.happening-row{display:flex;gap:20px;padding:12px 64px 28px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.happening-row::-webkit-scrollbar{display:none;}
+.happening-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:44px;height:44px;background:rgba(26,24,20,.92);backdrop-filter:blur(12px);border:1px solid var(--gold-line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s,background .2s,color .2s;}
+.happening-arrow:hover{background:var(--gold);color:#111009;}
+.happening-arrow.arr-left{left:16px;}
+.happening-arrow.arr-right{right:16px;}
+.happening-row-wrap:hover .happening-arrow{opacity:1;pointer-events:auto;}
+.hcard{flex:0 0 320px;height:420px;border-radius:22px;overflow:hidden;position:relative;scroll-snap-align:start;border:1px solid rgba(201,168,76,.12);cursor:pointer;transition:transform .35s var(--ease),border-color .3s,box-shadow .3s;text-decoration:none;color:inherit;display:block;}
+.hcard:hover{transform:scale(1.02);border-color:rgba(201,168,76,.45);box-shadow:0 0 0 1px rgba(201,168,76,.18),0 24px 60px rgba(0,0,0,.6);}
+.hcard-img{position:absolute;inset:0;width:100%;height:100%;}
+.hcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.hcard:hover .hcard-img img{transform:scale(1.06);}
+.hcard-img-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(17,16,9,.95) 0%,rgba(17,16,9,.55) 45%,rgba(17,16,9,.08) 72%);}
+.hcard-badge{position:absolute;top:14px;left:14px;z-index:2;display:flex;align-items:center;gap:6px;backdrop-filter:blur(10px) saturate(1.4);border-radius:20px;padding:4px 10px;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;}
+.hcard-badge.badge-event{background:rgba(201,168,76,.18);border:1px solid rgba(201,168,76,.45);color:var(--gold-bright);}
+.hcard-badge.badge-trending{background:rgba(255,248,235,.14);border:1px solid rgba(255,248,235,.28);color:var(--white);}
+.hcard-badge.badge-muted{background:rgba(107,101,96,.18);border:1px solid rgba(107,101,96,.38);color:var(--soft);}
+.hcard-badge.badge-outline{background:rgba(201,168,76,.07);border:1px solid var(--gold-line);color:var(--gold);}
+.hcard-tag{position:absolute;top:14px;right:14px;z-index:2;background:rgba(17,16,9,.75);backdrop-filter:blur(10px);border:1px solid var(--gold-line);border-radius:8px;padding:4px 10px;font-size:.58rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--gold-bright);}
+.hcard-body{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:20px 18px;}
+.hcard-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;line-height:1.2;color:var(--white);margin-bottom:8px;}
+.hcard-desc{font-size:.78rem;color:rgba(255,248,235,.65);line-height:1.6;margin-bottom:12px;}
+.hcard-cta{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:700;color:var(--gold);letter-spacing:.03em;}
+.hcard-cta .cta-arrow{display:inline-block;transition:transform .25s var(--ease);}
+.hcard:hover .hcard-cta .cta-arrow{transform:translateX(5px);}
+@media(max-width:860px){
+  .happening-section{padding:80px 0;}
+  .happening-header{padding:0 20px;}
+  .happening-row{padding:12px 20px 28px;gap:16px;}
+  .happening-row-wrap::after{display:none;}
+  .happening-arrow{display:none;}
+  .hcard{flex:0 0 80vw;}
+}
+@media(max-width:480px){
+  .hcard{flex:0 0 88vw;}
+}
 </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9NZFE7GFGB"></script>
@@ -839,6 +888,112 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
     </div>
   </div>
 </div>
+
+<!-- HAPPENING NOW IN LAOS -->
+<section class="happening-section reveal">
+  <div class="happening-header">
+    <div class="happening-kicker"><span class="pulse-dot"></span> Live in Laos</div>
+    <h2 class="happening-title">Happening Now &amp; <em>Trending</em></h2>
+    <p class="happening-sub">Events you can still catch, attractions travelers can't stop talking about</p>
+  </div>
+  <div class="happening-row-wrap">
+    <button class="happening-arrow arr-left" aria-label="Scroll left" onclick="this.closest('.happening-row-wrap').querySelector('.happening-row').scrollBy({left:-340,behavior:'smooth'})">&#8592;</button>
+    <div class="happening-row">
+
+      <!-- Card 1: Boun Ok Phansa -->
+      <a class="hcard" href="laowander-events.html">
+        <div class="hcard-img">
+          <img src="https://images.unsplash.com/photo-1604608672516-f1b9b1d0e1d2?w=600&q=85" alt="Boun Ok Phansa lantern festival on the Mekong" loading="lazy">
+          <div class="hcard-img-grad"></div>
+        </div>
+        <div class="hcard-badge badge-event"><span class="pulse-dot"></span> Event · Live Soon</div>
+        <div class="hcard-tag">Oct 2026</div>
+        <div class="hcard-body">
+          <div class="hcard-title">Boun Ok Phansa — Light Festival</div>
+          <div class="hcard-desc">Thousands of candle-lit boats float down the Mekong</div>
+          <div class="hcard-cta">Explore <span class="cta-arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- Card 2: Kuang Si Falls -->
+      <a class="hcard" href="laowander.html#destinations">
+        <div class="hcard-img">
+          <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?w=600&q=85" alt="Kuang Si Falls turquoise tiered pools" loading="lazy">
+          <div class="hcard-img-grad"></div>
+        </div>
+        <div class="hcard-badge badge-trending">Trending</div>
+        <div class="hcard-tag">Most-visited in Laos</div>
+        <div class="hcard-body">
+          <div class="hcard-title">Kuang Si Falls — Trending Attraction</div>
+          <div class="hcard-desc">Turquoise tiered pools, 45 min from Luang Prabang</div>
+          <div class="hcard-cta">Explore <span class="cta-arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- Card 3: That Luang Festival -->
+      <a class="hcard" href="laowander-events.html">
+        <div class="hcard-img">
+          <img src="https://images.unsplash.com/photo-1572983018437-b79b3c6f5c65?w=600&q=85" alt="That Luang golden stupa Vientiane" loading="lazy">
+          <div class="hcard-img-grad"></div>
+        </div>
+        <div class="hcard-badge badge-event">Event</div>
+        <div class="hcard-tag">Nov 2026</div>
+        <div class="hcard-body">
+          <div class="hcard-title">That Luang Festival</div>
+          <div class="hcard-desc">National festival at Laos' most sacred stupa</div>
+          <div class="hcard-cta">Explore <span class="cta-arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- Card 4: Plain of Jars -->
+      <a class="hcard" href="laowander.html#destinations">
+        <div class="hcard-img">
+          <img src="https://images.unsplash.com/photo-1569418447738-96856b87cf11?w=600&q=85" alt="Plain of Jars megalithic site Xiangkhouang" loading="lazy">
+          <div class="hcard-img-grad"></div>
+        </div>
+        <div class="hcard-badge badge-muted">Must-See</div>
+        <div class="hcard-tag">UNESCO World Heritage</div>
+        <div class="hcard-body">
+          <div class="hcard-title">Plain of Jars — Must-See</div>
+          <div class="hcard-desc">2,000-year-old megalithic mystery in Xiangkhouang</div>
+          <div class="hcard-cta">Explore <span class="cta-arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- Card 5: Lao New Year / Pi Mai -->
+      <a class="hcard" href="laowander-events.html">
+        <div class="hcard-img">
+          <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=600&q=85" alt="Pi Mai Lao New Year water festival celebrations" loading="lazy">
+          <div class="hcard-img-grad"></div>
+        </div>
+        <div class="hcard-badge badge-event"><span class="pulse-dot"></span> Happening Now</div>
+        <div class="hcard-tag">Apr 13–15</div>
+        <div class="hcard-body">
+          <div class="hcard-title">Lao New Year — Pi Mai</div>
+          <div class="hcard-desc">Three days of water fights and blessings across the country</div>
+          <div class="hcard-cta">Explore <span class="cta-arrow">→</span></div>
+        </div>
+      </a>
+
+      <!-- Card 6: Kong Lor Cave -->
+      <a class="hcard" href="laowander.html#destinations">
+        <div class="hcard-img">
+          <img src="https://images.unsplash.com/photo-1528372444986-efb2a3a53d4f?w=600&q=85" alt="Kong Lor cave underground river jungle" loading="lazy">
+          <div class="hcard-img-grad"></div>
+        </div>
+        <div class="hcard-badge badge-outline">Hidden Gem</div>
+        <div class="hcard-tag">7km underground river</div>
+        <div class="hcard-body">
+          <div class="hcard-title">Kong Lor Cave — Hidden Gem</div>
+          <div class="hcard-desc">Boat through one of Asia's longest river caves</div>
+          <div class="hcard-cta">Explore <span class="cta-arrow">→</span></div>
+        </div>
+      </a>
+
+    </div>
+    <button class="happening-arrow arr-right" aria-label="Scroll right" onclick="this.closest('.happening-row-wrap').querySelector('.happening-row').scrollBy({left:340,behavior:'smooth'})">&#8594;</button>
+  </div>
+</section>
 
 <!-- FLIGHTS SECTION -->
 <section id="flights-feature" style="position:relative;z-index:1;padding:100px 64px;border-top:1px solid var(--rim);background:linear-gradient(180deg,var(--bg) 0%,#0e120e 50%,var(--bg) 100%);">
