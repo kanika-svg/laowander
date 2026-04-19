@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<link rel="preload" as="image" href="hero-bg.webp" fetchpriority="high">
+<link rel="preload" as="image" href="hero-bg-mobile.webp" fetchpriority="high" media="(max-width: 767px)">
+<link rel="preload" as="image" href="hero-bg.webp" fetchpriority="high" media="(min-width: 768px)">
 <title>LaoWander — Laos Travel Guide | Hotels, Food & Itineraries</title>
 <meta name="description" content="Independent travel guide to Laos. Discover hotels, restaurants, festivals and hidden gems across Vientiane, Luang Prabang, Vang Vieng and the 4,000 Islands.">
 <meta name="keywords" content="Laos travel guide, Luang Prabang, Vang Vieng, Vientiane, Laos hotels, Laos food, things to do in Laos, Southeast Asia travel">
@@ -99,9 +100,13 @@ nav.scrolled{height:62px;background:rgba(17,16,9,0.82);backdrop-filter:blur(32px
 .hero-bg{position:absolute;inset:0;overflow:hidden;}
 .hero-bg-fallback{
   position:absolute;inset:0;
-  background:url('hero-bg.webp') center/cover no-repeat;
+  background-image:url('hero-bg-mobile.webp');
+  background-position:center;background-size:cover;background-repeat:no-repeat;
   z-index:0;
   transition:opacity 1.5s ease;
+}
+@media(min-width:768px){
+  .hero-bg-fallback{background-image:url('hero-bg.webp');}
 }
 .hero-bg-overlay{
   position:absolute;inset:0;z-index:1;
