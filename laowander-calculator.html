@@ -220,13 +220,6 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
     gtag('js', new Date());
     gtag('config', 'G-9NZFE7GFGB');
   </script>
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-9NZFE7GFGB"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9NZFE7GFGB');
-  </script> -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -695,7 +688,7 @@ People: ${currentPax}
 Total: ${sym}${total} ${currentCurrency}
 Daily per person: ${document.getElementById('cur-symbol-2').textContent}${document.getElementById('daily-val').textContent}
 
-Plan your own at laowander.com/laowander-calculator.html`;
+Plan your own at laowander.pages.dev/laowander-calculator.html`;
   navigator.clipboard.writeText(text).then(() => {
     const c = document.getElementById('share-confirm');
     c.style.display = 'block';
@@ -707,10 +700,6 @@ Plan your own at laowander.com/laowander-calculator.html`;
 window.addEventListener('scroll',()=>{
   document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
 },{passive:true});
-// Nav
-window.addEventListener('scroll', () => {
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
-}, {passive:true});
 function toggleNav(){document.getElementById('nav-toggle').classList.toggle('open');document.getElementById('nav-drawer').classList.toggle('open');}
 function closeNav(){document.getElementById('nav-toggle').classList.remove('open');document.getElementById('nav-drawer').classList.remove('open');}
 
