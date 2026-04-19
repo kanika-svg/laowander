@@ -44,7 +44,7 @@
 <style>
 /* ── PERFORMANCE ── */
 .dest-section,.feature-row,.gems-section,.tips-section,.ticker-section,
-.hgrid,.event-grid,.rest-grid,.sf-grid,footer{content-visibility:auto;contain-intrinsic-size:0 400px;}
+.happening-section,.hgrid,.event-grid,.rest-grid,.sf-grid,footer{content-visibility:auto;contain-intrinsic-size:0 400px;}
 
 :root {
   --gold:#C9A84C; --gold-bright:#E2BC65; --gold-dim:rgba(201,168,76,0.14);
@@ -710,21 +710,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
   .hcard{flex:0 0 88vw;}
 }
 </style>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9NZFE7GFGB"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9NZFE7GFGB');
-  </script>
-  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-9NZFE7GFGB"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-9NZFE7GFGB');
-  </script> -->
+  <!-- Google Analytics — deferred until after window load to not block first paint -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -905,7 +891,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 1: Boun Ok Phansa -->
       <a class="hcard" href="laowander-events.html">
         <div class="hcard-img">
-          <img src="about:blank" alt="Boun Ok Phansa lantern festival on the Mekong" loading="lazy" onerror="hcardFail(this)">
+          <img src="about:blank" alt="Boun Ok Phansa lantern festival on the Mekong" loading="lazy" decoding="async" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-event"><span class="pulse-dot"></span> Event · Live Soon</div>
@@ -920,7 +906,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 2: Kuang Si Falls -->
       <a class="hcard" href="laowander.html#destinations">
         <div class="hcard-img">
-          <img src="about:blank" alt="Kuang Si Falls turquoise tiered pools" loading="lazy" onerror="hcardFail(this)">
+          <img src="about:blank" alt="Kuang Si Falls turquoise tiered pools" loading="lazy" decoding="async" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-trending">Trending</div>
@@ -935,7 +921,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 3: That Luang Festival -->
       <a class="hcard" href="laowander-events.html">
         <div class="hcard-img">
-          <img src="about:blank" alt="That Luang golden stupa Vientiane" loading="lazy" onerror="hcardFail(this)">
+          <img src="about:blank" alt="That Luang golden stupa Vientiane" loading="lazy" decoding="async" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-event">Event</div>
@@ -950,7 +936,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 4: Plain of Jars -->
       <a class="hcard" href="laowander.html#destinations">
         <div class="hcard-img">
-          <img src="about:blank" alt="Plain of Jars megalithic site Xiangkhouang" loading="lazy" onerror="hcardFail(this)">
+          <img src="about:blank" alt="Plain of Jars megalithic site Xiangkhouang" loading="lazy" decoding="async" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-muted">Must-See</div>
@@ -965,7 +951,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 5: Lao New Year / Pi Mai -->
       <a class="hcard" href="laowander-events.html">
         <div class="hcard-img">
-          <img src="about:blank" alt="Pi Mai Lao New Year water festival celebrations" loading="lazy" onerror="hcardFail(this)">
+          <img src="about:blank" alt="Pi Mai Lao New Year water festival celebrations" loading="lazy" decoding="async" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-event"><span class="pulse-dot"></span> Happening Now</div>
@@ -980,7 +966,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 6: Kong Lor Cave -->
       <a class="hcard" href="laowander.html#destinations">
         <div class="hcard-img">
-          <img src="about:blank" alt="Kong Lor cave underground river jungle" loading="lazy" onerror="hcardFail(this)">
+          <img src="about:blank" alt="Kong Lor cave underground river jungle" loading="lazy" decoding="async" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-outline">Hidden Gem</div>
@@ -1587,6 +1573,18 @@ function goToItinerary() {
   const tab = tabMap[days] || '7day';
   window.location.href = `laowander-itineraries.html?tab=${tab}&style=${style}`;
 }
+</script>
+
+<script>
+/* Google Analytics — injected after window load so it never blocks first paint */
+window.addEventListener('load',function(){
+  var s=document.createElement('script');s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id=G-9NZFE7GFGB';
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag=gtag;gtag('js',new Date());gtag('config','G-9NZFE7GFGB');
+});
 </script>
 
 <script>
