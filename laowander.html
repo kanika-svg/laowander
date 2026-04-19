@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<link rel="preload" as="image" href="hero-bg.webp" fetchpriority="high">
 <title>LaoWander — Laos Travel Guide | Hotels, Food & Itineraries</title>
 <meta name="description" content="Independent travel guide to Laos. Discover hotels, restaurants, festivals and hidden gems across Vientiane, Luang Prabang, Vang Vieng and the 4,000 Islands.">
 <meta name="keywords" content="Laos travel guide, Luang Prabang, Vang Vieng, Vientiane, Laos hotels, Laos food, things to do in Laos, Southeast Asia travel">
@@ -38,10 +39,10 @@
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap"></noscript>
 <style>
 /* ── PERFORMANCE ── */
-img{content-visibility:auto;}
 .dest-section,.feature-row,.gems-section,.tips-section,.ticker-section,
 .hgrid,.event-grid,.rest-grid,.sf-grid,footer{content-visibility:auto;contain-intrinsic-size:0 400px;}
 
@@ -96,7 +97,6 @@ nav.scrolled{height:62px;background:rgba(17,16,9,0.82);backdrop-filter:blur(32px
 /* Hero always dark regardless of theme — video/photo covers it */
 
 .hero-bg{position:absolute;inset:0;overflow:hidden;}
-.hero-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
 .hero-bg-fallback{
   position:absolute;inset:0;
   background:url('hero-bg.webp') center/cover no-repeat;
@@ -776,9 +776,6 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
-    <video autoplay muted loop playsinline poster="hero-bg.webp" id="hero-video">
-      <source src="https://res.cloudinary.com/dzxg1vyi8/video/upload/v1774003272/hero-video.mp4_ag7dnt.mp4" type="video/mp4">
-    </video>
     <div class="hero-bg-fallback"></div>
     <div class="hero-bg-overlay"></div>
   </div>
@@ -821,7 +818,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
   <div class="quicknav-label">Where would you like to go?</div>
   <div class="quicknav-grid">
     <a href="laowander-hotels.html" class="qn-card">
-      <img class="qn-img" src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=600&q=85" alt="Hotels in Laos">
+      <img class="qn-img" src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=600&q=75" alt="Hotels in Laos" loading="lazy" decoding="async">
       <div class="qn-overlay"></div>
       <div class="qn-arrow">→</div>
       <div class="qn-body">
@@ -830,7 +827,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       </div>
     </a>
     <a href="laowander-food.html" class="qn-card">
-      <img class="qn-img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=85" alt="Food in Laos">
+      <img class="qn-img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=75" alt="Food in Laos" loading="lazy" decoding="async">
       <div class="qn-overlay"></div>
       <div class="qn-arrow">→</div>
       <div class="qn-body">
@@ -839,7 +836,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       </div>
     </a>
     <a href="laowander-events.html" class="qn-card">
-      <img class="qn-img" src="https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=600&q=85" alt="Events in Laos">
+      <img class="qn-img" src="https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=600&q=75" alt="Events in Laos" loading="lazy" decoding="async">
       <div class="qn-overlay"></div>
       <div class="qn-arrow">→</div>
       <div class="qn-body">
@@ -848,7 +845,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       </div>
     </a>
     <a href="laowander-flights.html" class="qn-card">
-      <img class="qn-img" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=85" alt="Flights to Laos">
+      <img class="qn-img" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=75" alt="Flights to Laos" loading="lazy" decoding="async">
       <div class="qn-overlay"></div>
       <div class="qn-arrow">→</div>
       <div class="qn-body">
@@ -908,7 +905,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 1: Boun Ok Phansa -->
       <a class="hcard" href="laowander-events.html">
         <div class="hcard-img">
-          <img src="https://source.unsplash.com/600x800/?lantern,festival,night" alt="Boun Ok Phansa lantern festival on the Mekong" loading="lazy" onerror="hcardFail(this)">
+          <img src="about:blank" alt="Boun Ok Phansa lantern festival on the Mekong" loading="lazy" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-event"><span class="pulse-dot"></span> Event · Live Soon</div>
@@ -923,7 +920,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 2: Kuang Si Falls -->
       <a class="hcard" href="laowander.html#destinations">
         <div class="hcard-img">
-          <img src="https://source.unsplash.com/600x800/?waterfall,turquoise,jungle" alt="Kuang Si Falls turquoise tiered pools" loading="lazy" onerror="hcardFail(this)">
+          <img src="about:blank" alt="Kuang Si Falls turquoise tiered pools" loading="lazy" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-trending">Trending</div>
@@ -938,7 +935,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 3: That Luang Festival -->
       <a class="hcard" href="laowander-events.html">
         <div class="hcard-img">
-          <img src="https://source.unsplash.com/600x800/?golden,temple,buddhist" alt="That Luang golden stupa Vientiane" loading="lazy" onerror="hcardFail(this)">
+          <img src="about:blank" alt="That Luang golden stupa Vientiane" loading="lazy" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-event">Event</div>
@@ -953,7 +950,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 4: Plain of Jars -->
       <a class="hcard" href="laowander.html#destinations">
         <div class="hcard-img">
-          <img src="https://source.unsplash.com/600x800/?ancient,ruins,archaeology" alt="Plain of Jars megalithic site Xiangkhouang" loading="lazy" onerror="hcardFail(this)">
+          <img src="about:blank" alt="Plain of Jars megalithic site Xiangkhouang" loading="lazy" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-muted">Must-See</div>
@@ -968,7 +965,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 5: Lao New Year / Pi Mai -->
       <a class="hcard" href="laowander-events.html">
         <div class="hcard-img">
-          <img src="https://source.unsplash.com/600x800/?water,splash,celebration" alt="Pi Mai Lao New Year water festival celebrations" loading="lazy" onerror="hcardFail(this)">
+          <img src="about:blank" alt="Pi Mai Lao New Year water festival celebrations" loading="lazy" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-event"><span class="pulse-dot"></span> Happening Now</div>
@@ -983,7 +980,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 6: Kong Lor Cave -->
       <a class="hcard" href="laowander.html#destinations">
         <div class="hcard-img">
-          <img src="https://source.unsplash.com/600x800/?cave,river,underground" alt="Kong Lor cave underground river jungle" loading="lazy" onerror="hcardFail(this)">
+          <img src="about:blank" alt="Kong Lor cave underground river jungle" loading="lazy" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-outline">Hidden Gem</div>
@@ -1038,7 +1035,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       </div>
       <div style="position:relative;">
         <div style="border-radius:24px;overflow:hidden;height:400px;position:relative;">
-          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=85" alt="Flights to Laos" style="width:100%;height:100%;object-fit:cover;">
+          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=75" alt="Flights to Laos" style="width:100%;height:100%;object-fit:cover;" loading="lazy" decoding="async">
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(17,16,9,.6) 0%,transparent 50%);"></div>
         </div>
         <div style="position:absolute;bottom:24px;left:24px;right:24px;background:rgba(17,16,9,.85);backdrop-filter:blur(16px);border:1px solid var(--gold-line);border-radius:16px;padding:18px 20px;">
@@ -1374,23 +1371,6 @@ window.addEventListener('scroll',()=>{
 function toggleNav(){document.getElementById('nav-toggle').classList.toggle('open');document.getElementById('nav-drawer').classList.toggle('open');}
 function closeNav(){document.getElementById('nav-toggle').classList.remove('open');document.getElementById('nav-drawer').classList.remove('open');}
 
-/* Force video play */
-(function(){
-  const v = document.getElementById('hero-video');
-  const fallback = document.querySelector('.hero-bg-fallback');
-  if (!v) return;
-  v.muted = true;
-  v.setAttribute('muted','');
-  const tryPlay = () => {
-    v.play().then(() => {
-      if (fallback) fallback.style.transition = 'opacity 1s';
-      if (fallback) fallback.style.opacity = '0';
-    }).catch(() => {});
-  };
-  if (v.readyState >= 2) tryPlay();
-  else v.addEventListener('canplay', tryPlay, {once:true});
-  v.load();
-})();
 
 let activeCategory='all';
 function setChip(el,cat){
