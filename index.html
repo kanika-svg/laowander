@@ -662,6 +662,35 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
   .hero{min-height:86svh;}
 }
 
+/* BUILT IN VIENTIANE BADGE */
+.vte-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(17,16,9,0.65);backdrop-filter:blur(16px) saturate(1.4);border:1px solid rgba(201,168,76,0.35);border-radius:30px;padding:6px 16px;font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-top:20px;animation:fadeUp .9s var(--ease) .65s both;transition:border-color .2s,box-shadow .2s;cursor:default;}
+.vte-badge:hover{border-color:rgba(201,168,76,.65);box-shadow:0 0 18px rgba(201,168,76,.18);}
+.vte-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+
+/* MEET THE CREATOR */
+.creator-section{position:relative;z-index:1;padding:100px 64px;border-top:1px solid var(--rim);}
+.creator-kicker{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.creator-kicker::after{content:'';width:40px;height:1px;background:var(--gold-line);}
+.creator-heading{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:900;letter-spacing:-.03em;line-height:1.05;margin-bottom:10px;}
+.creator-heading em{font-style:italic;color:var(--gold);}
+.creator-sub{font-size:.9rem;color:var(--soft);line-height:1.7;margin-bottom:48px;max-width:560px;}
+.creator-card{display:grid;grid-template-columns:2fr 3fr;background:var(--surface);border:1px solid var(--gold-line);border-radius:24px;overflow:hidden;max-width:860px;box-shadow:0 24px 64px rgba(0,0,0,.4);}
+.creator-photo{position:relative;min-height:320px;background:linear-gradient(135deg,#1a1508,#221a0e);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;border-right:1px solid var(--gold-line);}
+.creator-photo-diamond{width:28px;height:28px;background:var(--gold);transform:rotate(45deg);opacity:.4;}
+.creator-photo-label{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+.creator-info{padding:36px 40px;display:flex;flex-direction:column;justify-content:center;}
+.creator-info-kicker{display:inline-flex;align-items:center;gap:7px;font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.creator-name{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--white);margin-bottom:14px;letter-spacing:-.02em;line-height:1;}
+.creator-bio{font-size:.85rem;color:var(--soft);line-height:1.8;margin-bottom:20px;}
+.creator-link{font-size:.78rem;color:var(--gold);font-weight:600;border-bottom:1px solid var(--gold-line);display:inline;padding-bottom:1px;transition:color .2s,border-color .2s;}
+.creator-link:hover{color:var(--gold-bright);border-color:var(--gold);}
+@media(max-width:860px){
+  .creator-section{padding:80px 20px;}
+  .creator-card{grid-template-columns:1fr;}
+  .creator-photo{min-height:180px;border-right:none;border-bottom:1px solid var(--gold-line);}
+  .creator-info{padding:28px 24px;}
+}
+
 /* ── HAPPENING NOW ── */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s var(--ease),transform .65s var(--ease);}
 .happening-section{position:relative;z-index:1;padding:100px 0;border-top:1px solid var(--rim);}
@@ -800,6 +829,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <a href="#search-section" class="btn-primary">Start exploring →</a>
       <a href="laowander-guide.html" class="btn-ghost">Travel guide</a>
     </div>
+    <div class="vte-badge"><span class="vte-dot" style="animation:pulseDot 1.5s ease-in-out infinite;"></span>Built in Vientiane, Laos</div>
   </div>
   <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
 </section>
@@ -985,6 +1015,25 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
 
     </div>
     <button class="happening-arrow arr-right" aria-label="Scroll right" onclick="this.closest('.happening-row-wrap').querySelector('.happening-row').scrollBy({left:340,behavior:'smooth'})">&#8594;</button>
+  </div>
+</section>
+
+<!-- MEET THE CREATOR -->
+<section class="creator-section reveal">
+  <div class="creator-kicker">Who Built This</div>
+  <h2 class="creator-heading">A local guide, made by a <em>local</em></h2>
+  <p class="creator-sub">No agencies, no AI fluff. Just one person showing you the Laos they grew up loving.</p>
+  <div class="creator-card">
+    <div class="creator-photo">
+      <div class="creator-photo-diamond"></div>
+      <div class="creator-photo-label">Photo coming soon</div>
+    </div>
+    <div class="creator-info">
+      <div class="creator-info-kicker"><span class="pulse-dot"></span>&nbsp;Based in Vientiane</div>
+      <div class="creator-name">Kar</div>
+      <p class="creator-bio">Year 2 programming student in Vientiane, building LaoWander independently in evenings and weekends. Recommendations come from places I've actually been, hotels run by friends, and food I'd eat myself. If something on this site isn't honest, it shouldn't be here.</p>
+      <a href="laowander-about.html" class="creator-link">Read more on the about page →</a>
+    </div>
   </div>
 </section>
 
