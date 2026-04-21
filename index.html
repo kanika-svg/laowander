@@ -734,6 +734,48 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
 .hcard-cta{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:700;color:var(--gold);letter-spacing:.03em;}
 .hcard-cta .cta-arrow{display:inline-block;transition:transform .25s var(--ease);}
 .hcard:hover .hcard-cta .cta-arrow{transform:translateX(5px);}
+/* Text-only hcard variant — used when no image is available */
+.hcard.hcard-textonly {
+  background: linear-gradient(145deg, #1a1a1a 0%, #0d0d0d 100%);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 340px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.hcard.hcard-textonly::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+  opacity: 0.6;
+}
+.hcard.hcard-textonly:hover {
+  border-color: rgba(201, 168, 76, 0.5);
+  transform: translateY(-2px);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.hcard.hcard-textonly .hcard-badge {
+  position: static;
+  margin-bottom: 16px;
+  align-self: flex-start;
+}
+.hcard.hcard-textonly .hcard-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  margin-top: 20px;
+}
+.hcard.hcard-textonly .hcard-desc {
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
 @media(max-width:860px){
   .happening-section{padding:80px 0;}
   .happening-header{padding:0 20px;}
@@ -945,7 +987,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 1: Boun Ok Phansa -->
       <a class="hcard" href="laowander-events.html">
         <div class="hcard-img">
-          <img src="about:blank" alt="Boun Ok Phansa lantern festival on the Mekong" loading="lazy" decoding="async" onerror="hcardFail(this)">
+          <img src="https://images.unsplash.com/photo-1721038469210-ab34f071ec56?w=900&q=85&auto=format&fit=crop" alt="Boun Ok Phansa lantern festival on the Mekong" loading="lazy" decoding="async" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-event"><span class="pulse-dot"></span> Event · Live Soon</div>
@@ -960,7 +1002,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 2: Kuang Si Falls -->
       <a class="hcard" href="/#destinations">
         <div class="hcard-img">
-          <img src="about:blank" alt="Kuang Si Falls turquoise tiered pools" loading="lazy" decoding="async" onerror="hcardFail(this)">
+          <img src="https://images.unsplash.com/photo-1684995760289-8a9548dd1faa?w=900&q=85&auto=format&fit=crop" alt="Kuang Si Falls turquoise tiered pools" loading="lazy" decoding="async" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-trending">Trending</div>
@@ -975,7 +1017,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 3: That Luang Festival -->
       <a class="hcard" href="laowander-events.html">
         <div class="hcard-img">
-          <img src="about:blank" alt="That Luang golden stupa Vientiane" loading="lazy" decoding="async" onerror="hcardFail(this)">
+          <img src="https://images.unsplash.com/photo-1642085085078-2eac87feb4c7?w=900&q=85&auto=format&fit=crop" alt="That Luang golden stupa Vientiane" loading="lazy" decoding="async" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-event">Event</div>
@@ -988,11 +1030,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       </a>
 
       <!-- Card 4: Plain of Jars -->
-      <a class="hcard" href="/#destinations">
-        <div class="hcard-img">
-          <img src="about:blank" alt="Plain of Jars megalithic site Xiangkhouang" loading="lazy" decoding="async" onerror="hcardFail(this)">
-          <div class="hcard-img-grad"></div>
-        </div>
+      <a class="hcard hcard-textonly" href="/#destinations">
         <div class="hcard-badge badge-muted">Must-See</div>
         <div class="hcard-tag">UNESCO World Heritage</div>
         <div class="hcard-body">
@@ -1005,7 +1043,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <!-- Card 5: Lao New Year / Pi Mai -->
       <a class="hcard" href="laowander-events.html">
         <div class="hcard-img">
-          <img src="about:blank" alt="Pi Mai Lao New Year water festival celebrations" loading="lazy" decoding="async" onerror="hcardFail(this)">
+          <img src="https://images.unsplash.com/photo-1775527828020-e3deaa3e9a7b?w=900&q=85&auto=format&fit=crop" alt="Pi Mai Lao New Year water festival celebrations" loading="lazy" decoding="async" onerror="hcardFail(this)">
           <div class="hcard-img-grad"></div>
         </div>
         <div class="hcard-badge badge-event"><span class="pulse-dot"></span> Happening Now</div>
@@ -1018,11 +1056,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       </a>
 
       <!-- Card 6: Kong Lor Cave -->
-      <a class="hcard" href="/#destinations">
-        <div class="hcard-img">
-          <img src="about:blank" alt="Kong Lor cave underground river jungle" loading="lazy" decoding="async" onerror="hcardFail(this)">
-          <div class="hcard-img-grad"></div>
-        </div>
+      <a class="hcard hcard-textonly" href="/#destinations">
         <div class="hcard-badge badge-outline">Hidden Gem</div>
         <div class="hcard-tag">7km underground river</div>
         <div class="hcard-body">
