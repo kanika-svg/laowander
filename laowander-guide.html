@@ -499,6 +499,24 @@ footer {
   "author":{"@type":"Organization","name":"LaoWander"},"dateModified":"2025-01-01"
 }
 </script>
+<!-- Travelpayouts Drive — lazy loaded to protect Lighthouse score -->
+<script data-noptimize="1" data-cfasync="false">
+  (function () {
+    var loaded = false;
+    function loadTP() {
+      if (loaded) return;
+      loaded = true;
+      var script = document.createElement("script");
+      script.async = 1;
+      script.src = 'https://emrldtp.com/NTIwOTY4.js?t=520968';
+      document.head.appendChild(script);
+    }
+    setTimeout(loadTP, 2000);
+    ['scroll', 'mousemove', 'touchstart', 'keydown'].forEach(function(e) {
+      window.addEventListener(e, loadTP, { once: true, passive: true });
+    });
+  })();
+</script>
 </head>
 <body>
 
