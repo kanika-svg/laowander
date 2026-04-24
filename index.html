@@ -699,6 +699,25 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
 .vte-badge:hover{border-color:rgba(201,168,76,.65);box-shadow:0 0 18px rgba(201,168,76,.18);}
 .vte-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:pulseDot 1.5s ease-in-out infinite;}
 
+/* INTRO TO LAOS */
+.intro-section{padding:120px 64px;background:#141210;position:relative;}
+.intro-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.intro-kicker{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;}
+.intro-heading{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:400;line-height:1.05;letter-spacing:-.015em;margin-bottom:28px;color:var(--white);}
+.intro-heading em{color:var(--gold);font-style:italic;}
+.intro-text p{color:var(--muted);font-size:1.08rem;line-height:1.75;margin-bottom:18px;}
+.intro-text p.intro-lead{color:var(--soft);}
+.intro-pullquote{font-family:'Playfair Display',serif;font-size:1.4rem;font-style:italic;line-height:1.4;color:var(--gold);margin:32px 0 24px;padding-left:24px;border-left:2px solid var(--gold);font-weight:400;}
+.intro-sign{font-size:.72rem;letter-spacing:.3em;color:var(--muted);text-transform:uppercase;margin-top:24px;}
+.intro-image{border-radius:12px;overflow:hidden;}
+.intro-image img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;display:block;}
+@media (max-width:860px){
+  .intro-section{padding:80px 24px;}
+  .intro-grid{grid-template-columns:1fr;gap:40px;}
+  .intro-heading{font-size:2rem;}
+  .intro-pullquote{font-size:1.2rem;}
+}
+
 /* ── HAPPENING NOW ── */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s var(--ease),transform .65s var(--ease);}
 .happening-section{position:relative;z-index:1;padding:100px 0;border-top:1px solid var(--rim);}
@@ -871,30 +890,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
     <div class="hero-bg-overlay"></div>
   </div>
   <div class="hero-overlay"></div>
-  <div class="hero-floats">
-    <div class="hf hf-1">
-      <div class="hf-label">Best time to visit</div>
-      <div class="hf-value">Oct – Feb</div>
-      <div class="hf-sub"><span class="hf-dot"></span>Cool &amp; dry season</div>
-    </div>
-    <div class="hf hf-2">
-      <div class="hf-label">Traveller ratings</div>
-      <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;margin:4px 0">4.9 <span style="font-size:.75rem;color:var(--gold)">★★★★★</span></div>
-      <div class="hf-bar-wrap">
-        <div class="hf-bar-row">Luang Prabang <div class="hf-bar"><div class="hf-bar-fill" style="width:96%"></div></div></div>
-        <div class="hf-bar-row">Vang Vieng <div class="hf-bar"><div class="hf-bar-fill" style="width:88%"></div></div></div>
-        <div class="hf-bar-row">4,000 Islands <div class="hf-bar"><div class="hf-bar-fill" style="width:94%"></div></div></div>
-      </div>
-    </div>
-    <div class="hf hf-3">
-      <div class="hf-label">Budget guide</div>
-      <div class="hf-value">$25–40<span style="font-size:.65rem;font-weight:400;color:var(--muted)">/day</span></div>
-      <div class="hf-sub">All-in budget travel</div>
-    </div>
-  </div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">Southeast Asia's hidden gem</div>
-    <div class="vte-badge"><span class="vte-dot"></span>Built in Vientiane, Laos</div>
     <h1>Discover<br><em>Laos</em></h1>
     <p class="hero-sub">Temples wrapped in jungle mist. Rivers that move slow. A country that still feels like a secret worth keeping.</p>
     <div class="hero-actions">
@@ -948,40 +944,23 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
   </div>
 </div>
 
-<!-- STATS STRIP -->
-<div class="stats-strip">
-  <div class="stats-inner">
-    <div class="stat-item">
-      <div class="stat-num">4,000<em>+</em></div>
-      <div class="stat-label">Islands in the Mekong</div>
+<!-- INTRO TO LAOS -->
+<section class="intro-section reveal">
+  <div class="intro-grid">
+    <div class="intro-text">
+      <div class="intro-kicker">• A brief introduction</div>
+      <h2 class="intro-heading">A country that travels at <em>river pace.</em></h2>
+      <p class="intro-lead">Laos isn't loud. It doesn't compete with Thailand's beaches or Vietnam's coffee scene. What it has is time — and the quiet confidence of a place that's never needed to prove itself.</p>
+      <p>The Mekong runs the length of it, slow and brown and ancient. Saffron-robed monks walk the streets of Luang Prabang at dawn. Jungle swallows crumbling French villas. Limestone karsts rise straight out of rice paddies. And at the end of every day, everyone stops — for beer, for food, for the last light on the water.</p>
+      <p>Thirty days on a visa. A coffee for a dollar. A guesthouse on the Mekong for less than dinner back home.</p>
+      <blockquote class="intro-pullquote">Most travelers pass through Laos on the way to somewhere else. The ones who stay never quite leave.</blockquote>
+      <div class="intro-sign">— Written in Vientiane</div>
     </div>
-    <div class="stat-div"></div>
-    <div class="stat-item" style="transition-delay:.05s">
-      <div class="stat-num">$25<em>–40</em></div>
-      <div class="stat-label">Average daily budget</div>
-    </div>
-    <div class="stat-div"></div>
-    <div class="stat-item" style="transition-delay:.1s">
-      <div class="stat-num">30<em>days</em></div>
-      <div class="stat-label">Visa on arrival</div>
-    </div>
-    <div class="stat-div"></div>
-    <div class="stat-item" style="transition-delay:.15s">
-      <div class="stat-num">Oct<em>–Feb</em></div>
-      <div class="stat-label">Best time to visit</div>
-    </div>
-    <div class="stat-div"></div>
-    <div class="stat-item" style="transition-delay:.2s">
-      <div class="stat-num">4.9<em>★</em></div>
-      <div class="stat-label">Traveller rated</div>
-    </div>
-    <div class="stat-div"></div>
-    <div class="stat-item" style="transition-delay:.25s">
-      <div class="stat-num">7<em>UNESCO</em></div>
-      <div class="stat-label">Heritage sites</div>
+    <div class="intro-image">
+      <img src="https://images.unsplash.com/photo-1642085085078-2eac87feb4c7?w=1200&q=85&auto=format&fit=crop" alt="Pha That Luang stupa at night, Vientiane, Laos" loading="lazy" decoding="async">
     </div>
   </div>
-</div>
+</section>
 
 <!-- HAPPENING NOW IN LAOS -->
 <section class="happening-section reveal">
