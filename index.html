@@ -495,6 +495,18 @@ nav.scrolled{height:62px;background:rgba(17,16,9,0.82);backdrop-filter:blur(32px
   .dest-summary-grid{grid-template-columns:repeat(2,1fr);}
 }
 
+/* FEATURED STAY */
+.featured-stay{padding:120px 64px;background:#141210;}
+.featured-stay-inner{max-width:1200px;margin:0 auto;}
+.featured-stay-intro{text-align:center;max-width:640px;margin:0 auto 60px;}
+.featured-stay-kicker{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.featured-stay-heading{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:400;line-height:1.1;color:var(--white);margin-bottom:20px;letter-spacing:-.015em;}
+.featured-stay-heading em{color:var(--gold);font-style:italic;}
+.featured-stay-lead{color:var(--muted);font-size:1.05rem;max-width:540px;margin:0 auto;}
+@media (max-width:860px){
+  .featured-stay{padding:80px 24px;}
+}
+
 /* FEATURE ROWS */
 .feature-row{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:80px;padding:120px 64px;border-top:1px solid var(--rim);}
 .feature-row.flipped{direction:rtl;}
@@ -1058,131 +1070,6 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
   </div>
 </section>
 
-<!-- FLIGHTS SECTION -->
-<section id="flights-feature" style="position:relative;z-index:1;padding:100px 64px;border-top:1px solid var(--rim);background:linear-gradient(180deg,var(--bg) 0%,#0e120e 50%,var(--bg) 100%);">
-  <div style="max-width:1200px;margin:0 auto;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
-      <div>
-        <div style="font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px;"><span style="width:24px;height:1px;background:var(--gold-line);display:block;"></span>Getting here</div>
-        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:900;line-height:1.05;margin-bottom:16px;">Fly into <em style="color:var(--gold);font-style:italic;">Laos</em><br>from anywhere</h2>
-        <p style="font-size:.9rem;color:var(--soft);line-height:1.75;margin-bottom:32px;max-width:440px;">Laos has three international airports — Vientiane, Luang Prabang and Pakse. Compare flights from your city and find the best deal with Skyscanner.</p>
-        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:36px;">
-          <div style="display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--rim);border-radius:14px;padding:14px 18px;">
-            <span style="font-size:1.3rem;">🏙️</span>
-            <div>
-              <div style="font-size:.78rem;font-weight:700;color:var(--white);">Vientiane (VTE) — Capital</div>
-              <div style="font-size:.7rem;color:var(--muted);">Most connections · From Bangkok from $60</div>
-            </div>
-            <a href="https://www.skyscanner.net/flights-to/vte/cheap-flights-to-vientiane-wattay-international-airport.html" target="_blank" rel="noopener" style="margin-left:auto;font-size:.7rem;color:var(--gold);font-weight:700;white-space:nowrap;">Search →</a>
-          </div>
-          <div style="display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--rim);border-radius:14px;padding:14px 18px;">
-            <span style="font-size:1.3rem;">🏛️</span>
-            <div>
-              <div style="font-size:.78rem;font-weight:700;color:var(--white);">Luang Prabang (LPQ) — Heritage City</div>
-              <div style="font-size:.7rem;color:var(--muted);">Direct from BKK, SIN, HAN · From $85</div>
-            </div>
-            <a href="https://www.skyscanner.net/flights-to/lpq/cheap-flights-to-luang-prabang-international-airport.html" target="_blank" rel="noopener" style="margin-left:auto;font-size:.7rem;color:var(--gold);font-weight:700;white-space:nowrap;">Search →</a>
-          </div>
-          <div style="display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--rim);border-radius:14px;padding:14px 18px;">
-            <span style="font-size:1.3rem;">🌿</span>
-            <div>
-              <div style="font-size:.78rem;font-weight:700;color:var(--white);">Pakse (PKZ) — Southern Laos</div>
-              <div style="font-size:.7rem;color:var(--muted);">Gateway to 4,000 Islands · From BKK, SR</div>
-            </div>
-            <a href="https://www.skyscanner.net/flights-to/pkz/cheap-flights-to-pakse-international-airport.html" target="_blank" rel="noopener" style="margin-left:auto;font-size:.7rem;color:var(--gold);font-weight:700;white-space:nowrap;">Search →</a>
-          </div>
-        </div>
-        <a href="laowander-flights.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#111009;font-size:.85rem;font-weight:700;padding:14px 28px;border-radius:30px;transition:background .2s,transform .2s;" onmouseover="this.style.background='#E2BC65';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#C9A84C';this.style.transform='translateY(0)'">✈ View all flights & routes →</a>
-      </div>
-      <div style="position:relative;">
-        <div style="border-radius:24px;overflow:hidden;height:400px;position:relative;">
-          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=75" alt="Flights to Laos" style="width:100%;height:100%;object-fit:cover;" loading="lazy" decoding="async">
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(17,16,9,.6) 0%,transparent 50%);"></div>
-        </div>
-        <div style="position:absolute;bottom:24px;left:24px;right:24px;background:rgba(17,16,9,.85);backdrop-filter:blur(16px);border:1px solid var(--gold-line);border-radius:16px;padding:18px 20px;">
-          <div style="font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Popular route</div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div style="text-align:center;">
-              <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;">BKK</div>
-              <div style="font-size:.65rem;color:var(--muted);">Bangkok</div>
-            </div>
-            <div style="flex:1;display:flex;align-items:center;gap:4px;">
-              <div style="flex:1;height:1px;background:var(--rim);"></div>
-              <span style="color:var(--gold);font-size:.9rem;">✈</span>
-              <div style="flex:1;height:1px;background:var(--rim);"></div>
-            </div>
-            <div style="text-align:center;">
-              <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;">VTE</div>
-              <div style="font-size:.65rem;color:var(--muted);">Vientiane</div>
-            </div>
-            <div style="margin-left:auto;text-align:right;">
-              <div style="font-size:.65rem;color:var(--muted);">From</div>
-              <div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;color:var(--gold);">$60</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DON DET FEATURE -->
-<section class="dondet-section">
-  <div class="dondet-inner">
-    <div class="dondet-img-col">
-      <div class="dondet-img-main">
-        <img fetchpriority="low" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=900&q=85" alt="4,000 Islands Don Det Laos sunset Mekong">
-        <div class="dondet-img-badge">Si Phan Don · 4,000 Islands</div>
-      </div>
-      <div class="dondet-img-pair">
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1439130490301-25e322d88054?w=500&q=80" alt="Don Det island river">
-        <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=500&q=80" alt="Mekong river Laos">
-      </div>
-    </div>
-    <div class="dondet-content">
-      <div class="dondet-eyebrow">Southern Laos · Hidden Paradise</div>
-      <h2 class="dondet-title">The island where <em>time forgets to move.</em></h2>
-      <p class="dondet-desc">Don Det is unlike anywhere else in Southeast Asia. No cars. No rush. Just the Mekong lapping at the shore, hammocks strung between palm trees, and sunsets that turn the river to liquid gold. This is where the rare Irrawaddy dolphins swim at dawn, where a bicycle is all the transport you need, and where every meal costs less than a coffee back home.</p>
-      <p class="dondet-desc">Most travellers pass through. The smart ones stay for a week.</p>
-
-      <!-- PULL STAT ROW -->
-      <div class="dondet-stats">
-        <div class="dondet-stat">
-          <div class="ds-num">4,000<em>+</em></div>
-          <div class="ds-label">Islands in the Mekong</div>
-        </div>
-        <div class="dondet-stat">
-          <div class="ds-num">~80</div>
-          <div class="ds-label">Irrawaddy dolphins left</div>
-        </div>
-        <div class="dondet-stat">
-          <div class="ds-num">$2</div>
-          <div class="ds-label">Bicycle rental per day</div>
-        </div>
-      </div>
-
-      <!-- SUNIN HOTEL CARD -->
-      <div class="dondet-hotel">
-        <div class="dondet-hotel-badge">Where to stay</div>
-        <div class="dondet-hotel-body">
-          <div class="dondet-hotel-img">
-            <img loading="lazy" decoding="async" src="https://res.cloudinary.com/dzxg1vyi8/image/upload/c_fill,g_auto,ar_4:3,y_0.3/v1774005646/sunin_hotel_e1usdh.jpg" alt="Sunin Hotel Dondet Riverside">
-          </div>
-          <div class="dondet-hotel-info">
-            <div class="dondet-hotel-name">Sunin Hotel Dondet Riverside</div>
-            <div class="dondet-hotel-loc">📍 Don Det island · ★★★</div>
-            <div class="dondet-hotel-desc">Our personally recommended stay on the island. Beautifully designed with traditional Lao architecture, Mekong balcony views, a private jetty, and breakfast included. Staff rated 8.8 — some of the friendliest on the island.</div>
-            <div class="dondet-hotel-row">
-              <div class="dondet-hotel-price">From <strong>$45</strong>/night</div>
-              <span class="dondet-hotel-score">8.5 Very Good</span>
-            </div>
-            <a href="laowander-hotels.html" class="dondet-hotel-btn">View hotel & book →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- DESTINATIONS: 5 STORY BLOCKS -->
 <div id="destinations">
@@ -1345,6 +1232,36 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
   </section>
 
 </div>
+
+<!-- FEATURED STAY -->
+<section class="featured-stay reveal">
+  <div class="featured-stay-inner">
+    <div class="featured-stay-intro">
+      <div class="featured-stay-kicker">• Featured stay</div>
+      <h2 class="featured-stay-heading">Where we'd actually <em>stay.</em></h2>
+      <p class="featured-stay-lead">One handpicked place on Don Det, run by a local family. We know the hosts.</p>
+    </div>
+
+    <div class="dondet-hotel">
+      <div class="dondet-hotel-badge">Where to stay</div>
+      <div class="dondet-hotel-body">
+        <div class="dondet-hotel-img">
+          <img loading="lazy" decoding="async" src="https://res.cloudinary.com/dzxg1vyi8/image/upload/c_fill,g_auto,ar_4:3,y_0.3/v1774005646/sunin_hotel_e1usdh.jpg" alt="Sunin Hotel Dondet Riverside">
+        </div>
+        <div class="dondet-hotel-info">
+          <div class="dondet-hotel-name">Sunin Hotel Dondet Riverside</div>
+          <div class="dondet-hotel-loc">📍 Don Det island · ★★★</div>
+          <div class="dondet-hotel-desc">Our personally recommended stay on the island. Beautifully designed with traditional Lao architecture, Mekong balcony views, a private jetty, and breakfast included. Staff rated 8.8 — some of the friendliest on the island.</div>
+          <div class="dondet-hotel-row">
+            <div class="dondet-hotel-price">From <strong>$45</strong>/night</div>
+            <span class="dondet-hotel-score">8.5 Very Good</span>
+          </div>
+          <a href="laowander-hotels.html" class="dondet-hotel-btn">View hotel & book →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- FEATURE: HOTELS -->
 <div class="feature-row" id="hotels-feature">
