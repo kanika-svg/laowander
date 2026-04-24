@@ -449,6 +449,52 @@ nav.scrolled{height:62px;background:rgba(17,16,9,0.82);backdrop-filter:blur(32px
   border-color: rgba(201, 168, 76, 0.8);
 }
 
+/* DESTINATION STORIES */
+.dest-story{padding:120px 64px;position:relative;}
+.dest-story-warm{background:#141210;}
+.dest-story-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.dest-story-reverse{direction:rtl;}
+.dest-story-reverse > *{direction:ltr;}
+.dest-story-label{font-size:.72rem;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;margin-bottom:20px;}
+.dest-story-heading{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:400;line-height:1.1;margin-bottom:28px;color:var(--white);letter-spacing:-.015em;}
+.dest-story-heading em{color:var(--gold);font-style:italic;}
+.dest-story-text p{color:var(--muted);font-size:1.05rem;line-height:1.75;margin-bottom:18px;}
+.dest-story-text p em{color:var(--gold);font-style:italic;}
+.dest-story-stats{display:flex;gap:32px;margin-top:32px;padding-top:24px;border-top:1px solid rgba(232,227,213,.08);flex-wrap:wrap;}
+.dest-stat{display:flex;flex-direction:column;gap:2px;}
+.dest-stat-value{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold);}
+.dest-stat-label{font-size:.72rem;letter-spacing:.15em;color:var(--muted);text-transform:uppercase;}
+.dest-story-cta{display:inline-block;margin-top:28px;background:var(--gold);color:#111009;font-weight:700;font-size:.85rem;letter-spacing:.04em;padding:12px 24px;border-radius:30px;transition:background .2s,transform .2s;}
+.dest-story-cta:hover{background:var(--gold-bright);transform:translateY(-1px);}
+.dest-story-image{border-radius:12px;overflow:hidden;}
+.dest-story-image img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;display:block;}
+@media (max-width:860px){
+  .dest-story{padding:80px 24px;}
+  .dest-story-grid,.dest-story-reverse{grid-template-columns:1fr;gap:40px;direction:ltr;}
+  .dest-story-heading{font-size:1.8rem;}
+  .dest-story-stats{gap:20px;}
+}
+
+/* SUMMARY GRID */
+.dest-summary{padding:120px 64px;background:#0a0a0a;}
+.dest-summary-intro{text-align:center;max-width:640px;margin:0 auto 60px;}
+.dest-summary-kicker{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.dest-summary-heading{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:400;line-height:1.1;color:var(--white);margin-bottom:20px;}
+.dest-summary-heading em{color:var(--gold);font-style:italic;}
+.dest-summary-lead{color:var(--muted);font-size:1.05rem;max-width:540px;margin:0 auto;}
+.dest-summary-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+.dest-summary-card{position:relative;height:280px;border-radius:8px;overflow:hidden;text-decoration:none;color:var(--white);display:block;}
+.dest-summary-card img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.22,1,.36,1);}
+.dest-summary-card:hover img{transform:scale(1.06);}
+.dest-summary-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0) 40%,rgba(10,10,10,.9) 100%);}
+.dest-summary-content{position:absolute;bottom:18px;left:18px;right:18px;}
+.dest-summary-content h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:400;color:var(--white);}
+.dest-summary-tag{font-size:.66rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:4px;}
+@media (max-width:860px){
+  .dest-summary{padding:80px 24px;}
+  .dest-summary-grid{grid-template-columns:repeat(2,1fr);}
+}
+
 /* FEATURE ROWS */
 .feature-row{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:80px;padding:120px 64px;border-top:1px solid var(--rim);}
 .feature-row.flipped{direction:rtl;}
@@ -1138,51 +1184,167 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
   </div>
 </section>
 
-<!-- DESTINATIONS -->
-<section class="dest-section" id="destinations">
-  <div class="dest-label">Where to go</div>
-  <div class="dest-header">
-    <h2 class="dest-title">Five cities.<br><em>Infinite</em> reasons to visit.</h2>
-    <a href="laowander-map.html" class="dest-view-all">View all on map →</a>
-  </div>
-  <div class="dest-mosaic">
-    <div class="dest-card">
-      <div class="dest-card-fallback" style="background:linear-gradient(135deg,#1e1508,#2d1f0a)">🏯</div>
-      <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&q=90" alt="Luang Prabang temples at dawn" onerror="this.style.opacity=0">
-      <div class="dest-card-grad"></div>
-      <div class="dest-card-body">
-        <div class="dest-card-tag">Most visited</div>
-        <div class="dest-card-name">Luang Prabang</div>
-        <div class="dest-card-sub">Gilded temples, French colonial streets and monks collecting alms at dawn. The most beautiful small city in Southeast Asia.</div>
-        <a href="https://klook.tpo.lv/8d4Ztpq7" target="_blank" rel="sponsored noopener" class="dest-cta">Book activities in Luang Prabang →</a>
+<!-- DESTINATIONS: 5 STORY BLOCKS -->
+<div id="destinations">
+
+  <!-- Story 01: Luang Prabang -->
+  <section class="dest-story dest-story-warm reveal">
+    <div class="dest-story-grid">
+      <div class="dest-story-text">
+        <div class="dest-story-label">01 · Most Visited</div>
+        <h2 class="dest-story-heading">Luang Prabang</h2>
+        <p>At 5:30 in the morning, the streets of Luang Prabang go quiet. Saffron-robed monks file out of every temple in long, silent lines, and locals kneel on the pavement to offer them rice. This ritual is called <em>Tak Bat</em>, and it's been happening here, unchanged, for more than six hundred years.</p>
+        <p>Once the royal capital of Laos, now a UNESCO World Heritage city, Luang Prabang is where French colonial villas meet gilded Buddhist temples on every corner. It's small enough to walk in an afternoon, old enough to feel preserved, and quiet enough — even now — that you can hear the Mekong moving.</p>
+        <p>Come for a weekend. End up staying a week. Go to Kuang Si Falls on day three.</p>
+        <div class="dest-story-stats">
+          <div class="dest-stat"><div class="dest-stat-value">33</div><div class="dest-stat-label">UNESCO sites</div></div>
+          <div class="dest-stat"><div class="dest-stat-value">60+</div><div class="dest-stat-label">Temples</div></div>
+          <div class="dest-stat"><div class="dest-stat-value">5:30am</div><div class="dest-stat-label">Tak Bat starts</div></div>
+        </div>
+        <a href="https://klook.tpo.lv/8d4Ztpq7" target="_blank" rel="sponsored noopener" class="dest-story-cta">Book activities in Luang Prabang →</a>
+      </div>
+      <div class="dest-story-image">
+        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1000&q=85&auto=format&fit=crop" alt="Luang Prabang at dawn" loading="lazy" decoding="async">
       </div>
     </div>
-    <div class="dest-card">
-      <div class="dest-card-fallback" style="background:linear-gradient(135deg,#0a1a12,#102018)">🏛️</div>
-      <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1582990253092-15a33e9fc5d0?w=700&q=85" alt="Pha That Luang Vientiane" onerror="this.style.opacity=0">
-      <div class="dest-card-grad"></div>
-      <div class="dest-card-body"><div class="dest-card-name">Vientiane</div><div class="dest-card-sub">The world's most laid-back capital.</div></div>
+  </section>
+
+  <!-- Story 02: Vientiane -->
+  <section class="dest-story reveal">
+    <div class="dest-story-grid dest-story-reverse">
+      <div class="dest-story-image">
+        <img src="https://images.unsplash.com/photo-1642085085078-2eac87feb4c7?w=1000&q=85&auto=format&fit=crop" alt="Pha That Luang, Vientiane" loading="lazy" decoding="async">
+      </div>
+      <div class="dest-story-text">
+        <div class="dest-story-label">02 · The Capital</div>
+        <h2 class="dest-story-heading">Vientiane</h2>
+        <p>Most capitals in Southeast Asia overwhelm you. Vientiane doesn't. It's probably the only capital in the region where the morning rush hour is less than twenty minutes, the tallest building is a Buddhist stupa, and the traffic politely stops for a family of ducks.</p>
+        <p>The French left their mark — baguettes, wide boulevards, coffee shops that take themselves seriously. The Lao made it their own. Come for Pha That Luang at sunset. Stay for the riverside beer gardens that stretch along the Mekong, where Thailand is just across the water and nobody's in a hurry.</p>
+        <p>A full day here is enough. A week will change the pace you live at.</p>
+        <div class="dest-story-stats">
+          <div class="dest-stat"><div class="dest-stat-value">~1M</div><div class="dest-stat-label">Population</div></div>
+          <div class="dest-stat"><div class="dest-stat-value">3</div><div class="dest-stat-label">Int'l airports</div></div>
+          <div class="dest-stat"><div class="dest-stat-value">$1.50</div><div class="dest-stat-label">BeerLao</div></div>
+        </div>
+      </div>
     </div>
-    <div class="dest-card">
-      <div class="dest-card-fallback" style="background:linear-gradient(135deg,#081418,#0a1c22)">🏔</div>
-      <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1570366583862-f91883984fde?w=700&q=85" alt="Vang Vieng karst mountains" onerror="this.style.opacity=0">
-      <div class="dest-card-grad"></div>
-      <div class="dest-card-body"><div class="dest-card-name">Vang Vieng</div><div class="dest-card-sub">Karst peaks, kayaking, hot air balloons.</div></div>
+  </section>
+
+  <!-- Story 03: Vang Vieng -->
+  <section class="dest-story dest-story-warm reveal">
+    <div class="dest-story-grid">
+      <div class="dest-story-text">
+        <div class="dest-story-label">03 · Adventure</div>
+        <h2 class="dest-story-heading">Vang Vieng</h2>
+        <p>Between Vientiane and Luang Prabang, the limestone karsts rise straight up from the rice paddies, and someone in the 1990s decided this was the perfect place for a river town. They were right.</p>
+        <p>Vang Vieng used to have a reputation. It's shed it. What's left is a small town on the Nam Song River where hot air balloons drift at 6am and 5pm, kayakers weave between karst formations, and the Blue Lagoons fill up with travelers who came for one night and stayed for four.</p>
+        <p>Take the morning balloon. Kayak in the afternoon. Watch the sunset balloons from the riverside. Repeat.</p>
+        <div class="dest-story-stats">
+          <div class="dest-stat"><div class="dest-stat-value">$100</div><div class="dest-stat-label">Balloon ride</div></div>
+          <div class="dest-stat"><div class="dest-stat-value">1 hr</div><div class="dest-stat-label">Train from Vientiane</div></div>
+          <div class="dest-stat"><div class="dest-stat-value">4+</div><div class="dest-stat-label">Blue Lagoons</div></div>
+        </div>
+      </div>
+      <div class="dest-story-image">
+        <img src="https://images.unsplash.com/photo-1570366583862-f91883984fde?w=1000&q=85&auto=format&fit=crop" alt="Vang Vieng karst mountains" loading="lazy" decoding="async">
+      </div>
     </div>
-    <div class="dest-card">
-      <div class="dest-card-fallback" style="background:linear-gradient(135deg,#161008,#201408)">🌊</div>
-      <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=700&q=85" alt="4000 Islands Mekong" onerror="this.style.opacity=0">
-      <div class="dest-card-grad"></div>
-      <div class="dest-card-body"><div class="dest-card-name">Pakse &amp; South</div><div class="dest-card-sub">Bolaven Plateau, 4,000 Islands, dolphins.</div></div>
+  </section>
+
+  <!-- Story 04: Nong Khiaw -->
+  <section class="dest-story reveal">
+    <div class="dest-story-grid dest-story-reverse">
+      <div class="dest-story-image">
+        <img src="https://images.unsplash.com/photo-1559628376-f3fe5f782a2e?w=1000&q=85&auto=format&fit=crop" alt="Nong Khiaw limestone cliffs" loading="lazy" decoding="async">
+      </div>
+      <div class="dest-story-text">
+        <div class="dest-story-label">04 · Hidden North</div>
+        <h2 class="dest-story-heading">Nong Khiaw</h2>
+        <p>Three hours north of Luang Prabang, the road ends at a bamboo bridge over the Nam Ou river, and the real Laos begins.</p>
+        <p>Nong Khiaw is what Vang Vieng was before anyone knew about Vang Vieng. Limestone cliffs plunge straight into a jade-green river. Boats go upstream to villages that don't have roads. Treks take you to viewpoints where the clouds sit below you. There are maybe five restaurants in town, and all of them are good.</p>
+        <p>Most travelers skip it. The ones who don't tell the others it's the best place they went in Laos.</p>
+        <div class="dest-story-stats">
+          <div class="dest-stat"><div class="dest-stat-value">3 hrs</div><div class="dest-stat-label">From Luang Prabang</div></div>
+          <div class="dest-stat"><div class="dest-stat-value">~2,500</div><div class="dest-stat-label">Population</div></div>
+          <div class="dest-stat"><div class="dest-stat-value">$15</div><div class="dest-stat-label">Riverside room</div></div>
+        </div>
+      </div>
     </div>
-    <div class="dest-card">
-      <div class="dest-card-fallback" style="background:linear-gradient(135deg,#0e1a0a,#142210)">🌿</div>
-      <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1559628376-f3fe5f782a2e?w=700&q=85" alt="Nong Khiaw limestone cliffs" onerror="this.style.opacity=0">
-      <div class="dest-card-grad"></div>
-      <div class="dest-card-body"><div class="dest-card-name">Nong Khiaw</div><div class="dest-card-sub">Limestone cliffs, river silence, no crowds.</div></div>
+  </section>
+
+  <!-- Story 05: Don Det -->
+  <section class="dest-story dest-story-warm reveal">
+    <div class="dest-story-grid">
+      <div class="dest-story-text">
+        <div class="dest-story-label">05 · Southern Paradise</div>
+        <h2 class="dest-story-heading">Don Det &amp; the 4,000 Islands</h2>
+        <p>At the very bottom of Laos, where the Mekong widens to 14 kilometers across, the river splits into thousands of islands. The Lao call this place <em>Si Phan Don</em>. Nobody knows the exact number. Nobody really cares.</p>
+        <p>Don Det is the island where time forgets to move. No cars. No rush. Just the Mekong lapping at the shore, hammocks strung between palm trees, and sunsets that turn the river to liquid gold. This is where the rare Irrawaddy dolphins swim at dawn, where a bicycle is all the transport you need, and where every meal costs less than a coffee back home.</p>
+        <p>Most travelers pass through. The smart ones stay for a week.</p>
+        <div class="dest-story-stats">
+          <div class="dest-stat"><div class="dest-stat-value">4,000+</div><div class="dest-stat-label">Islands</div></div>
+          <div class="dest-stat"><div class="dest-stat-value">~80</div><div class="dest-stat-label">Dolphins left</div></div>
+          <div class="dest-stat"><div class="dest-stat-value">$2</div><div class="dest-stat-label">Bicycle/day</div></div>
+        </div>
+      </div>
+      <div class="dest-story-image">
+        <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1000&q=85&auto=format&fit=crop" alt="Don Det sunset on the Mekong" loading="lazy" decoding="async">
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- Summary Grid: all regions at a glance -->
+  <section class="dest-summary reveal">
+    <div class="dest-summary-intro">
+      <div class="dest-summary-kicker">• Summary</div>
+      <h2 class="dest-summary-heading">Five regions. <em>Pick one.</em></h2>
+      <p class="dest-summary-lead">Or more than one. Most travelers need three weeks in Laos. Most plan for one.</p>
+    </div>
+    <div class="dest-summary-grid">
+      <a href="#" class="dest-summary-card">
+        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=500&q=80&auto=format&fit=crop" alt="Luang Prabang" loading="lazy" decoding="async">
+        <div class="dest-summary-overlay"></div>
+        <div class="dest-summary-content">
+          <div class="dest-summary-tag">Most Visited</div>
+          <h3>Luang Prabang</h3>
+        </div>
+      </a>
+      <a href="#" class="dest-summary-card">
+        <img src="https://images.unsplash.com/photo-1642085085078-2eac87feb4c7?w=500&q=80&auto=format&fit=crop" alt="Vientiane" loading="lazy" decoding="async">
+        <div class="dest-summary-overlay"></div>
+        <div class="dest-summary-content">
+          <div class="dest-summary-tag">The Capital</div>
+          <h3>Vientiane</h3>
+        </div>
+      </a>
+      <a href="#" class="dest-summary-card">
+        <img src="https://images.unsplash.com/photo-1570366583862-f91883984fde?w=500&q=80&auto=format&fit=crop" alt="Vang Vieng" loading="lazy" decoding="async">
+        <div class="dest-summary-overlay"></div>
+        <div class="dest-summary-content">
+          <div class="dest-summary-tag">Adventure</div>
+          <h3>Vang Vieng</h3>
+        </div>
+      </a>
+      <a href="#" class="dest-summary-card">
+        <img src="https://images.unsplash.com/photo-1559628376-f3fe5f782a2e?w=500&q=80&auto=format&fit=crop" alt="Nong Khiaw" loading="lazy" decoding="async">
+        <div class="dest-summary-overlay"></div>
+        <div class="dest-summary-content">
+          <div class="dest-summary-tag">Hidden Gem</div>
+          <h3>Nong Khiaw</h3>
+        </div>
+      </a>
+      <a href="#" class="dest-summary-card">
+        <img src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=500&q=80&auto=format&fit=crop" alt="Don Det" loading="lazy" decoding="async">
+        <div class="dest-summary-overlay"></div>
+        <div class="dest-summary-content">
+          <div class="dest-summary-tag">Southern Paradise</div>
+          <h3>Don Det &amp; Islands</h3>
+        </div>
+      </a>
+    </div>
+  </section>
+
+</div>
 
 <!-- FEATURE: HOTELS -->
 <div class="feature-row" id="hotels-feature">
