@@ -32,6 +32,7 @@
 
 <!-- Theme colour (browser tab / mobile) -->
 <meta name="theme-color" content="#C9A84C">
+<link rel="icon" type="image/png" href="assets/laowander-icon.png">
 <link rel="dns-prefetch" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -119,17 +120,14 @@ nav{position:fixed;inset:0 0 auto 0;z-index:300;display:flex;align-items:center;
 nav.scrolled{height:62px;background:rgba(17,16,9,0.82);backdrop-filter:blur(32px) saturate(1.6);border-bottom:1px solid rgba(201,168,76,0.09);box-shadow:0 4px 40px rgba(0,0,0,.5);}
 
 
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.45rem;
-  font-weight: 900;
-  color: var(--white);
-  flex-shrink: 0;
-  letter-spacing: -0.4px;
-  transition: opacity 0.2s;
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-icon{height:40px;width:auto;display:block;}
+.logo-text{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;letter-spacing:-.5px;color:var(--white);}
+.logo-text em{font-style:normal;color:var(--gold);}
+@media (max-width:860px){
+  .logo-icon{height:34px;}
+  .logo-text{font-size:1.25rem;}
 }
-.logo:hover { opacity: 0.8; }
-.logo em { font-style:normal; color: var(--gold); }
 
 .nav-links {
   list-style:none;
@@ -1205,7 +1203,10 @@ footer {
 
 <!-- ░░ NAV ░░ -->
 <nav id="nav">
-  <a href="/" class="logo">Lao<em>Wander</em></a>
+  <a href="/" class="logo">
+    <img src="assets/laowander-icon.png" alt="LaoWander" class="logo-icon">
+    <span class="logo-text">Lao<em>Wander</em></span>
+  </a>
   <ul class="nav-links" id="nav-links">
     <li><a href="/#destinations">Destinations</a></li>
     <li><a href="laowander-events.html">Events</a></li>

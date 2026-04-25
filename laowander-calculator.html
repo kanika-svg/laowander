@@ -10,6 +10,7 @@
 <meta name="description" content="Calculate your Laos trip budget instantly. Set travel style, duration and preferences — get a personalised daily budget estimate for your Laos trip.">
 <meta name="keywords" content="Laos budget calculator, how much does Laos cost, Laos travel budget, LAK to USD, Laos daily budget, cost of travel Laos 2025">
 <meta name="theme-color" content="#C9A84C">
+<link rel="icon" type="image/png" href="assets/laowander-icon.png">
 <link rel="canonical" href="https://laowander.pages.dev/laowander-calculator.html">
 <meta property="og:title" content="Laos Budget Calculator 2025 — LaoWander | Trip Cost Estimator">
 <meta property="og:description" content="Calculate your Laos trip budget instantly. Set travel style, duration and preferences — get a personalised daily budget estimate for your Laos trip.">
@@ -38,8 +39,14 @@ a{text-decoration:none;color:inherit;}
 /* NAV */
 nav{position:fixed;inset:0 0 auto 0;z-index:300;transition:background .4s,box-shadow .4s;display:flex;align-items:center;justify-content:space-between;padding:0 64px;height:76px;background:rgba(17,16,9,0.88);backdrop-filter:blur(28px) saturate(1.5);border-bottom:1px solid var(--rim);}
 nav.scrolled{background:rgba(17,16,9,0.92)!important;backdrop-filter:blur(24px);box-shadow:0 4px 32px rgba(0,0,0,.5);}
-.logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;letter-spacing:-.5px;}
-.logo em{font-style:normal;color:var(--gold);}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-icon{height:40px;width:auto;display:block;}
+.logo-text{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;letter-spacing:-.5px;color:var(--white);}
+.logo-text em{font-style:normal;color:var(--gold);}
+@media (max-width:860px){
+  .logo-icon{height:34px;}
+  .logo-text{font-size:1.25rem;}
+}
 .nav-links{list-style:none;display:flex;align-items:center;gap:2px;}
 .nav-links a{padding:6px 14px;font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,248,235,.55);border-radius:6px;transition:color .2s,background .2s;white-space:nowrap;}
 .nav-links a:hover{color:var(--white);background:rgba(255,248,235,.05);}
@@ -266,7 +273,10 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
 <body>
 
 <nav id="nav">
-  <a href="/" class="logo">Lao<em>Wander</em></a>
+  <a href="/" class="logo">
+    <img src="assets/laowander-icon.png" alt="LaoWander" class="logo-icon">
+    <span class="logo-text">Lao<em>Wander</em></span>
+  </a>
     <ul class="nav-links">
     <li><a href="/#destinations">Destinations</a></li>
     <li><a href="laowander-events.html">Events</a></li>

@@ -39,8 +39,14 @@ button{cursor:pointer;border:none;background:none;font-family:inherit;}
 
 /* NAV */
 nav{position:fixed;inset:0 0 auto 0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:68px;background:rgba(17,16,9,0.92);backdrop-filter:blur(32px) saturate(1.6);border-bottom:1px solid var(--rim);}
-.logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;letter-spacing:-.5px;}
-.logo em{color:var(--gold);font-style:normal;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.logo-icon{height:40px;width:auto;display:block;}
+.logo-text{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;letter-spacing:-.5px;color:var(--white);}
+.logo-text em{font-style:normal;color:var(--gold);}
+@media (max-width:860px){
+  .logo-icon{height:34px;}
+  .logo-text{font-size:1.25rem;}
+}
 .nav-links{list-style:none;display:flex;align-items:center;gap:2px;}
 .nav-links a{padding:6px 12px;font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,248,235,.55);border-radius:6px;transition:color .2s,background .2s;white-space:nowrap;}
 .nav-links a:hover{color:var(--white);background:rgba(255,248,235,.07);}
@@ -205,11 +211,15 @@ nav{position:fixed;inset:0 0 auto 0;z-index:300;display:flex;align-items:center;
     });
   })();
 </script>
+<link rel="icon" type="image/png" href="assets/laowander-icon.png">
 </head>
 <body>
 
 <nav>
-  <a href="/" class="logo">Lao<em>Wander</em></a>
+  <a href="/" class="logo">
+    <img src="assets/laowander-icon.png" alt="LaoWander" class="logo-icon">
+    <span class="logo-text">Lao<em>Wander</em></span>
+  </a>
   <ul class="nav-links">
     <li><a href="/">Destinations</a></li>
     <li><a href="laowander-events.html">Events</a></li>
