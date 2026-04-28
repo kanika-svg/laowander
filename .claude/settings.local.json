@@ -9,7 +9,9 @@
       "Bash(git mv *)",
       "Bash(git rm *)",
       "Bash(sed -i '/<url><loc>https:\\\\/\\\\/laowander\\\\.pages\\\\.dev\\\\/laowander\\\\.html<\\\\/loc><\\\\/url>/d' sitemap.xml)",
-      "Bash(sed -i 's|https://laowander\\\\.pages\\\\.dev/laowander\\\\.html|https://laowander.pages.dev/|g' laowander-sitemap.xml)"
+      "Bash(sed -i 's|https://laowander\\\\.pages\\\\.dev/laowander\\\\.html|https://laowander.pages.dev/|g' laowander-sitemap.xml)",
+      "Bash(git *)",
+      "Bash(del *)"
     ]
   }
 }
