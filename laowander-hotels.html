@@ -658,6 +658,16 @@ input[type=range]::-moz-range-thumb {
   flex-direction:column;
   gap:5px;
 }
+.photo-attr {
+  position:absolute;
+  bottom:8px; right:8px;
+  background:rgba(0,0,0,0.5);
+  color:rgba(255,248,235,0.85);
+  font-size:10px;
+  border-radius:4px;
+  padding:3px 8px;
+  pointer-events:none;
+}
 .tag-type {
   background: rgba(20,18,16,0.75);
   backdrop-filter:blur(8px);
@@ -1352,6 +1362,7 @@ footer {
         <div class="hc-img">
           <div class="feat-label">✦ Featured Stay · Friend's Pick</div>
           <img loading="lazy" decoding="async" src="https://res.cloudinary.com/dzxg1vyi8/image/upload/c_fill,g_auto,ar_16:9,y_0.3/v1774005646/sunin_hotel_e1usdh.jpg" alt="Sunin Hotel Dondet Riverside" onerror="imgFail(this)">
+          <span class="photo-attr">Photo: Sunin Hotel</span>
           <div class="hc-tags">
             <span class="tag-type" style="background:var(--gold);color:#111009;">💛 Friend's Pick</span>
             <span class="tag-type">Don Det</span>
@@ -1382,7 +1393,7 @@ footer {
             <div class="hc-actions">
               <div class="score-row"><span class="score-lbl" style="color:var(--gold);font-size:0.72rem;">↗ See live ratings on Booking.com</span></div>
               <a href="https://www.booking.com/hotel/la/sunin-dondet-riverside-okhng.html" target="_blank" rel="noopener sponsored">
-                <button class="book-btn">Book on Booking.com <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg></button>
+                <button class="book-btn">View on Booking.com <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg></button>
               </a>
               <div class="aff-note">Affiliate link — we may earn a commission</div>
             </div>
@@ -1416,7 +1427,8 @@ footer {
       <!-- ── CARD 3 ── -->
       <div class="hc reveal" data-city="vientiane" data-price="95" data-stars="5" data-type="boutique" data-amenities="wifi,pool,spa,breakfast">
         <div class="hc-img">
-          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&q=85" alt="Settha Palace" data-fallback="vientiane" onerror="imgFail(this)">
+          <img loading="lazy" decoding="async" src="https://res.cloudinary.com/dzxg1vyi8/image/upload/v1777630289/setta_j6iogi.jpg" alt="Settha Palace Hotel exterior, Vientiane" data-fallback="vientiane" onerror="imgFail(this)">
+          <span class="photo-attr">Photo: Settha Palace via Booking.com</span>
           <div class="hc-tags"><span class="tag-type">Heritage Hotel</span></div>
           <div class="hc-save" onclick="toggleSave(this)">🤍</div>
         </div>
@@ -1442,7 +1454,7 @@ footer {
             <div class="hc-actions">
               <div class="score-row"><span class="score-lbl" style="color:var(--gold);font-size:0.72rem;">↗ See live ratings on Booking.com</span></div>
               <a href="https://www.booking.com/hotel/la/settha-palace.html" target="_blank" rel="noopener sponsored">
-                <button class="book-btn">Book on Booking.com <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg></button>
+                <button class="book-btn">View on Booking.com <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg></button>
               </a>
               <div class="aff-note">Affiliate link — we may earn a commission</div>
             </div>
@@ -1482,7 +1494,8 @@ footer {
       <!-- ── CARD 4 ── -->
       <div class="hc reveal" data-city="vangvieng" data-price="80" data-stars="4" data-type="resort" data-amenities="wifi,pool,breakfast,riverview">
         <div class="hc-img">
-          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1540541338537-1220205ac3f5?w=800&q=85" alt="Riverside Vang Vieng" data-fallback="vangvieng" onerror="imgFail(this)">
+          <img loading="lazy" decoding="async" src="https://res.cloudinary.com/dzxg1vyi8/image/upload/v1777630512/river_side_vv_xbppjo.jpg" alt="Riverside Boutique Resort pool and karst views, Vang Vieng" data-fallback="vangvieng" onerror="imgFail(this)">
+          <span class="photo-attr">Photo: Riverside Boutique Resort via Booking.com</span>
           <div class="hc-tags"><span class="tag-type">River Resort</span></div>
           <div class="hc-save" onclick="toggleSave(this)">🤍</div>
         </div>
@@ -1508,7 +1521,7 @@ footer {
             <div class="hc-actions">
               <div class="score-row"><span class="score-lbl" style="color:var(--gold);font-size:0.72rem;">↗ See live ratings on Booking.com</span></div>
               <a href="https://www.booking.com/searchresults.html?ss=Riverside+Boutique+Resort+Vang+Vieng" target="_blank" rel="noopener sponsored">
-                <button class="book-btn">Book on Booking.com <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg></button>
+                <button class="book-btn">View on Booking.com <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg></button>
               </a>
               <div class="aff-note">Affiliate link — we may earn a commission</div>
             </div>
@@ -1554,7 +1567,8 @@ footer {
       <!-- ── CARD 11 — BURASARI HERITAGE ── -->
       <div class="hc reveal" data-city="luangprabang" data-price="120" data-stars="5" data-type="boutique" data-amenities="wifi,spa,breakfast,riverview">
         <div class="hc-img">
-          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=85" alt="Burasari Heritage Luang Prabang" onerror="imgFail(this)">
+          <img loading="lazy" decoding="async" src="https://res.cloudinary.com/dzxg1vyi8/image/upload/v1777630437/burasari_z5up2k.jpg" alt="Burasari Heritage Hotel terrace, Luang Prabang" onerror="imgFail(this)">
+          <span class="photo-attr">Photo: Burasari Heritage via Booking.com</span>
           <div class="hc-tags"><span class="tag-type">Heritage Hotel</span></div>
           <div class="hc-save" onclick="toggleSave(this)">🤍</div>
         </div>
@@ -1580,7 +1594,7 @@ footer {
             <div class="hc-actions">
               <div class="score-row"><span class="score-lbl" style="color:var(--gold);font-size:0.72rem;">↗ See live ratings on Booking.com</span></div>
               <a href="https://www.booking.com/hotel/la/burasari-heritage.html" target="_blank" rel="noopener sponsored">
-                <button class="book-btn">Book on Booking.com <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg></button>
+                <button class="book-btn">View on Booking.com <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg></button>
               </a>
               <div class="aff-note">Affiliate link — we may earn a commission</div>
             </div>
@@ -1609,7 +1623,8 @@ footer {
       <!-- ── CARD 14 — SOFITEL LUANG PRABANG ── -->
       <div class="hc reveal" data-city="luangprabang" data-price="400" data-stars="5" data-type="resort" data-amenities="wifi,pool,spa,breakfast">
         <div class="hc-img">
-          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1563911302283-d2bc129e7570?w=800&q=85" alt="Sofitel Luang Prabang" onerror="imgFail(this)">
+          <img loading="lazy" decoding="async" src="https://res.cloudinary.com/dzxg1vyi8/image/upload/v1777630575/softiel_bl2hb0.jpg" alt="Sofitel Luang Prabang colonial mansion and pool" onerror="imgFail(this)">
+          <span class="photo-attr">Photo: Sofitel Luang Prabang via Booking.com</span>
           <div class="hc-tags"><span class="tag-type">Heritage Luxury</span></div>
           <div class="hc-save" onclick="toggleSave(this)">🤍</div>
         </div>
@@ -1627,7 +1642,7 @@ footer {
             <div class="price-block"><div class="price-from">From</div><div class="price-main"><sup>$</sup>400</div><div class="price-night">per night</div></div>
             <div class="hc-actions">
               <div class="score-row"><span class="score-lbl" style="color:var(--gold);font-size:0.72rem;">↗ See live ratings on Booking.com</span></div>
-              <a href="https://www.booking.com/searchresults.html?ss=Sofitel+Luang+Prabang" target="_blank" rel="noopener sponsored"><button class="book-btn">Book on Booking.com <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg></button></a>
+              <a href="https://www.booking.com/searchresults.html?ss=Sofitel+Luang+Prabang" target="_blank" rel="noopener sponsored"><button class="book-btn">View on Booking.com <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M2 6h8M6 2l4 4-4 4"/></svg></button></a>
               <div class="aff-note">Affiliate link — we may earn a commission</div>
             </div>
           </div>
