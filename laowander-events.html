@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Laos Events & Festivals 2025 — LaoWander | Full Calendar</title>
-<meta name="description" content="Complete Laos events calendar. Bun Pi Mai water festival, That Luang, boat racing and cultural experiences — month by month guide for 2025.">
-<meta name="keywords" content="Laos festivals, Bun Pi Mai, That Luang festival, Laos events 2025, things to do Laos, Lao New Year">
+<title>Laos Events & Festivals — Month-by-Month Guide</title>
+<meta name="description" content="Complete Laos events calendar. Bun Pi Mai water festival, That Luang, boat racing and cultural experiences — month by month guide.">
+<meta name="keywords" content="Laos festivals, Bun Pi Mai, That Luang festival, Laos events, things to do Laos, Lao New Year">
 <meta name="robots" content="index, follow">
 <meta name="author" content="LaoWander">
 <link rel="canonical" href="https://laowander.pages.dev/laowander-events.html">
@@ -13,8 +13,8 @@
 <!-- Open Graph / Facebook / WhatsApp -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://laowander.pages.dev/laowander-events.html">
-<meta property="og:title" content="Laos Events & Festivals 2025 — LaoWander | Full Calendar">
-<meta property="og:description" content="Complete Laos events calendar. Bun Pi Mai water festival, That Luang, boat racing and cultural experiences — month by month guide for 2025.">
+<meta property="og:title" content="Laos Events & Festivals — Month-by-Month Guide">
+<meta property="og:description" content="Complete Laos events calendar. Bun Pi Mai water festival, That Luang, boat racing and cultural experiences — month by month guide.">
 <meta property="og:image" content="https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=1200&q=85">
 <meta property="og:image:alt" content="Lao festival lanterns floating on the Mekong river at night">
 <meta property="og:image:width" content="1200">
@@ -25,8 +25,8 @@
 <!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://laowander.pages.dev/laowander-events.html">
-<meta name="twitter:title" content="Events & Festivals in Laos 2025 — LaoWander | Bun Pi Mai, That Luang & More">
-<meta name="twitter:description" content="The complete Laos festival and events calendar. Water fights at Bun Pi Mai, candlelit boats at Ok Phansa, hot air balloons over Vang Vieng — 26 events across 12 months.">
+<meta name="twitter:title" content="Events & Festivals in Laos — LaoWander | Bun Pi Mai, That Luang & More">
+<meta name="twitter:description" content="Festivals, tours, and cultural experiences across Laos, organised by month.">
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=1200&q=85">
 <meta name="twitter:image:alt" content="Lao festival lanterns floating on the Mekong river at night">
 
@@ -235,7 +235,6 @@ nav.scrolled{height:62px;background:rgba(17,16,9,0.82);backdrop-filter:blur(32px
   transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .25s;
 }
 .ec:hover { transform:translateY(-6px); box-shadow:0 28px 60px rgba(0,0,0,.55); border-color:var(--gold-line); }
-.ec.featured { border-color:rgba(201,168,76,.22); background:linear-gradient(160deg,#1e1a0e 0%,var(--surface) 100%); }
 
 /* Image */
 .ec-img { position:relative; height:200px; overflow:hidden; flex-shrink:0; }
@@ -258,12 +257,6 @@ nav.scrolled{height:62px;background:rgba(17,16,9,0.82);backdrop-filter:blur(32px
   font-size:.6rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
   width:fit-content;
 }
-.ec-feat-tag {
-  background:var(--gold); color:#141210;
-  font-size:.6rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  padding:3px 9px; border-radius:20px; width:fit-content;
-}
-
 /* Save */
 .ec-save {
   position:absolute; top:12px; right:12px;
@@ -416,16 +409,16 @@ footer {
 {
   "@context": "https://schema.org",
   "@type": "EventSeries",
-  "name": "Laos Events & Festivals 2025 — LaoWander | Full Calendar",
-  "description": "Complete Laos events calendar. Bun Pi Mai water festival, That Luang, boat racing and cultural experiences — month by month guide for 2025.",
+  "name": "Laos Events & Festivals — Month-by-Month Guide",
+  "description": "Complete Laos events calendar. Bun Pi Mai water festival, That Luang, boat racing and cultural experiences — month by month guide.",
   "url": "https://laowander.pages.dev/laowander-events.html",
   "image": "https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=1200&q=85",
   "publisher": {
     "@type": "Organization",
     "name": "LaoWander",
-    "url": "https://laowander.pages.dev/laowander"
+    "url": "https://laowander.pages.dev"
   },
-  "location":{"@type":"Country","name":"Laos"},"organizer":{"@type":"Organization","name":"LaoWander"}
+  "location":{"@type":"Country","name":"Laos"}
 }
 </script>
 <!-- Travelpayouts Drive — lazy loaded to protect Lighthouse score -->
@@ -545,7 +538,7 @@ const EVENTS = [
   // ── JANUARY ──
   {
     id:'e01', month:1, day:1, title:'Boun Khoun Khao',
-    cat:'festival', loc:'Nationwide', featured:false,
+    cat:'festival', loc:'Nationwide',
     desc:'Rice harvest festival giving thanks for the season\'s abundance. Villages across Laos hold communal ceremonies, traditional music, and ceremonial offerings at local temples.',
     img:'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=700&q=85',
     gradient:'linear-gradient(135deg,#1e1508 0%,#2d1f0a 100%)',
@@ -554,8 +547,8 @@ const EVENTS = [
   },
   {
     id:'e02', month:1, day:15, title:'Luang Prabang Slow Boat Tour',
-    cat:'tour', loc:'Luang Prabang', featured:true,
-    desc:'Drift down the Mekong on a traditional wooden long-tail boat past limestone cliffs, fishing villages and the entrance to the Pak Ou Buddha Caves. One of the most scenic journeys in Southeast Asia.',
+    cat:'tour', loc:'Luang Prabang',
+    desc:'Drift down the Mekong on a traditional wooden long-tail boat past limestone cliffs, fishing villages and the entrance to the Pak Ou Buddha Caves. One of the more scenic boat journeys in northern Laos.',
     img:'https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?w=700&q=85',
     gradient:'linear-gradient(135deg,#0a1a12 0%,#0e2010 100%)',
     duration:'Full day', difficulty:null, groupSize:'2–12 pax', price:'$38',
@@ -563,7 +556,7 @@ const EVENTS = [
   },
   {
     id:'e03', month:1, day:20, title:'Monk Chat at Wat Sene',
-    cat:'cultural', loc:'Luang Prabang', featured:false,
+    cat:'cultural', loc:'Luang Prabang',
     desc:'Sit with English-speaking novice monks in an informal exchange about Buddhism, daily monastic life, and Lao culture. A genuinely moving and educational experience offered every morning.',
     img:'https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?w=700&q=85',
     gradient:'linear-gradient(135deg,#1e1508 0%,#2d1f0a 100%)',
@@ -573,17 +566,17 @@ const EVENTS = [
 
   // ── FEBRUARY ──
   {
-    id:'e04', month:2, day:5, title:'Makha Bucha Day',
-    cat:'festival', loc:'Vientiane & Nationwide', featured:false,
-    desc:'One of Buddhism\'s most sacred days. Thousands of worshippers gather at temples to make merit, listen to Dhamma teachings, and join candlelit processions circling the ordination halls at dusk.',
-    img:'https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=700&q=85',
+    id:'e04', month:2, day:null, title:'Makha Bucha Day',
+    cat:'festival', loc:'Vientiane & Nationwide',
+    desc:'One of Buddhism\'s most sacred days. Thousands of worshippers gather at temples to make merit, listen to Dhamma teachings, and join candlelit processions circling the ordination halls at dusk. Lunar calendar — exact date shifts each year, verify with Lao tourism sources before travel.',
+    img:'https://images.unsplash.com/photo-1545930902-3a79b7fc2ac7?w=700&q=85',
     gradient:'linear-gradient(135deg,#0a1208 0%,#0e1a0a 100%)',
     duration:'1 day', difficulty:null, groupSize:null, price:'Free',
     bookLink:null, emoji:'🕯️'
   },
   {
     id:'e05', month:2, day:14, title:'Vang Vieng Kayaking Adventure',
-    cat:'outdoor', loc:'Vang Vieng', featured:false,
+    cat:'outdoor', loc:'Vang Vieng',
     desc:'Paddle through the Nam Song valley, past towering karst mountains and through the famous Blue Lagoon cave. Suitable for all fitness levels — the scenery does the heavy lifting.',
     img:'https://images.unsplash.com/photo-1570366583862-f91883984fde?w=700&q=85',
     gradient:'linear-gradient(135deg,#081418 0%,#0a1a20 100%)',
@@ -592,7 +585,7 @@ const EVENTS = [
   },
   {
     id:'e06', month:2, day:20, title:'Lao Weaving Workshop',
-    cat:'cultural', loc:'Vientiane', featured:false,
+    cat:'cultural', loc:'Vientiane',
     desc:'Learn the ancient art of Lao silk weaving from master weavers in a traditional family workshop. Leave with a handwoven textile and a deep respect for Laos\'s most cherished craft.',
     img:'https://images.unsplash.com/photo-1592395701536-4e6da6a3958d?w=700&q=85',
     gradient:'linear-gradient(135deg,#1a1208 0%,#251808 100%)',
@@ -603,7 +596,7 @@ const EVENTS = [
   // ── MARCH ──
   {
     id:'e07', month:3, day:8, title:'Bolaven Plateau Cycling Tour',
-    cat:'outdoor', loc:'Pakse', featured:true,
+    cat:'outdoor', loc:'Pakse',
     desc:'Two-day cycling loop through coffee plantations, thundering waterfalls and Katu hilltribe villages across the Bolaven Plateau. A bucket-list ride through the most breathtaking highland scenery in southern Laos.',
     img:'https://images.unsplash.com/photo-1553708881-112abc53fe54?w=700&q=85',
     gradient:'linear-gradient(135deg,#0f1a0a 0%,#162010 100%)',
@@ -612,7 +605,7 @@ const EVENTS = [
   },
   {
     id:'e08', month:3, day:18, title:'Lao Cooking Class',
-    cat:'cultural', loc:'Luang Prabang', featured:false,
+    cat:'cultural', loc:'Luang Prabang',
     desc:'Visit the morning market with your chef, then master five classic dishes — laap, mok pa, tam mak hoong, khao niew and Lao herbal tea. The most delicious way to understand Lao culture.',
     img:'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=85',
     gradient:'linear-gradient(135deg,#1e1508 0%,#2d1f0a 100%)',
@@ -622,9 +615,9 @@ const EVENTS = [
 
   // ── APRIL ──
   {
-    id:'e09', month:4, day:13, title:'Bun Pi Mai — Lao New Year',
-    cat:'festival', loc:'Luang Prabang & Nationwide', featured:true,
-    desc:'The most spectacular festival in Laos. Three days of water-splashing celebrations, sand stupas built beside the Mekong, candlelit processions, and the ceremonial bathing of the Phra Bang Buddha image. The whole country transforms.',
+    id:'e09', month:4, day:'13–15', title:'Bun Pi Mai — Lao New Year',
+    cat:'festival', loc:'Luang Prabang & Nationwide',
+    desc:'The country\'s biggest annual celebration. Three days of water-splashing celebrations, sand stupas built beside the Mekong, candlelit processions, and the ceremonial bathing of the Phra Bang Buddha image. The whole country transforms. Annual fixed dates — official three-day public holiday.',
     img:'https://images.unsplash.com/photo-1559563362-c667ba5f5480?w=700&q=85',
     gradient:'linear-gradient(135deg,#0a1208 0%,#0e1a0a 100%)',
     duration:'3–5 days', difficulty:null, groupSize:null, price:'Free',
@@ -632,7 +625,7 @@ const EVENTS = [
   },
   {
     id:'e10', month:4, day:18, title:'Plain of Jars Day Tour',
-    cat:'tour', loc:'Phonsavan', featured:false,
+    cat:'tour', loc:'Phonsavan',
     desc:'Guided half-day tour across three sites of the mysterious Plain of Jars — ancient stone vessels scattered across an eerie plateau. Your guide brings 2,000 years of history to life.',
     img:'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=700&q=85',
     gradient:'linear-gradient(135deg,#181008 0%,#201408 100%)',
@@ -642,9 +635,9 @@ const EVENTS = [
 
   // ── MAY ──
   {
-    id:'e11', month:5, day:3, title:'Boun Bang Fai — Rocket Festival',
-    cat:'festival', loc:'Vientiane Region', featured:false,
-    desc:'Villagers launch homemade bamboo rockets into the sky to encourage the rains and ensure a good harvest. A raucous, colourful celebration combining Buddhist ceremony with spectacular pyrotechnics and Mor Lam music.',
+    id:'e11', month:5, day:null, title:'Boun Bang Fai — Rocket Festival',
+    cat:'festival', loc:'Vientiane Region',
+    desc:'Villagers launch homemade bamboo rockets into the sky to encourage the rains and ensure a good harvest. A raucous, colourful celebration combining Buddhist ceremony with spectacular pyrotechnics and Mor Lam music. Lunar calendar — exact date shifts each year, verify with Lao tourism sources before travel.',
     img:'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=700&q=85',
     gradient:'linear-gradient(135deg,#1a1208 0%,#251808 100%)',
     duration:'1–2 days', difficulty:null, groupSize:null, price:'Free',
@@ -652,7 +645,7 @@ const EVENTS = [
   },
   {
     id:'e12', month:5, day:20, title:'Nong Khiaw Trekking & Caves',
-    cat:'outdoor', loc:'Nong Khiaw', featured:false,
+    cat:'outdoor', loc:'Nong Khiaw',
     desc:'Trek through pristine jungle to the Pha Tok cave complex, used as a wartime refuge and now a haunting window into Laos\'s past. Finish with a swim in the Nam Ou river below the limestone cliffs.',
     img:'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=700&q=85',
     gradient:'linear-gradient(135deg,#0a1208 0%,#0e1a0a 100%)',
@@ -663,8 +656,8 @@ const EVENTS = [
   // ── JUNE ──
   {
     id:'e13', month:6, day:10, title:'4,000 Islands Sunset Cruise',
-    cat:'tour', loc:'Don Det, 4,000 Islands', featured:false,
-    desc:'Drift through the Si Phan Don archipelago on a wooden boat as the sun drops over Cambodia. Stop to swim in the Khon Phapheng Falls — the widest waterfall in Southeast Asia.',
+    cat:'tour', loc:'Don Det, 4,000 Islands',
+    desc:'Drift through the Si Phan Don archipelago on a wooden boat as the sun drops over Cambodia. Stop to view the Khon Phapheng Falls — Southeast Asia\'s largest waterfall by volume — from the bank.',
     img:'https://images.unsplash.com/photo-1582990253092-15a33e9fc5d0?w=700&q=85',
     gradient:'linear-gradient(135deg,#081418 0%,#0a1820 100%)',
     duration:'3 hours', difficulty:'Easy', groupSize:'2–10 pax', price:'$18',
@@ -672,7 +665,7 @@ const EVENTS = [
   },
   {
     id:'e14', month:6, day:22, title:'Tat Kuang Si Waterfall Hike',
-    cat:'outdoor', loc:'Luang Prabang', featured:false,
+    cat:'outdoor', loc:'Luang Prabang',
     desc:'Early morning guided hike to the famous turquoise tiered pools before the crowds arrive. Swim in the lower pools, spot rescued Asiatic black bears at the sanctuary, and take the forest trail back.',
     img:'https://images.unsplash.com/photo-1496318447583-f524534e9ce1?w=700&q=85',
     gradient:'linear-gradient(135deg,#081418 0%,#0a1a20 100%)',
@@ -682,9 +675,9 @@ const EVENTS = [
 
   // ── JULY ──
   {
-    id:'e15', month:7, day:3, title:'Boun Khao Phansa — Lent Begins',
-    cat:'festival', loc:'Nationwide', featured:false,
-    desc:'The beginning of Buddhist Lent. Monks enter a three-month retreat and laypeople bring offerings of candles and robes to temples. Candlelit processions illuminate Vientiane and Luang Prabang after dark.',
+    id:'e15', month:7, day:null, title:'Boun Khao Phansa — Lent Begins',
+    cat:'festival', loc:'Nationwide',
+    desc:'The beginning of Buddhist Lent. Monks enter a three-month retreat and laypeople bring offerings of candles and robes to temples. Candlelit processions illuminate Vientiane and Luang Prabang after dark. Lunar calendar — exact date shifts each year, verify with Lao tourism sources before travel.',
     img:'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=700&q=85',
     gradient:'linear-gradient(135deg,#1e1508 0%,#2d1f0a 100%)',
     duration:'1 day', difficulty:null, groupSize:null, price:'Free',
@@ -692,8 +685,8 @@ const EVENTS = [
   },
   {
     id:'e16', month:7, day:15, title:'Vang Vieng Hot Air Balloon',
-    cat:'outdoor', loc:'Vang Vieng', featured:true,
-    desc:'Float over the Nam Song valley at sunrise as mist rolls off the karst peaks below you. Arguably the most spectacular view in all of Laos — book weeks in advance as this sells out every morning.',
+    cat:'outdoor', loc:'Vang Vieng',
+    desc:'Float over the Nam Song valley at sunrise as mist rolls off the karst peaks below you. A stunning view across the karst landscape at sunrise — book weeks in advance as this sells out every morning.',
     img:'https://images.unsplash.com/photo-1559628376-f3fe5f782a2e?w=700&q=85',
     gradient:'linear-gradient(135deg,#0a1a12 0%,#0e2010 100%)',
     duration:'1 hour', difficulty:'Easy', groupSize:'Up to 8', price:'$120',
@@ -703,7 +696,7 @@ const EVENTS = [
   // ── AUGUST ──
   {
     id:'e17', month:8, day:12, title:'Mekong Fishing Village Tour',
-    cat:'tour', loc:'Vientiane', featured:false,
+    cat:'tour', loc:'Vientiane',
     desc:'Half-day boat journey to riverside fishing communities rarely visited by tourists. Watch fishermen haul nets at dawn, visit a traditional fish sauce producer, and share a family lunch of fresh Mekong catch.',
     img:'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=700&q=85',
     gradient:'linear-gradient(135deg,#1a1208 0%,#251808 100%)',
@@ -712,7 +705,7 @@ const EVENTS = [
   },
   {
     id:'e18', month:8, day:25, title:'Lao Indigo Dyeing Workshop',
-    cat:'cultural', loc:'Luang Prabang', featured:false,
+    cat:'cultural', loc:'Luang Prabang',
     desc:'Learn to create natural indigo dye from fermented indigofera plants, then hand-dye your own silk scarf using traditional Lao textile patterns. A meditative, hands-on craft experience with a beautiful keepsake.',
     img:'https://images.unsplash.com/photo-1444927714506-8492d94b4e3d?w=700&q=85',
     gradient:'linear-gradient(135deg,#1e1508 0%,#2d1f0a 100%)',
@@ -722,9 +715,9 @@ const EVENTS = [
 
   // ── SEPTEMBER ──
   {
-    id:'e19', month:9, day:8, title:'Boun Khao Salak',
-    cat:'festival', loc:'Nationwide', featured:false,
-    desc:'Ancestor remembrance festival in which offerings of food and goods are made at temples for the spirits of deceased relatives. One of Laos\'s most spiritually profound and visually atmospheric festivals.',
+    id:'e19', month:9, day:null, title:'Boun Khao Salak',
+    cat:'festival', loc:'Nationwide',
+    desc:'Ancestor remembrance festival in which offerings of food and goods are made at temples for the spirits of deceased relatives. One of Laos\'s most spiritually profound and visually atmospheric festivals. Lunar calendar — exact date shifts each year, verify with Lao tourism sources before travel.',
     img:'https://images.unsplash.com/photo-1509440159596-0249088772ff?w=700&q=85',
     gradient:'linear-gradient(135deg,#0a1208 0%,#0e1a0a 100%)',
     duration:'1 day', difficulty:null, groupSize:null, price:'Free',
@@ -732,8 +725,8 @@ const EVENTS = [
   },
   {
     id:'e20', month:9, day:20, title:'Thakhek Loop Motorbike Tour',
-    cat:'outdoor', loc:'Thakhek', featured:false,
-    desc:'The legendary 450km motorbike loop through Khammouane Province. Karst caves, jungle roads, ethnic villages and the Kong Lor cave river passage. Asia\'s greatest two-wheel adventure.',
+    cat:'outdoor', loc:'Thakhek',
+    desc:'The legendary 450km motorbike loop through Khammouane Province. Karst caves, jungle roads, ethnic villages and the Kong Lor cave river passage. One of Southeast Asia\'s iconic motorbike loops.',
     img:'https://images.unsplash.com/photo-1439130490301-25e322d88054?w=700&q=85',
     gradient:'linear-gradient(135deg,#181008 0%,#201408 100%)',
     duration:'3–4 days', difficulty:'Challenging', groupSize:'Solo or group', price:'$80',
@@ -742,9 +735,9 @@ const EVENTS = [
 
   // ── OCTOBER ──
   {
-    id:'e21', month:10, day:1, title:'Boun Ok Phansa — End of Lent',
-    cat:'festival', loc:'Nationwide', featured:false,
-    desc:'The end of Buddhist Lent brings three days of celebrations. Illuminated boats are floated on the Mekong at night, fireworks burst over the river, and the Boat Racing Festival begins with enormous longboat crews competing on the water.',
+    id:'e21', month:10, day:null, title:'Boun Ok Phansa — End of Lent',
+    cat:'festival', loc:'Nationwide',
+    desc:'The end of Buddhist Lent brings three days of celebrations. Illuminated boats are floated on the Mekong at night, fireworks burst over the river, and the Boat Racing Festival begins with enormous longboat crews competing on the water. Lunar calendar — exact date shifts each year, verify with Lao tourism sources before travel.',
     img:'https://images.unsplash.com/photo-1551218808-94e220e084d2?w=700&q=85',
     gradient:'linear-gradient(135deg,#1a1208 0%,#251808 100%)',
     duration:'3 days', difficulty:null, groupSize:null, price:'Free',
@@ -752,7 +745,7 @@ const EVENTS = [
   },
   {
     id:'e22', month:10, day:18, title:'Irrawaddy Dolphin Watching',
-    cat:'tour', loc:'4,000 Islands', featured:false,
+    cat:'tour', loc:'4,000 Islands',
     desc:'Dawn boat trip to spot the endangered Irrawaddy dolphins in the pools near Don Khon. Fewer than 90 remain in the Mekong — this is one of the last places on earth to see them.',
     img:'https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=700&q=85',
     gradient:'linear-gradient(135deg,#081418 0%,#0a1820 100%)',
@@ -762,9 +755,9 @@ const EVENTS = [
 
   // ── NOVEMBER ──
   {
-    id:'e23', month:11, day:12, title:'That Luang Festival',
-    cat:'festival', loc:'Vientiane', featured:true,
-    desc:'Laos\'s most important national and religious festival. Hundreds of monks receive alms at dawn around the golden That Luang stupa, followed by a week of trade fair, music, and a spectacular candlelit procession on the final night.',
+    id:'e23', month:11, day:null, title:'That Luang Festival',
+    cat:'festival', loc:'Vientiane',
+    desc:'Laos\'s most important national and religious festival. Hundreds of monks receive alms at dawn around the golden That Luang stupa, followed by a week of trade fair, music, and a spectacular candlelit procession on the final night. Lunar calendar — exact date shifts each year, verify with Lao tourism sources before travel.',
     img:'https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=700&q=85',
     gradient:'linear-gradient(135deg,#1a1208 0%,#251808 100%)',
     duration:'7 days', difficulty:null, groupSize:null, price:'Free',
@@ -772,7 +765,7 @@ const EVENTS = [
   },
   {
     id:'e24', month:11, day:25, title:'Luang Prabang Alms Ceremony',
-    cat:'cultural', loc:'Luang Prabang', featured:false,
+    cat:'cultural', loc:'Luang Prabang',
     desc:'Join respectfully at dawn as hundreds of monks in saffron robes walk in silence through the old town collecting alms. Guided tours provide the cultural context to experience tak bat meaningfully, not just as a spectacle.',
     img:'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=700&q=85',
     gradient:'linear-gradient(135deg,#1e1508 0%,#2d1f0a 100%)',
@@ -783,7 +776,7 @@ const EVENTS = [
   // ── DECEMBER ──
   {
     id:'e25', month:12, day:2, title:'Lao National Day',
-    cat:'festival', loc:'Vientiane', featured:false,
+    cat:'festival', loc:'Vientiane',
     desc:'Parades, performances and patriotic ceremony mark the founding of the Lao PDR. The streets of Vientiane fill with colour and the Mekong riverside comes alive with evening celebrations and traditional music.',
     img:'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=700&q=85',
     gradient:'linear-gradient(135deg,#1a1208 0%,#251808 100%)',
@@ -792,7 +785,7 @@ const EVENTS = [
   },
   {
     id:'e26', month:12, day:15, title:'New Year Elephant Festival',
-    cat:'cultural', loc:'Sayaboury', featured:false,
+    cat:'cultural', loc:'Sayaboury',
     desc:'The annual Elephant Festival brings together Laos\'s remaining elephant population for blessings, traditional parades and conservation education. A rare and unforgettable celebration of the nation\'s most beloved animal.',
     img:'https://images.unsplash.com/photo-1519046904884-53103b34b206?w=700&q=85',
     gradient:'linear-gradient(135deg,#0f1a0a 0%,#162010 100%)',
@@ -803,7 +796,7 @@ const EVENTS = [
   // ── JUNE ──
   {
     id:'e27', month:6, day:8, title:'Nong Khiaw Trekking Expedition',
-    cat:'outdoor', loc:'Nong Khiaw', featured:true,
+    cat:'outdoor', loc:'Nong Khiaw',
     desc:'Multi-day guided trek through the Nam Ou valley, staying with local hill tribe families in remote villages. Limestone karst, jungle rivers, and some of the most untouched landscapes left in Southeast Asia.',
     img:'https://images.unsplash.com/photo-1551782128-0c4e68d9413d?w=700&q=85',
     gradient:'linear-gradient(135deg,#0a1208 0%,#0e1a0a 100%)',
@@ -814,7 +807,7 @@ const EVENTS = [
   // ── AUGUST ──
   {
     id:'e28', month:8, day:15, title:'Bolaven Plateau Coffee Trail',
-    cat:'tour', loc:'Paksong, Pakse', featured:false,
+    cat:'tour', loc:'Paksong, Pakse',
     desc:'Guided tour of working coffee farms on the Bolaven Plateau — learn the full bean-to-cup journey from Arabica and Robusta plantations. Includes cupping session, farm lunch, and a bag of freshly roasted beans to take home.',
     img:'https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=700&q=85',
     gradient:'linear-gradient(135deg,#160e06 0%,#201408 100%)',
@@ -825,7 +818,7 @@ const EVENTS = [
   // ── SEPTEMBER ──
   {
     id:'e29', month:9, day:10, title:'Mekong Sunset River Cruise',
-    cat:'tour', loc:'Vientiane', featured:false,
+    cat:'tour', loc:'Vientiane',
     desc:'Board a traditional wooden boat as the sun sets over the Mekong, with Thailand\'s mountains on the opposite bank. Includes Lao appetisers, Beer Lao, and a local guide sharing stories of the river\'s history.',
     img:'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=700&q=85',
     gradient:'linear-gradient(135deg,#1a1208 0%,#251808 100%)',
@@ -869,19 +862,19 @@ function buildCard(ev) {
   const isFree = ev.price === 'Free';
 
   return `
-  <div class="ec${ev.featured?' featured':''} reveal" data-cat="${ev.cat}">
+  <div class="ec reveal" data-cat="${ev.cat}">
     <div class="ec-img">
       <div class="ec-cat-bar" style="background:${color}"></div>
       <img fetchpriority="high" decoding="async" src="${ev.img}" alt="${ev.title}" data-fallback="hotel" onerror="this.style.opacity=0">
       <div class="ec-img-fallback" style="position:absolute;inset:0;background:${ev.gradient};display:flex;align-items:center;justify-content:center;font-size:3.5rem;opacity:0.7;pointer-events:none">${ev.emoji}</div>
       <div class="ec-tags">
-        ${ev.featured?'<span class="ec-feat-tag">✦ Featured</span>':''}
         <span class="ec-cat-tag" style="border-color:${color}33;color:${color}">${label}</span>
       </div>
       <div class="ec-save" onclick="this.textContent=this.textContent==='🤍'?'❤️':'🤍'">🤍</div>
       <div class="ec-date-badge">
-        <span class="day">${ev.day}</span>
-        <span class="mon">${SHORT[ev.month-1]}</span>
+        ${ev.day !== null
+          ? `<span class="day">${ev.day}</span><span class="mon">${SHORT[ev.month-1]}</span>`
+          : `<span class="day" style="font-size:.65rem;letter-spacing:-.01em;line-height:1.2">${MONTHS[ev.month-1]}</span>`}
       </div>
     </div>
     <div class="ec-body">
@@ -927,7 +920,6 @@ function render() {
     sec.innerHTML = `
       <div class="month-heading">
         <span class="month-name">${name}</span>
-        <span class="month-year">2025</span>
         <span class="month-count">${monthEvents.length} event${monthEvents.length>1?'s':''}</span>
       </div>
       <div class="event-grid">
@@ -1043,7 +1035,7 @@ trackActiveMonth();
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">&copy; 2025 LaoWander. All rights reserved.</div>
+    <div class="footer-copy">&copy; 2026 LaoWander. All rights reserved.</div>
     <p class="footer-disclosure">LaoWander may earn a commission when you book through our partner links. This never affects the price you pay.</p>
     <div class="footer-socials">
       <div class="footer-social">&#120143;</div>
