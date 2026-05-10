@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Laos Travel Guide 2025 — LaoWander | Visas, Costs & Tips</title>
+<title>Laos Travel Guide — LaoWander | Visas, Money, Transport, Health & More</title>
 <meta name="description" content="Complete Laos travel guide. Visa on arrival, daily budget, best time to visit, getting around by train and boat — everything you need before you go.">
 <meta name="keywords" content="Laos travel guide, Laos visa, Laos cost of travel, when to visit Laos, getting around Laos, Laos-China railway, Laos budget">
 <meta name="robots" content="index, follow">
@@ -13,7 +13,7 @@
 <!-- Open Graph / Facebook / WhatsApp -->
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://laowander.pages.dev/laowander-guide.html">
-<meta property="og:title" content="Laos Travel Guide 2025 — LaoWander | Visas, Costs & Tips">
+<meta property="og:title" content="Laos Travel Guide — LaoWander | Visas, Money, Transport, Health & More">
 <meta property="og:description" content="Complete Laos travel guide. Visa on arrival, daily budget, best time to visit, getting around by train and boat — everything you need before you go.">
 <meta property="og:image" content="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1200&q=85">
 <meta property="og:image:alt" content="Buddhist monks walking past ancient temples in Laos at sunrise">
@@ -25,7 +25,7 @@
 <!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://laowander.pages.dev/laowander-guide.html">
-<meta name="twitter:title" content="Laos Travel Guide 2025 — LaoWander | Visas, Costs, Getting Around & More">
+<meta name="twitter:title" content="Laos Travel Guide — LaoWander | Visas, Money, Transport, Health & More">
 <meta name="twitter:description" content="Everything you need to know before visiting Laos. Visa on arrival, budget tips ($25–40/day), best time to visit, getting around by train and slow boat, culture and health advice.">
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1200&q=85">
 <meta name="twitter:image:alt" content="Buddhist monks walking past ancient temples in Laos at sunrise">
@@ -230,63 +230,6 @@ nav.scrolled{height:62px;background:rgba(17,16,9,0.82);backdrop-filter:blur(32px
 }
 .new-sidebar-btn:hover { background:var(--gold-bright); }
 
-/* ══ SIDEBAR ══ */
-.guide-sidebar {
-  padding-top:48px;
-}
-.guide-sidebar::-webkit-scrollbar{display:none;}
-.sidebar-inner {
-  max-width:240px;
-}
-.chapter-list {
-  display:flex;
-  flex-direction:column;
-  gap:2px;
-  margin-bottom:32px;
-}
-.chapter-link {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:9px 12px;
-  border-radius:9px;
-  font-size:.8rem;
-  font-weight:500;
-  color:var(--muted);
-  cursor:pointer;
-  transition:all .2s;
-  border:1px solid transparent;
-  text-decoration:none;
-}
-.chapter-link:hover { color:var(--white); background:rgba(255,248,235,.04); border-color:var(--rim); }
-.chapter-link.active { color:var(--gold-bright); background:var(--gold-dim); border-color:var(--gold-line); }
-.chapter-link .ch-icon { font-size:1rem; flex-shrink:0; width:20px; text-align:center; }
-.chapter-link .ch-num { font-size:.6rem; color:var(--muted); margin-left:auto; font-weight:700; }
-.chapter-link.active .ch-num { color:var(--gold); }
-
-.sidebar-label {
-  font-size:.6rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
-  color:var(--muted); margin-bottom:14px;
-  display:flex; align-items:center; gap:8px;
-}
-.sidebar-label::after { content:''; flex:1; height:1px; background:var(--rim); }
-
-.sidebar-card {
-  background:linear-gradient(135deg,#1e1a0e 0%,var(--surface) 100%);
-  border:1px solid var(--gold-line);
-  border-radius:var(--radius-md);
-  padding:18px;
-}
-.sidebar-card h4 { font-family:'Playfair Display',serif; font-size:.9rem; font-weight:700; margin-bottom:10px; color:var(--gold); }
-.sidebar-card p { font-size:.74rem; color:var(--soft); line-height:1.6; margin-bottom:12px; }
-.sidebar-cta {
-  display:block; width:100%; text-align:center;
-  background:var(--gold); color:#141210;
-  padding:9px; border-radius:20px;
-  font-size:.73rem; font-weight:700;
-  transition:background .2s,transform .2s var(--ease);
-}
-.sidebar-cta:hover { background:var(--gold-bright); transform:translateY(-1px); }
 
 /* ══ GUIDE CONTENT ══ */
 .guide-content { padding:48px 0 100px; min-width:0; overflow-wrap:break-word; }
@@ -431,7 +374,6 @@ nav.scrolled{height:62px;background:rgba(17,16,9,0.82);backdrop-filter:blur(32px
 /* ══ RESPONSIVE ══ */
 @media(max-width:1024px) {
   .guide-layout { padding:0 36px; gap:40px; grid-template-columns:1fr; }
-  .guide-sidebar { display:none; }
   .new-sidebar { display:none; }
   .hero-content { padding-left:36px; }
   .info-grid,.transport-grid { grid-template-columns:1fr; }
@@ -443,14 +385,12 @@ nav.scrolled{height:62px;background:rgba(17,16,9,0.82);backdrop-filter:blur(32px
   .nav-sep { display:none; }
   .nav-toggle { display:flex; }
   .guide-layout { grid-template-columns:1fr; padding:0 20px; gap:0; }
-  .guide-sidebar { display:none; }
   .new-sidebar { display:none; }
   .hero-content { padding:0 20px 32px; }
   .page-hero { height:290px; }
   .season-grid { grid-template-columns:1fr; }
 }
 @media(max-width:480px) {
-  .chapter-list { grid-template-columns:1fr; }
   .money-grid { grid-template-columns:repeat(2,1fr); }
 }
 
@@ -501,16 +441,16 @@ footer {
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "Laos Travel Guide 2025 — LaoWander | Visas, Costs & Tips",
+  "name": "Laos Travel Guide — LaoWander | Visas, Money, Transport, Health & More",
   "description": "Complete Laos travel guide. Visa on arrival, daily budget, best time to visit, getting around by train and boat — everything you need before you go.",
   "url": "https://laowander.pages.dev/laowander-guide.html",
   "image": "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1200&q=85",
   "publisher": {
     "@type": "Organization",
     "name": "LaoWander",
-    "url": "https://laowander.pages.dev/laowander"
+    "url": "https://laowander.pages.dev"
   },
-  "author":{"@type":"Organization","name":"LaoWander"},"dateModified":"2025-01-01"
+  "author":{"@type":"Organization","name":"LaoWander"},"dateModified":"2026-05-09"
 }
 </script>
 <!-- Travelpayouts Drive — lazy loaded to protect Lighthouse score -->
@@ -580,7 +520,7 @@ footer {
     <div class="hero-meta">
       <div class="hero-meta-item">9 chapters</div>
       <div class="hero-meta-item">15 min read</div>
-      <div class="hero-meta-item">Updated Jan 2025</div>
+      <div class="hero-meta-item">Updated May 2026</div>
     </div>
   </div>
 </div>
@@ -628,7 +568,7 @@ footer {
       <div class="info-grid">
         <div class="info-cell">
           <div class="ic-key">Visa on Arrival cost</div>
-          <div class="ic-val">$30–$42 USD</div>
+          <div class="ic-val">~$30–45 USD</div>
           <div class="ic-sub">Varies by nationality</div>
         </div>
         <div class="info-cell">
@@ -639,7 +579,7 @@ footer {
         <div class="info-cell">
           <div class="ic-key">e-Visa available</div>
           <div class="ic-val">Yes — recommended</div>
-          <div class="ic-sub">Apply at laoevisa.gov.la</div>
+          <div class="ic-sub">Apply at <a href="https://laoevisa.gov.la" target="_blank" rel="noopener">laoevisa.gov.la</a></div>
         </div>
         <div class="info-cell">
           <div class="ic-key">Passport validity</div>
@@ -652,20 +592,20 @@ footer {
         <div class="box-icon">ℹ</div>
         <div class="box-body">
           <div class="box-title">Pro Tip</div>
-          <div class="box-text">Apply for an <strong>e-Visa before you travel</strong> — it costs the same as VOA but saves you queuing time at the border, especially at busy Wattay Airport in Vientiane. Processing takes 3 business days.</div>
+          <div class="box-text">Apply for an <strong>e-Visa before you travel</strong> — it costs the same as VOA but saves you queuing time at the border, especially at busy Wattay Airport in Vientiane. Processing typically takes a few business days, but can be longer in peak season. Apply at least a week before travel.</div>
         </div>
       </div>
 
       <div class="prose">
         <p>ASEAN nationals (Thailand, Vietnam, Cambodia, Malaysia, Singapore, Philippines, Indonesia, Myanmar, Brunei) typically receive <strong>visa-free entry for 14–30 days</strong>. Check your country's specific agreement before travel.</p>
-        <p>Extensions of up to 60 additional days can be arranged at the Vientiane Immigration office on Rue Phon Kheng, or through a licensed travel agency for a small service fee.</p>
+        <p>Extensions of up to 60 additional days can be arranged at the Department of Immigration in Vientiane (verify current location before going), or through a licensed travel agency for a small service fee.</p>
       </div>
 
       <div class="box box-warn">
         <div class="box-icon">⚠️</div>
         <div class="box-body">
           <div class="box-title">Important</div>
-          <div class="box-text">Overstaying your visa incurs a fine of <strong>$10 USD per day</strong>. This is strictly enforced at land border crossings. Track your entry date carefully.</div>
+          <div class="box-text">Daily overstay fines apply — check current rates on the official Laos immigration site. Overstays are strictly enforced at land border crossings. Track your entry date carefully.</div>
         </div>
       </div>
     </section>
@@ -682,7 +622,6 @@ footer {
 
       <div class="pull-quote">
         <p>"Laos is one of Southeast Asia's best value destinations — a budget traveller can live well for $25–40 a day, while a mid-range trip rarely exceeds $80."</p>
-        <cite>— LaoWander Editorial</cite>
       </div>
 
       <div class="prose">
@@ -690,8 +629,8 @@ footer {
       </div>
 
       <div class="money-grid">
-        <div class="money-card"><div class="mv">~21,000</div><div class="mk">LAK per $1 USD</div></div>
-        <div class="money-card"><div class="mv">~580</div><div class="mk">LAK per Thai Baht</div></div>
+        <div class="money-card"><div class="mk">USD to LAK</div><div class="mv" style="font-size:.75rem;line-height:1.4;margin-top:4px">Rate fluctuates — check XE Currency or your bank's app on the day</div></div>
+        <div class="money-card"><div class="mk">THB to LAK</div><div class="mv" style="font-size:.75rem;line-height:1.4;margin-top:4px">Rate fluctuates — Thai Baht is widely accepted near the border in cash</div></div>
         <div class="money-card"><div class="mv">$1–3</div><div class="mk">Street food meal</div></div>
         <div class="money-card"><div class="mv">$5–12</div><div class="mk">Restaurant meal</div></div>
         <div class="money-card"><div class="mv">$8–25</div><div class="mk">Budget guesthouse</div></div>
@@ -854,7 +793,7 @@ footer {
             <div class="tc-name">Domestic Flights</div>
             <div class="tc-price">From $60</div>
           </div>
-          <div class="tc-desc">Lao Airlines and Thai AirAsia connect Vientiane with Luang Prabang, Pakse and Savannakhet. Worth it for long distances, though schedules can be unreliable.</div>
+          <div class="tc-desc">Lao Airlines and Lao Skyway connect Vientiane with Luang Prabang, Pakse and Savannakhet. Worth it for long distances, though schedules can be unreliable.</div>
           <div class="tc-pros">
             <span class="tc-pro">Time-saving</span>
             <span class="tc-pro">North–South links</span>
@@ -866,7 +805,7 @@ footer {
       <div class="box box-tip">
         <div class="box-icon">🚂</div>
         <div class="box-body">
-          <div class="box-title">New in 2022 — The Rail Revolution</div>
+          <div class="box-title">The Laos-China Railway</div>
           <div class="box-text">The <strong>Laos-China Railway</strong> has transformed travel in northern Laos. The Vientiane–Luang Prabang journey dropped from 10+ hours by bus to <strong>under 2 hours by train</strong>. Book tickets at the station or via the LCR app — trains fill up on weekends.</div>
         </div>
       </div>
@@ -875,7 +814,7 @@ footer {
         <div class="box-icon">🇹🇭</div>
         <div class="box-body">
           <div class="box-title">Coming from Thailand?</div>
-          <div class="box-text">Train #133 now runs <strong>direct from Bangkok to Vientiane overnight</strong> with no border changeover. We've compared the train against flights and overnight buses in detail. <a href="bangkok-to-vientiane.html" style="color:var(--gold);border-bottom:1px solid var(--gold-line);">Read our Bangkok → Vientiane guide →</a></div>
+          <div class="box-text">A direct overnight train from Bangkok to Vientiane now runs without border changeovers — see our <a href="bangkok-to-vientiane.html" style="color:var(--gold);border-bottom:1px solid var(--gold-line);">Bangkok-to-Vientiane guide</a> for current details.</div>
         </div>
       </div>
     </section>
@@ -892,7 +831,7 @@ footer {
 
       <div class="pull-quote">
         <p>"Sabai dee — 'it's okay, no problem'. The Lao concept of bor pen nyang (no worries) isn't laziness, it's a deeply held cultural value. Embrace it."</p>
-        <cite>— Local wisdom</cite>
+        <cite>— Lao saying</cite>
       </div>
 
       <div class="etiq-list">
@@ -1026,7 +965,7 @@ footer {
           <div class="etiq-icon">🦟</div>
           <div class="etiq-body">
             <div class="etiq-title">Dengue & Mosquitoes</div>
-            <div class="etiq-desc">Dengue is present year-round, especially in the wet season. Use DEET-based repellent, wear long sleeves at dawn and dusk, and sleep under a mosquito net in jungle areas. There is no vaccine for dengue.</div>
+            <div class="etiq-desc">Dengue is present year-round, especially in the wet season. Use DEET-based repellent, wear long sleeves at dawn and dusk, and sleep under a mosquito net in jungle areas. Dengue vaccines exist in some markets but availability and recommendations vary — discuss with your doctor before travel.</div>
           </div>
         </div>
         <div class="etiq-item">
@@ -1107,9 +1046,9 @@ footer {
           <div class="ic-sub">Available at airport & convenience stores</div>
         </div>
         <div class="info-cell">
-          <div class="ic-key">Tourist SIM cost</div>
-          <div class="ic-val">~$5–8 USD</div>
-          <div class="ic-sub">Includes 10–15GB data</div>
+          <div class="ic-key">Tourist SIM</div>
+          <div class="ic-val">Widely available &amp; inexpensive</div>
+          <div class="ic-sub">Ask at airport or Unitel/LTC shops in town</div>
         </div>
         <div class="info-cell">
           <div class="ic-key">4G coverage</div>
@@ -1128,7 +1067,7 @@ footer {
         <div class="box-body">
           <div class="box-title">Apps to download before you arrive</div>
           <div class="box-text">
-            <strong>Maps.me</strong> — offline maps work without internet · <strong>XE Currency</strong> — real-time LAK exchange rates · <strong>Google Translate</strong> — download Lao offline · <strong>LCR App</strong> — Laos-China Railway tickets · <strong>Grab</strong> — works in Vientiane for taxis
+            <strong>Google Maps offline</strong> (download Laos area before travel) — works well in cities, reliable enough for major routes · <strong>XE Currency</strong> — real-time LAK exchange rates · <strong>Google Translate</strong> — download Lao offline · <strong>LCR App</strong> — Laos-China Railway tickets · <strong>LARide</strong> for tuk-tuks in Vientiane (the local app) — Grab availability has been inconsistent
           </div>
         </div>
       </div>
@@ -1231,7 +1170,7 @@ trackChapters();
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">&copy; 2025 LaoWander. All rights reserved.</div>
+    <div class="footer-copy">&copy; 2026 LaoWander. All rights reserved.</div>
     <p class="footer-disclosure">LaoWander may earn a commission when you book through our partner links. This never affects the price you pay.</p>
     <div class="footer-socials">
       <div class="footer-social">&#120143;</div>
