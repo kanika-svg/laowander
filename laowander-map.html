@@ -189,8 +189,8 @@ nav{position:fixed;inset:0 0 auto 0;z-index:300;display:flex;align-items:center;
   "publisher": {
     "@type": "Organization",
     "name": "LaoWander",
-    "url": "https://laowander.pages.dev/laowander"
-  },
+    "url": "https://laowander.pages.dev"
+  }
 }
 </script>
 <!-- Travelpayouts Drive — lazy loaded to protect Lighthouse score -->
@@ -310,9 +310,7 @@ const CITIES = [
     img:'https://images.unsplash.com/photo-1582990253092-15a33e9fc5d0?w=200&q=80',
     bestMonths:[11,12,1,2,3],
     places:[
-      { type:'hotel', icon:'🏨', name:'Settha Palace Hotel', meta:'★★★★★ · From $145/night', lat:17.9617, lng:102.6142, link:'https://www.booking.com/searchresults.html?ss=Settha+Palace+Vientiane' },
-      { type:'hotel', icon:'🏨', name:'Amari Vientiane', meta:'★★★★★ · From $93/night', lat:17.9784, lng:102.6246, link:'https://www.booking.com/searchresults.html?ss=Amari+Vientiane' },
-      { type:'hotel', icon:'🏨', name:'Lao Poet Hotel', meta:'★★★★ · From $90/night', lat:17.9636, lng:102.6147, link:'https://www.booking.com/searchresults.html?ss=Lao+Poet+Hotel+Vientiane' },
+      { type:'hotel', icon:'🏨', name:'Settha Palace Hotel', meta:'From $95/night', lat:17.9617, lng:102.6142, link:'https://www.booking.com/searchresults.html?ss=Settha+Palace+Vientiane' },
       { type:'restaurant', icon:'🍜', name:'MakPhet Restaurant', meta:'Contemporary Lao · $$', lat:17.9621, lng:102.6133, link:'laowander-food.html' },
       { type:'restaurant', icon:'🍜', name:'Lao Kitchen', meta:'Traditional · $', lat:17.9643, lng:102.6151, link:'laowander-food.html' },
       { type:'restaurant', icon:'☕', name:'Rue Namphu Café', meta:'French-Lao · $', lat:17.9660, lng:102.6158, link:'laowander-food.html' },
@@ -327,9 +325,8 @@ const CITIES = [
     img:'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=200&q=80',
     bestMonths:[10,11,12,1,2,3,4],
     places:[
-      { type:'hotel', icon:'🏨', name:'Rosewood Luang Prabang', meta:'★★★★★ · From $420/night', lat:19.8973, lng:102.1268, link:'https://www.booking.com/searchresults.html?ss=Rosewood+Luang+Prabang' },
-      { type:'hotel', icon:'🏨', name:'Amantaka', meta:'★★★★★ · From $680/night', lat:19.8881, lng:102.1352, link:'https://www.booking.com/searchresults.html?ss=Amantaka+Luang+Prabang' },
-      { type:'hotel', icon:'🏨', name:'Satri House', meta:'★★★★★ · From $180/night', lat:19.8889, lng:102.1332, link:'https://www.booking.com/searchresults.html?ss=Satri+House+Luang+Prabang' },
+      { type:'hotel', icon:'🏨', name:'Burasari Heritage', meta:'From $120/night', lat:19.8868, lng:102.1389, link:'https://www.booking.com/hotel/la/burasari-heritage.html' },
+      { type:'hotel', icon:'🏨', name:'Sofitel Luang Prabang', meta:'From $400/night', lat:19.8902, lng:102.1303, link:'https://www.booking.com/searchresults.html?ss=Sofitel+Luang+Prabang' },
       { type:'restaurant', icon:'🍜', name:'Tamarind Restaurant', meta:'Contemporary Lao · $$', lat:19.8887, lng:102.1362, link:'laowander-food.html' },
       { type:'restaurant', icon:'🍜', name:'Manda de Laos', meta:'Fine Lao Dining · $$$', lat:19.8902, lng:102.1340, link:'laowander-food.html' },
       { type:'restaurant', icon:'☕', name:'Blue Lagoon Bakery', meta:'Café & Bakery · $', lat:19.8875, lng:102.1370, link:'laowander-food.html' },
@@ -344,9 +341,7 @@ const CITIES = [
     img:'https://images.unsplash.com/photo-1570366583862-f91883984fde?w=200&q=80',
     bestMonths:[10,11,12,1,2,3,4],
     places:[
-      { type:'hotel', icon:'🏨', name:'Riverside Boutique Resort', meta:'★★★★ · From $78/night', lat:18.9265, lng:102.4432, link:'https://www.booking.com/searchresults.html?ss=Riverside+Boutique+Resort+Vang+Vieng' },
-      { type:'hotel', icon:'🏨', name:'Amari Vang Vieng', meta:'★★★★★ · From $78/night', lat:18.9241, lng:102.4459, link:'https://www.booking.com/searchresults.html?ss=Amari+Vang+Vieng' },
-      { type:'hotel', icon:'🏨', name:'Vang Vieng Boutique Resort', meta:'★★★★ · From $65/night', lat:18.9220, lng:102.4470, link:'https://www.booking.com/searchresults.html?ss=Vang+Vieng+Boutique+Resort' },
+      { type:'hotel', icon:'🏨', name:'Riverside Boutique Resort', meta:'From $80/night', lat:18.9265, lng:102.4432, link:'https://www.booking.com/searchresults.html?ss=Riverside+Boutique+Resort+Vang+Vieng' },
       { type:'restaurant', icon:'🥗', name:'Organic Mulberry Farm', meta:'Farm-to-table · $', lat:18.9180, lng:102.4420, link:'laowander-food.html' },
       { type:'attraction', icon:'🏔', name:'Blue Lagoon', meta:'Swimming & caves · Free', lat:18.9455, lng:102.4090, link:'https://www.google.com/maps/search/?api=1&query=18.9455,102.4090' },
       { type:'attraction', icon:'🎈', name:'Hot Air Balloon', meta:'Sunrise flights · $80+', lat:18.9103, lng:102.4358, link:'https://www.google.com/maps/search/?api=1&query=18.9103,102.4358' },
@@ -359,7 +354,6 @@ const CITIES = [
     img:'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=200&q=80',
     bestMonths:[11,12,1,2,3],
     places:[
-      { type:'hotel', icon:'🏨', name:'Sala Done Khone', meta:'★★★ · From $55/night', lat:14.1167, lng:105.9167, link:'https://www.booking.com/searchresults.html?ss=Sala+Done+Khone+Laos' },
       { type:'restaurant', icon:'🍜', name:'Champa Restaurant', meta:'Lao & Thai · $', lat:15.1190, lng:105.7980, link:'laowander-food.html' },
       { type:'restaurant', icon:'🍜', name:'Jasmine Restaurant', meta:'Lao & Khmer · $', lat:15.1210, lng:105.8010, link:'laowander-food.html' },
       { type:'attraction', icon:'🏛', name:'Wat Phu Champasak', meta:'UNESCO · $5 · 45km', lat:14.8484, lng:105.8483, link:'https://www.google.com/maps/search/?api=1&query=14.8484,105.8483' },
@@ -373,7 +367,7 @@ const CITIES = [
     img:'https://res.cloudinary.com/dzxg1vyi8/image/upload/c_fill,g_auto,ar_16:9,y_0.3/v1774005646/sunin_hotel_e1usdh.jpg',
     bestMonths:[11,12,1,2,3,4],
     places:[
-      { type:'hotel', icon:'⭐', name:'Sunin Hotel — Don Det', meta:'★★★ · $45/night · Friend\'s Pick', lat:13.9731, lng:105.9228, link:'https://www.booking.com/hotel/la/sunin-dondet-riverside-okhng.html', star:true },
+      { type:'hotel', icon:'🏨', name:'Sunin Hotel — Don Det', meta:'From $40/night', lat:13.9731, lng:105.9228, link:'https://www.booking.com/hotel/la/sunin-dondet-riverside-okhng.html' },
       { type:'attraction', icon:'🐬', name:'Irrawaddy Dolphin Watching', meta:'Dawn boat tour · $10', lat:14.0050, lng:105.9600, link:'https://www.google.com/maps/search/?api=1&query=14.005,105.96' },
       { type:'attraction', icon:'💧', name:'Khone Phapheng Falls', meta:'Largest waterfall in SE Asia', lat:13.9667, lng:105.9833, link:'https://www.google.com/maps/search/?api=1&query=13.9667,105.9833' },
       { type:'attraction', icon:'🚂', name:'Don Det–Don Khon Railway', meta:'Historic colonial railway', lat:14.0010, lng:105.9820, link:'https://www.google.com/maps/search/?api=1&query=14.001,105.982' },
