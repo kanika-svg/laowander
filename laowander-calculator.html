@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Laos Budget Calculator 2025 — LaoWander | Trip Cost Estimator</title>
+<title>Laos Budget Calculator — LaoWander | Trip Cost Estimator</title>
 <meta property="og:site_name" content="LaoWander">
 <meta name="robots" content="index, follow">
 <meta property="og:url" content="https://laowander.pages.dev/laowander-calculator.html">
 <meta name="description" content="Calculate your Laos trip budget instantly. Set travel style, duration and preferences — get a personalised daily budget estimate for your Laos trip.">
-<meta name="keywords" content="Laos budget calculator, how much does Laos cost, Laos travel budget, LAK to USD, Laos daily budget, cost of travel Laos 2025">
+<meta name="keywords" content="Laos budget calculator, how much does Laos cost, Laos travel budget, LAK to USD, Laos daily budget, cost of travel Laos">
 <meta name="theme-color" content="#C9A84C">
 <link rel="icon" type="image/png" href="assets/laowander-icon.png">
 <link rel="canonical" href="https://laowander.pages.dev/laowander-calculator.html">
-<meta property="og:title" content="Laos Budget Calculator 2025 — LaoWander | Trip Cost Estimator">
+<meta property="og:title" content="Laos Budget Calculator — LaoWander | Trip Cost Estimator">
 <meta property="og:description" content="Calculate your Laos trip budget instantly. Set travel style, duration and preferences — get a personalised daily budget estimate for your Laos trip.">
 <meta property="og:image" content="https://images.unsplash.com/photo-1582990253092-15a33e9fc5d0?w=1200&q=85">
 <meta property="og:type" content="website">
@@ -205,9 +205,6 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
   line-height: 1.5;
   max-width: 640px;
 }
-.footer-socials{display:flex;gap:12px;}
-.footer-social{width:34px;height:34px;border:1px solid var(--rim);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--muted);transition:all .2s;cursor:pointer;}
-.footer-social:hover{border-color:var(--gold-line);color:var(--gold);background:var(--gold-dim);}
 
 @media(max-width:900px){
   nav{padding:0 20px;}
@@ -239,14 +236,15 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Laos Budget Calculator 2025 — LaoWander | Trip Cost Estimator",
+  "name": "Laos Budget Calculator — LaoWander | Trip Cost Estimator",
   "description": "Calculate your Laos trip budget instantly. Set travel style, duration and preferences — get a personalised daily budget estimate for your Laos trip.",
   "url": "https://laowander.pages.dev/laowander-calculator.html",
   "image": "https://images.unsplash.com/photo-1582990253092-15a33e9fc5d0?w=1200&q=85",
+  "dateModified": "2026-05-09",
   "publisher": {
     "@type": "Organization",
     "name": "LaoWander",
-    "url": "https://laowander.pages.dev/laowander"
+    "url": "https://laowander.pages.dev"
   },
   "applicationCategory":"TravelApplication","operatingSystem":"Web"
 }
@@ -331,7 +329,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
           <div class="style-btn" data-style="mid" onclick="setStyle(this)">
             <div class="sb-icon">🧳</div>
             <div class="sb-name">Mid-range</div>
-            <div class="sb-range">$50–90/day</div>
+            <div class="sb-range">$80–110/day</div>
           </div>
           <div class="style-btn" data-style="luxury" onclick="setStyle(this)">
             <div class="sb-icon">✨</div>
@@ -486,6 +484,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <div style="background:var(--surface);border:1px solid var(--rim);border-radius:16px;padding:20px 22px;margin-top:12px;">
         <div style="font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Quick LAK reference</div>
         <div id="lak-ref" style="display:flex;flex-direction:column;gap:6px;"></div>
+        <div style="margin-top:10px;font-size:.68rem;color:var(--muted);line-height:1.5;">LAK rate fluctuates — check XE Currency or your bank app for today's actual rate.</div>
       </div>
     </div>
   </div>
@@ -548,13 +547,8 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2025 LaoWander. All rights reserved.</div>
+    <div class="footer-copy">© 2026 LaoWander. All rights reserved.</div>
     <p class="footer-disclosure">LaoWander may earn a commission when you book through our partner links. This never affects the price you pay.</p>
-    <div class="footer-socials">
-      <div class="footer-social">𝕏</div>
-      <div class="footer-social">ig</div>
-      <div class="footer-social">yt</div>
-    </div>
   </div>
 </footer>
 
@@ -565,9 +559,9 @@ const SYMBOLS = { USD:'$', EUR:'€', GBP:'£', AUD:'A$', THB:'฿', LAK:'₭' }
 
 // ── Daily costs per style per category (USD per person) ──
 const COSTS = {
-  budget:  { accommodation:12, food:8,  transport:5,  activities:5,  flights:350, visa:36, insurance:4,  souvenirs:8  },
-  mid:     { accommodation:55, food:20, transport:10, activities:18, flights:500, visa:36, insurance:6,  souvenirs:20 },
-  luxury:  { accommodation:280,food:60, transport:25, activities:50, flights:800, visa:36, insurance:10, souvenirs:60 },
+  budget:  { accommodation:12, food:8,  transport:5,  activities:5,  flights:350, visa:36, insurance:40,  souvenirs:8  },
+  mid:     { accommodation:55, food:20, transport:10, activities:18, flights:500, visa:36, insurance:60,  souvenirs:20 },
+  luxury:  { accommodation:280,food:60, transport:25, activities:50, flights:800, visa:36, insurance:100, souvenirs:60 },
 };
 
 const TIPS = {
