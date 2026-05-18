@@ -25,8 +25,8 @@
 <!-- Twitter / X Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://laowander.pages.dev/laowander-hotels.html">
-<meta name="twitter:title" content="Hotels & Stays in Laos — LaoWander | From $28 Guesthouses to Luxury Resorts">
-<meta name="twitter:description" content="Hand-picked hotels, guesthouses and eco-lodges across Laos. From $40 riverside stays to heritage resorts — all hand-picked with verified traveller reviews.">
+<meta name="twitter:title" content="Hotels in Laos — LaoWander">
+<meta name="twitter:description" content="Five handpicked Laos stays — from a riverside guesthouse on Don Det to a French colonial heritage hotel in Vientiane.">
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=85">
 <meta name="twitter:image:alt" content="Luxury resort pool overlooking jungle in Laos">
 
@@ -469,44 +469,6 @@ input[type=range]::-moz-range-thumb {
 .price-ticks { display:flex; justify-content:space-between; font-size:0.65rem; color:var(--muted); }
 
 
-/* Star checkboxes */
-.star-list { display:flex; flex-direction:column; gap:4px; }
-.star-row {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding: 7px 10px;
-  border-radius: 8px;
-  cursor:pointer;
-  transition: background 0.15s;
-  user-select: none;
-}
-.star-row:hover { background: rgba(201,168,76,0.07); }
-.star-row input[type=checkbox] {
-  appearance:none;
-  -webkit-appearance:none;
-  width:15px; height:15px;
-  border:1px solid rgba(201,168,76,0.25);
-  border-radius:4px;
-  cursor:pointer;
-  position:relative;
-  flex-shrink:0;
-  transition: all 0.15s;
-  background: var(--raised);
-}
-.star-row input[type=checkbox]:checked { background: var(--gold); border-color: var(--gold); }
-.star-row input[type=checkbox]:checked::after {
-  content:'✓';
-  position:absolute;
-  top:50%; left:50%;
-  transform:translate(-50%,-50%);
-  font-size:0.55rem;
-  color:#141210;
-  font-weight:800;
-}
-.star-glyph { color: var(--gold); font-size:0.72rem; letter-spacing:1.5px; }
-.star-lbl { font-size:0.8rem; color:var(--soft); }
-
 /* Amenity grid */
 .amen-grid {
   display:grid;
@@ -693,32 +655,11 @@ input[type=range]::-moz-range-thumb {
   width:fit-content;
 }
 
-.hc-save {
-  position:absolute;
-  top:12px; right:12px;
-  width:30px; height:30px;
-  background:rgba(20,18,16,0.65);
-  backdrop-filter:blur(8px);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:0.85rem;
-  cursor:pointer;
-  user-select:none;
-  transition:all 0.2s;
-  border:1px solid transparent;
-}
-.hc-save:hover { background:rgba(201,168,76,0.2); border-color:var(--gold-line); transform:scale(1.1); }
-.hc-save.on { background:rgba(201,168,76,0.2); }
-
 /* body */
 .hc-body { padding: 22px 24px 24px; display:flex; flex-direction:column; flex:1; }
 
 .hc-row1 { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:5px; }
 .hc-name { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; line-height:1.2; }
-.hc-stars { color:var(--gold); font-size:0.68rem; letter-spacing:1.5px; flex-shrink:0; }
-
 .hc-loc { font-size:0.76rem; color:var(--muted); margin-bottom:12px; }
 
 .hc-desc { font-size:0.82rem; color:var(--soft); line-height:1.7; margin-bottom:14px; flex:1; }
@@ -795,207 +736,6 @@ input[type=range]::-moz-range-thumb {
   margin-left: 4px;
 }
 .maps-dir-link:hover { opacity: 1; }
-
-/* ══════════════════════════════════════════
-   REVIEW COMPONENT
-══════════════════════════════════════════ */
-.reviews-wrap {
-  border-top: 1px solid var(--rim);
-  margin-top: 2px;
-}
-
-/* Toggle bar */
-.reviews-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 13px 20px;
-  cursor: pointer;
-  user-select: none;
-  transition: background 0.2s;
-  gap: 10px;
-}
-.reviews-toggle:hover { background: rgba(255,248,235,0.03); }
-
-.rt-left { display: flex; align-items: center; gap: 10px; }
-.rt-stars { display: flex; gap: 2px; }
-.rt-star { font-size: 0.72rem; color: var(--gold); }
-.rt-star.empty { color: var(--raised); filter: brightness(3); opacity: 0.3; }
-.rt-score { font-size: 0.82rem; font-weight: 700; color: var(--white); }
-.rt-count { font-size: 0.72rem; color: var(--muted); }
-
-.rt-arrow {
-  font-size: 0.7rem;
-  color: var(--muted);
-  transition: transform 0.3s var(--ease), color 0.2s;
-  flex-shrink: 0;
-}
-.reviews-wrap.open .rt-arrow { transform: rotate(180deg); color: var(--gold); }
-
-/* Expandable body */
-.reviews-body {
-  display: none;
-  flex-direction: column;
-  padding: 0 20px 18px;
-  gap: 14px;
-}
-.reviews-wrap.open .reviews-body { display: flex; }
-
-/* Individual review */
-.review-item {
-  background: var(--surface);
-  border: 1px solid var(--rim);
-  border-radius: var(--radius-sm);
-  padding: 13px 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  animation: reviewIn 0.35s var(--ease) both;
-}
-@keyframes reviewIn {
-  from { opacity:0; transform:translateY(8px); }
-  to   { opacity:1; transform:translateY(0); }
-}
-
-.review-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
-.reviewer-info { display: flex; align-items: center; gap: 9px; }
-.reviewer-avatar {
-  width: 30px; height: 30px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #141210;
-  flex-shrink: 0;
-}
-.reviewer-name { font-size: 0.8rem; font-weight: 600; color: var(--white); }
-.reviewer-meta { font-size: 0.65rem; color: var(--muted); margin-top: 1px; }
-
-.review-right { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; flex-shrink: 0; }
-.review-stars { display: flex; gap: 2px; }
-.review-star { font-size: 0.62rem; color: var(--gold); }
-.review-star.empty { opacity: 0.2; }
-.review-date { font-size: 0.62rem; color: var(--muted); }
-
-.review-text { font-size: 0.77rem; color: var(--soft); line-height: 1.65; }
-
-.review-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: var(--raised);
-  border: 1px solid var(--rim);
-  border-radius: 6px;
-  padding: 2px 8px;
-  font-size: 0.62rem;
-  color: var(--muted);
-  width: fit-content;
-}
-
-/* Submit form */
-.review-divider {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.review-divider::before,
-.review-divider::after { content:''; flex:1; height:1px; background:var(--rim); }
-
-.review-form { display: flex; flex-direction: column; gap: 10px; }
-
-.rf-stars {
-  display: flex;
-  gap: 5px;
-  align-items: center;
-}
-.rf-star {
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: rgba(201,168,76,0.2);
-  transition: color 0.15s, transform 0.15s;
-  user-select: none;
-}
-.rf-star:hover,
-.rf-star.lit { color: var(--gold); transform: scale(1.15); }
-.rf-label { font-size: 0.7rem; color: var(--muted); margin-left: 6px; }
-
-.rf-row { display: flex; gap: 8px; }
-.rf-input {
-  background: var(--raised);
-  border: 1px solid var(--rim);
-  border-radius: var(--radius-sm);
-  padding: 9px 13px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.78rem;
-  color: var(--white);
-  outline: none;
-  transition: border-color 0.2s;
-  width: 100%;
-}
-.rf-input::placeholder { color: var(--muted); }
-.rf-input:focus { border-color: var(--gold-line); }
-
-.rf-textarea {
-  resize: vertical;
-  min-height: 72px;
-}
-
-.rf-traveler {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-.rf-type {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: var(--raised);
-  border: 1px solid var(--rim);
-  border-radius: 20px;
-  padding: 4px 11px;
-  font-size: 0.68rem;
-  font-weight: 500;
-  color: var(--muted);
-  cursor: pointer;
-  transition: all 0.15s;
-  user-select: none;
-}
-.rf-type:hover { border-color: var(--gold-line); color: var(--white); }
-.rf-type.on { background: var(--gold-dim); border-color: var(--gold-line); color: var(--gold-bright); }
-
-.rf-submit {
-  background: var(--gold);
-  color: #141210;
-  border: none;
-  border-radius: 30px;
-  padding: 9px 20px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.76rem;
-  font-weight: 700;
-  cursor: pointer;
-  align-self: flex-start;
-  transition: background 0.2s, transform 0.2s var(--ease);
-}
-.rf-submit:hover { background: var(--gold-bright); transform: translateY(-1px); }
-.rf-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-
-.rf-success {
-  display: none;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.78rem;
-  color: #52b788;
-  padding: 8px 12px;
-  background: rgba(82,183,136,0.08);
-  border: 1px solid rgba(82,183,136,0.2);
-  border-radius: var(--radius-sm);
-}
-.rf-success.show { display: flex; }
 
 /* ── Pagination ── */
 .pagination { display:flex; justify-content:center; align-items:center; gap:6px; margin-top:56px; }
@@ -1318,16 +1058,6 @@ footer {
     </div>
 
     <div class="sb-block">
-      <div class="sb-heading">Star Rating</div>
-      <div class="star-list">
-        <label class="star-row"><input type="checkbox" checked data-stars="5" onchange="applyFilters()"><span class="star-glyph">★★★★★</span><span class="star-lbl">5 Star</span></label>
-        <label class="star-row"><input type="checkbox" checked data-stars="4" onchange="applyFilters()"><span class="star-glyph">★★★★</span><span class="star-lbl">4 Star</span></label>
-        <label class="star-row"><input type="checkbox" checked data-stars="3" onchange="applyFilters()"><span class="star-glyph">★★★</span><span class="star-lbl">3 Star</span></label>
-        <label class="star-row"><input type="checkbox" checked data-stars="2" onchange="applyFilters()"><span class="star-glyph">★★</span><span class="star-lbl">Budget / Hostel</span></label>
-      </div>
-    </div>
-
-    <div class="sb-block">
       <div class="sb-heading">Amenities</div>
       <div class="amen-grid">
         <div class="amen-pill" data-amen="wifi" onclick="this.classList.toggle('on');applyFilters()"><span class="ic">📶</span>WiFi</div>
@@ -1363,21 +1093,19 @@ footer {
     <div class="hgrid" id="hgrid">
 
       <!-- ── CARD 1: SUNIN — FEATURED + FRIEND'S PICK ── -->
-      <div class="hc feat reveal" data-city="4000islands" data-price="40" data-stars="3" data-type="boutique" data-amenities="wifi,breakfast,ac,riverview">
+      <div class="hc feat reveal" data-city="4000islands" data-price="40" data-type="boutique" data-amenities="wifi,breakfast,ac,riverview">
         <div class="hc-img">
-          <div class="feat-label">✦ Featured Stay · Friend's Pick</div>
+          <div class="feat-label">✦ Friend's Pick</div>
           <img loading="lazy" decoding="async" src="https://res.cloudinary.com/dzxg1vyi8/image/upload/c_fill,g_auto,ar_16:9,y_0.3/v1774005646/sunin_hotel_e1usdh.jpg" alt="Sunin Hotel Dondet Riverside" onerror="imgFail(this)">
           <span class="photo-attr">Photo: Sunin Hotel</span>
           <div class="hc-tags">
             <span class="tag-type" style="background:var(--gold);color:#111009;">💛 Friend's Pick</span>
             <span class="tag-type">Don Det</span>
           </div>
-          <div class="hc-save" onclick="toggleSave(this)">🤍</div>
         </div>
         <div class="hc-body">
           <div class="hc-row1">
             <div class="hc-name">Sunin Hotel Dondet Riverside</div>
-            <div class="hc-stars">★★★</div>
           </div>
           <div class="hc-loc">📍 Don Det, 4,000 Islands, Champasak <a href="https://www.google.com/maps/search/?api=1&query=13.9956,105.9947" target="_blank" class="maps-dir-link">↗ Maps</a></div>
           <div class="hc-desc">A personally recommended riverside hotel on the magical Don Det island — the heart of Si Phan Don (4,000 Islands). Beautifully designed with traditional Lao architecture, balcony rooms overlooking the Mekong, its own private jetty, and some of the friendliest staff on the island. Breakfast included.</div>
@@ -1403,27 +1131,6 @@ footer {
               <div class="aff-note">Affiliate link — we may earn a commission</div>
             </div>
           </div>
-          <div class="reviews-wrap" id="rv-sunin">
-            <div class="reviews-toggle" onclick="toggleReviews('rv-sunin')">
-              <div class="rt-left"><span class="rt-count">No reviews yet — be the first</span></div><span class="rt-arrow">▾</span>
-            </div>
-            <div class="reviews-body">
-                            <div class="review-divider">Write a review</div>
-              <div class="review-form" id="rf-sunin">
-                <div class="rf-stars" data-form="sunin"><span class="rf-star" data-val="1">★</span><span class="rf-star" data-val="2">★</span><span class="rf-star" data-val="3">★</span><span class="rf-star" data-val="4">★</span><span class="rf-star" data-val="5">★</span><span class="rf-label">Tap to rate</span></div>
-                <div class="rf-row"><input class="rf-input" placeholder="Your name" maxlength="40"><input class="rf-input" placeholder="Home country" maxlength="30"></div>
-                <div class="rf-traveler">
-                  <div class="rf-type" onclick="this.classList.toggle('on')">🧍 Solo</div>
-                  <div class="rf-type" onclick="this.classList.toggle('on')">👫 Couple</div>
-                  <div class="rf-type" onclick="this.classList.toggle('on')">👨‍👩‍👧 Family</div>
-                  <div class="rf-type" onclick="this.classList.toggle('on')">👯 Friends</div>
-                </div>
-                <textarea class="rf-input rf-textarea" placeholder="Share your experience…" maxlength="400"></textarea>
-                <div class="rf-success" id="rfs-sunin">✓ Thank you! Your review has been submitted.</div>
-                <button class="rf-submit" onclick="submitReview('sunin')">Submit Review</button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -1434,17 +1141,15 @@ footer {
       </div>
 
       <!-- ── CARD 3 ── -->
-      <div class="hc reveal" data-city="vientiane" data-price="95" data-stars="5" data-type="boutique" data-amenities="wifi,pool,spa,breakfast">
+      <div class="hc reveal" data-city="vientiane" data-price="95" data-type="boutique" data-amenities="wifi,pool,spa,breakfast">
         <div class="hc-img">
           <img loading="lazy" decoding="async" src="https://res.cloudinary.com/dzxg1vyi8/image/upload/v1777630289/setta_j6iogi.jpg" alt="Settha Palace Hotel exterior, Vientiane" data-fallback="vientiane" onerror="imgFail(this)">
           <span class="photo-attr">Photo: Settha Palace via Booking.com</span>
           <div class="hc-tags"><span class="tag-type">Heritage Hotel</span></div>
-          <div class="hc-save" onclick="toggleSave(this)">🤍</div>
         </div>
         <div class="hc-body">
           <div class="hc-row1">
             <div class="hc-name">Settha Palace Hotel</div>
-            <div class="hc-stars">★★★★★</div>
           </div>
           <div class="hc-loc">📍 Central Vientiane <a href="https://www.google.com/maps/search/?api=1&query=17.9668,102.6031" target="_blank" class="maps-dir-link" title="Get directions on Google Maps">↗ Maps</a></div>
           <div class="hc-desc">A lovingly restored 1932 French colonial mansion. Palm-fringed pool, candlelit courtyard dining, and rooms that feel like stepping into a different era entirely.</div>
@@ -1469,35 +1174,6 @@ footer {
             </div>
           </div>
         </div>
-        <!-- REVIEWS: settha -->
-        <div class="reviews-wrap" id="rv-settha">
-          <div class="reviews-toggle" onclick="toggleReviews('rv-settha')">
-            <div class="rt-left"><span class="rt-count">No reviews yet — be the first</span></div>
-            <span class="rt-arrow">▾</span>
-          </div>
-          <div class="reviews-body">
-                                    <div class="review-divider">Write a review</div>
-            <div class="review-form" id="rf-settha">
-              <div class="rf-stars" data-form="settha">
-                <span class="rf-star" data-val="1">★</span><span class="rf-star" data-val="2">★</span><span class="rf-star" data-val="3">★</span><span class="rf-star" data-val="4">★</span><span class="rf-star" data-val="5">★</span>
-                <span class="rf-label">Tap to rate</span>
-              </div>
-              <div class="rf-row">
-                <input class="rf-input" placeholder="Your name" maxlength="40">
-                <input class="rf-input" placeholder="Home country" maxlength="30">
-              </div>
-              <div class="rf-traveler">
-                <div class="rf-type" onclick="this.classList.toggle('on')">🧍 Solo</div>
-                <div class="rf-type" onclick="this.classList.toggle('on')">👫 Couple</div>
-                <div class="rf-type" onclick="this.classList.toggle('on')">👨‍👩‍👧 Family</div>
-                <div class="rf-type" onclick="this.classList.toggle('on')">👯 Friends</div>
-              </div>
-              <textarea class="rf-input rf-textarea" placeholder="Share your experience…" maxlength="400"></textarea>
-              <div class="rf-success" id="rfs-settha">✓ Thank you! Your review has been submitted.</div>
-              <button class="rf-submit" onclick="submitReview('settha')">Submit Review</button>
-            </div>
-          </div>
-        </div>
       </div>
 
       <div class="city-explore-wrap">
@@ -1505,17 +1181,15 @@ footer {
       </div>
 
       <!-- ── CARD 4 ── -->
-      <div class="hc reveal" data-city="vangvieng" data-price="80" data-stars="4" data-type="resort" data-amenities="wifi,pool,breakfast,riverview">
+      <div class="hc reveal" data-city="vangvieng" data-price="80" data-type="resort" data-amenities="wifi,pool,breakfast,riverview">
         <div class="hc-img">
           <img loading="lazy" decoding="async" src="https://res.cloudinary.com/dzxg1vyi8/image/upload/v1777630512/river_side_vv_xbppjo.jpg" alt="Riverside Boutique Resort pool and karst views, Vang Vieng" data-fallback="vangvieng" onerror="imgFail(this)">
           <span class="photo-attr">Photo: Riverside Boutique Resort via Booking.com</span>
           <div class="hc-tags"><span class="tag-type">River Resort</span></div>
-          <div class="hc-save" onclick="toggleSave(this)">🤍</div>
         </div>
         <div class="hc-body">
           <div class="hc-row1">
             <div class="hc-name">Riverside Boutique Resort</div>
-            <div class="hc-stars">★★★★</div>
           </div>
           <div class="hc-loc">📍 Nam Song River, Vang Vieng <a href="https://www.google.com/maps/search/?api=1&query=18.9200,102.4500" target="_blank" class="maps-dir-link" title="Get directions on Google Maps">↗ Maps</a></div>
           <div class="hc-desc">Karst mountain views from your private balcony. Infinity pool suspended over the river, kayak rentals on-site, and the most dramatic sunsets in Vang Vieng.</div>
@@ -1540,35 +1214,6 @@ footer {
             </div>
           </div>
         </div>
-        <!-- REVIEWS: riverside -->
-        <div class="reviews-wrap" id="rv-riverside">
-          <div class="reviews-toggle" onclick="toggleReviews('rv-riverside')">
-            <div class="rt-left"><span class="rt-count">No reviews yet — be the first</span></div>
-            <span class="rt-arrow">▾</span>
-          </div>
-          <div class="reviews-body">
-                                    <div class="review-divider">Write a review</div>
-            <div class="review-form" id="rf-riverside">
-              <div class="rf-stars" data-form="riverside">
-                <span class="rf-star" data-val="1">★</span><span class="rf-star" data-val="2">★</span><span class="rf-star" data-val="3">★</span><span class="rf-star" data-val="4">★</span><span class="rf-star" data-val="5">★</span>
-                <span class="rf-label">Tap to rate</span>
-              </div>
-              <div class="rf-row">
-                <input class="rf-input" placeholder="Your name" maxlength="40">
-                <input class="rf-input" placeholder="Home country" maxlength="30">
-              </div>
-              <div class="rf-traveler">
-                <div class="rf-type" onclick="this.classList.toggle('on')">🧍 Solo</div>
-                <div class="rf-type" onclick="this.classList.toggle('on')">👫 Couple</div>
-                <div class="rf-type" onclick="this.classList.toggle('on')">👨‍👩‍👧 Family</div>
-                <div class="rf-type" onclick="this.classList.toggle('on')">👯 Friends</div>
-              </div>
-              <textarea class="rf-input rf-textarea" placeholder="Share your experience…" maxlength="400"></textarea>
-              <div class="rf-success" id="rfs-riverside">✓ Thank you! Your review has been submitted.</div>
-              <button class="rf-submit" onclick="submitReview('riverside')">Submit Review</button>
-            </div>
-          </div>
-        </div>
       </div>
 
 
@@ -1582,17 +1227,15 @@ footer {
       </div>
 
       <!-- ── CARD 11 — BURASARI HERITAGE ── -->
-      <div class="hc reveal" data-city="luangprabang" data-price="120" data-stars="5" data-type="boutique" data-amenities="wifi,spa,breakfast,riverview">
+      <div class="hc reveal" data-city="luangprabang" data-price="120" data-type="boutique" data-amenities="wifi,spa,breakfast,riverview">
         <div class="hc-img">
           <img loading="lazy" decoding="async" src="https://res.cloudinary.com/dzxg1vyi8/image/upload/v1777630437/burasari_z5up2k.jpg" alt="Burasari Heritage Hotel terrace, Luang Prabang" onerror="imgFail(this)">
           <span class="photo-attr">Photo: Burasari Heritage via Booking.com</span>
           <div class="hc-tags"><span class="tag-type">Heritage Hotel</span></div>
-          <div class="hc-save" onclick="toggleSave(this)">🤍</div>
         </div>
         <div class="hc-body">
           <div class="hc-row1">
             <div class="hc-name">Burasari Heritage</div>
-            <div class="hc-stars">★★★★★</div>
           </div>
           <div class="hc-loc">📍 Old Town, Luang Prabang <a href="https://www.google.com/maps/search/?api=1&query=19.8876,102.1389" target="_blank" class="maps-dir-link">↗ Maps</a></div>
           <div class="hc-desc">A stunning colonial-style boutique hotel on a tranquil riverside lane with terrace views over the Nam Khan river. Teak floors, campaign-style furnishings, and brightly coloured traditional linens create an atmosphere that is both luxurious and authentically Lao. One of the most praised hotels in the country in 2025.</div>
@@ -1616,37 +1259,20 @@ footer {
               <div class="aff-note">Affiliate link — we may earn a commission</div>
             </div>
           </div>
-          <div class="reviews-wrap" id="rv-burasari">
-            <div class="reviews-toggle" onclick="toggleReviews('rv-burasari')">
-              <div class="rt-left"><span class="rt-count">No reviews yet — be the first</span></div><span class="rt-arrow">▾</span>
-            </div>
-            <div class="reviews-body">
-                            <div class="review-divider">Write a review</div>
-              <div class="review-form" id="rf-burasari">
-                <div class="rf-stars" data-form="burasari"><span class="rf-star" data-val="1">★</span><span class="rf-star" data-val="2">★</span><span class="rf-star" data-val="3">★</span><span class="rf-star" data-val="4">★</span><span class="rf-star" data-val="5">★</span><span class="rf-label">Tap to rate</span></div>
-                <div class="rf-row"><input class="rf-input" placeholder="Your name" maxlength="40"><input class="rf-input" placeholder="Home country" maxlength="30"></div>
-                <div class="rf-traveler"><div class="rf-type" onclick="this.classList.toggle('on')">🧍 Solo</div><div class="rf-type" onclick="this.classList.toggle('on')">👫 Couple</div><div class="rf-type" onclick="this.classList.toggle('on')">👨‍👩‍👧 Family</div><div class="rf-type" onclick="this.classList.toggle('on')">👯 Friends</div></div>
-                <textarea class="rf-input rf-textarea" placeholder="Share your experience…" maxlength="400"></textarea>
-                <div class="rf-success" id="rfs-burasari">✓ Thank you! Your review has been submitted.</div>
-                <button class="rf-submit" onclick="submitReview('burasari')">Submit Review</button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
 
 
       <!-- ── CARD 14 — SOFITEL LUANG PRABANG ── -->
-      <div class="hc reveal" data-city="luangprabang" data-price="400" data-stars="5" data-type="resort" data-amenities="wifi,pool,spa,breakfast">
+      <div class="hc reveal" data-city="luangprabang" data-price="400" data-type="resort" data-amenities="wifi,pool,spa,breakfast">
         <div class="hc-img">
           <img loading="lazy" decoding="async" src="https://res.cloudinary.com/dzxg1vyi8/image/upload/v1777630575/softiel_bl2hb0.jpg" alt="Sofitel Luang Prabang colonial mansion and pool" onerror="imgFail(this)">
           <span class="photo-attr">Photo: Sofitel Luang Prabang via Booking.com</span>
           <div class="hc-tags"><span class="tag-type">Heritage Luxury</span></div>
-          <div class="hc-save" onclick="toggleSave(this)">🤍</div>
         </div>
         <div class="hc-body">
-          <div class="hc-row1"><div class="hc-name">Sofitel Luang Prabang</div><div class="hc-stars">★★★★★</div></div>
+          <div class="hc-row1"><div class="hc-name">Sofitel Luang Prabang</div></div>
           <div class="hc-loc">📍 Old Town, Luang Prabang <a href="https://www.google.com/maps/search/?api=1&query=19.8912,102.1298" target="_blank" class="maps-dir-link">↗ Maps</a></div>
           <div class="hc-desc">A former French Governor's mansion transformed into one of Laos' most iconic luxury hotels. 25 elegant villa suites with private gardens and outdoor bathtubs, lily ponds, a serene pool, cooking classes and a spa. Cathedral-pitched ceilings, colourful Lao tapestries and four-poster beds throughout.</div>
           <div class="hc-amens">
@@ -1663,7 +1289,6 @@ footer {
               <div class="aff-note">Affiliate link — we may earn a commission</div>
             </div>
           </div>
-          <div class="reviews-wrap" id="rv-sofitel"><div class="reviews-toggle" onclick="toggleReviews('rv-sofitel')"><div class="rt-left"><span class="rt-count">No reviews yet — be the first</span></div><span class="rt-arrow">▾</span></div><div class="reviews-body"><div class="review-divider">Write a review</div><div class="review-form" id="rf-sofitel"><div class="rf-stars" data-form="sofitel"><span class="rf-star" data-val="1">★</span><span class="rf-star" data-val="2">★</span><span class="rf-star" data-val="3">★</span><span class="rf-star" data-val="4">★</span><span class="rf-star" data-val="5">★</span><span class="rf-label">Tap to rate</span></div><div class="rf-row"><input class="rf-input" placeholder="Your name" maxlength="40"><input class="rf-input" placeholder="Home country" maxlength="30"></div><div class="rf-traveler"><div class="rf-type" onclick="this.classList.toggle('on')">🧍 Solo</div><div class="rf-type" onclick="this.classList.toggle('on')">👫 Couple</div><div class="rf-type" onclick="this.classList.toggle('on')">👨‍👩‍👧 Family</div><div class="rf-type" onclick="this.classList.toggle('on')">👯 Friends</div></div><textarea class="rf-input rf-textarea" placeholder="Share your experience…" maxlength="400"></textarea><div class="rf-success" id="rfs-sofitel">✓ Thank you!</div><button class="rf-submit" onclick="submitReview('sofitel')">Submit Review</button></div></div></div>
         </div>
       </div>
 
@@ -1675,97 +1300,6 @@ footer {
 </div><!-- /page-body -->
 
 <script>
-/* ── Review system ── */
-  const reviewRatings = {};
-
-  function toggleReviews(id) {
-    document.getElementById(id).classList.toggle('open');
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.rf-stars').forEach(starsEl => {
-      const formId = starsEl.dataset.form;
-      const stars = starsEl.querySelectorAll('.rf-star');
-      const label = starsEl.querySelector('.rf-label');
-      const labels = ['','Terrible','Poor','Okay','Good','Excellent'];
-
-      stars.forEach(star => {
-        star.addEventListener('mouseenter', () => {
-          const val = +star.dataset.val;
-          stars.forEach(s => s.classList.toggle('lit', +s.dataset.val <= val));
-          label.textContent = labels[val];
-        });
-        star.addEventListener('mouseleave', () => {
-          const cur = reviewRatings[formId] || 0;
-          stars.forEach(s => s.classList.toggle('lit', +s.dataset.val <= cur));
-          label.textContent = cur ? labels[cur] : 'Tap to rate';
-        });
-        star.addEventListener('click', () => {
-          reviewRatings[formId] = +star.dataset.val;
-          stars.forEach(s => s.classList.toggle('lit', +s.dataset.val <= +star.dataset.val));
-          label.textContent = labels[+star.dataset.val];
-        });
-      });
-    });
-  });
-
-  function submitReview(formId) {
-    const form = document.getElementById('rf-' + formId);
-    const inputs = form.querySelectorAll('input.rf-input');
-    const name = inputs[0].value.trim();
-    const country = inputs[1].value.trim();
-    const text = form.querySelector('.rf-textarea').value.trim();
-    const rating = reviewRatings[formId] || 0;
-    const travelerType = [...form.querySelectorAll('.rf-type.on')].map(t => t.textContent.trim()).join(', ');
-
-    if (!name || !text || rating === 0) {
-      const btn = form.querySelector('.rf-submit');
-      btn.style.background = '#c0392b';
-      btn.textContent = 'Add your name, rating & review';
-      setTimeout(() => { btn.style.background = ''; btn.textContent = 'Submit Review'; }, 2200);
-      return;
-    }
-
-    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    const now = new Date();
-    const dateStr = `${months[now.getMonth()]} ${now.getFullYear()}`;
-    const filled = '<span class="review-star">★</span>'.repeat(rating);
-    const empty  = '<span class="review-star empty">★</span>'.repeat(5 - rating);
-    const colors = ['#C9A84C','#52b788','#e07a5f','#9b72cf','#E2BC65'];
-    const color  = colors[name.charCodeAt(0) % colors.length];
-    const meta   = [country, travelerType].filter(Boolean).join(' · ');
-
-    const el = document.createElement('div');
-    el.className = 'review-item';
-    el.style.borderColor = 'rgba(201,168,76,0.22)';
-    el.innerHTML = `
-      <div class="review-header">
-        <div class="reviewer-info">
-          <div class="reviewer-avatar" style="background:${color}">${name[0].toUpperCase()}</div>
-          <div><div class="reviewer-name">${name}</div><div class="reviewer-meta">${meta}</div></div>
-        </div>
-        <div class="review-right">
-          <div class="review-stars">${filled}${empty}</div>
-          <div class="review-date">${dateStr}</div>
-        </div>
-      </div>
-      <div class="review-text">${text}</div>`;
-
-    form.closest('.reviews-body').insertBefore(el, form.previousElementSibling);
-    document.getElementById('rfs-' + formId).classList.add('show');
-    form.querySelector('.rf-submit').style.display = 'none';
-    inputs[0].value = ''; inputs[1].value = '';
-    form.querySelector('.rf-textarea').value = '';
-    reviewRatings[formId] = 0;
-    form.querySelectorAll('.rf-star').forEach(s => s.classList.remove('lit'));
-    form.querySelector('.rf-label').textContent = 'Tap to rate';
-    form.querySelectorAll('.rf-type').forEach(t => t.classList.remove('on'));
-
-    const countEl = form.closest('.reviews-wrap').querySelector('.rt-count');
-    const currentCount = parseInt(countEl.textContent) || 0;
-    countEl.textContent = `${currentCount + 1} ${currentCount + 1 === 1 ? 'review' : 'reviews'}`;
-  }
-
 /* ── Image fallback ── */
   function imgFail(img) {
     img.style.opacity = '0';
@@ -1817,10 +1351,6 @@ function applyFilters() {
   const activeBudget = document.querySelector('.chip[data-budget].active')?.dataset.budget || 'all';
   const maxPrice = parseInt(document.getElementById('price-range').value) || 400;
 
-  // Get checked star ratings
-  const checkedStars = Array.from(document.querySelectorAll('.star-row input:checked'))
-    .map(cb => parseInt(cb.dataset.stars));
-
   // Get active amenity filters (only pills that are ON)
   const activeAmens = Array.from(document.querySelectorAll('.amen-pill.on[data-amen]'))
     .map(p => p.dataset.amen);
@@ -1832,7 +1362,6 @@ function applyFilters() {
     const city = card.dataset.city || '';
     const price = parseInt(card.dataset.price) || 0;
     const type = card.dataset.type || '';
-    const stars = parseInt(card.dataset.stars) || 0;
     const amenities = (card.dataset.amenities || '').split(',');
 
     // City filter
@@ -1851,13 +1380,10 @@ function applyFilters() {
     // Price slider filter
     const priceMatch = price <= maxPrice;
 
-    // Star rating filter
-    const starMatch = checkedStars.length === 0 || checkedStars.includes(stars);
-
     // Amenities filter — card must have ALL active amenity pills
     const amenMatch = activeAmens.every(a => amenities.includes(a));
 
-    if (cityMatch && typeMatch && budgetMatch && priceMatch && starMatch && amenMatch) {
+    if (cityMatch && typeMatch && budgetMatch && priceMatch && amenMatch) {
       card.style.display = '';
       visible++;
     } else {
@@ -1907,12 +1433,6 @@ function setView(v) {
   else              { g.classList.remove('lv'); gb.classList.add('on'); lb.classList.remove('on'); }
 }
 
-/* ── Save toggle ── */
-function toggleSave(el) {
-  const saved = el.classList.toggle('on');
-  el.textContent = saved ? '❤️' : '🤍';
-}
-
 /* ── Pagination ── */
 function setPg(el) {
   if (el.textContent === '‹' || el.textContent === '›') return;
@@ -1923,7 +1443,6 @@ function setPg(el) {
 /* ── Clear filters ── */
 function clearFilters() {
   document.querySelectorAll('.amen-pill').forEach(p => p.classList.remove('on'));
-  document.querySelectorAll('.star-row input').forEach(c => c.checked = true);
   document.querySelectorAll('.city-btn').forEach(b => b.classList.remove('active'));
   document.querySelector('.city-btn').classList.add('active');
   document.querySelectorAll('.chip[data-type]').forEach(c => c.classList.remove('active'));
