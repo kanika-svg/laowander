@@ -1136,7 +1136,7 @@ footer {
 
 
 
-      <div class="city-explore-wrap">
+      <div class="city-explore-wrap" data-city="4000islands">
         <a href="https://www.booking.com/searchresults.html?ss=Don+Det+Laos" class="city-explore-cta" rel="noopener sponsored" target="_blank">Browse all hotels in Si Phan Don on Booking.com →</a>
       </div>
 
@@ -1176,7 +1176,7 @@ footer {
         </div>
       </div>
 
-      <div class="city-explore-wrap">
+      <div class="city-explore-wrap" data-city="vientiane">
         <a href="https://www.booking.com/searchresults.html?ss=Vientiane+Laos" class="city-explore-cta" rel="noopener sponsored" target="_blank">Browse all hotels in Vientiane on Booking.com →</a>
       </div>
 
@@ -1222,7 +1222,7 @@ footer {
 
 
 
-      <div class="city-explore-wrap">
+      <div class="city-explore-wrap" data-city="vangvieng">
         <a href="https://www.booking.com/searchresults.html?ss=Vang+Vieng+Laos" class="city-explore-cta" rel="noopener sponsored" target="_blank">Browse all hotels in Vang Vieng on Booking.com →</a>
       </div>
 
@@ -1292,7 +1292,7 @@ footer {
         </div>
       </div>
 
-      <div class="city-explore-wrap">
+      <div class="city-explore-wrap" data-city="luangprabang">
         <a href="https://www.booking.com/searchresults.html?ss=Luang+Prabang+Laos" class="city-explore-cta" rel="noopener sponsored" target="_blank">Browse all hotels in Luang Prabang on Booking.com →</a>
       </div>
     </div><!-- /hgrid -->
@@ -1391,6 +1391,15 @@ function applyFilters() {
     }
   });
 
+  // Hide CTAs whose city has no visible hotels
+  document.querySelectorAll('.city-explore-wrap').forEach(wrap => {
+    const ctaCity = wrap.dataset.city;
+    const cityHasVisibleHotel = Array.from(
+      document.querySelectorAll(`.hc[data-city="${ctaCity}"]`)
+    ).some(card => card.style.display !== 'none');
+    wrap.style.display = cityHasVisibleHotel ? '' : 'none';
+  });
+
   // Update results count
   const countEl = document.querySelector('.results-count strong');
   if (countEl) countEl.textContent = visible;
@@ -1422,6 +1431,17 @@ function sortCards(val) {
     return 0;
   });
   cards.forEach(c => grid.appendChild(c));
+
+  // Re-anchor each city CTA immediately after the last hotel card of its city
+  document.querySelectorAll('.city-explore-wrap').forEach(wrap => {
+    const ctaCity = wrap.dataset.city;
+    const cityCards = Array.from(
+      document.querySelectorAll(`.hc[data-city="${ctaCity}"]`)
+    );
+    if (cityCards.length === 0) return;
+    const lastCard = cityCards[cityCards.length - 1];
+    lastCard.parentNode.insertBefore(wrap, lastCard.nextSibling);
+  });
 }
 
 /* ── View toggle ── */
@@ -1487,6 +1507,7 @@ function checkMobile() {
 }
 checkMobile();
 window.addEventListener('resize', checkMobile);
+applyFilters();
 </script>
 
 <!-- FOOTER -->
