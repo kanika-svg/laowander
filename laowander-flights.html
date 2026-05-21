@@ -14,6 +14,10 @@
 <meta property="og:image" content="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=85">
 <meta property="og:description" content="Find and compare cheap flights to Laos. Flights to Vientiane, Luang Prabang and Pakse from Bangkok, Singapore, Hanoi and beyond. Powered by Skyscanner.">
 <meta property="og:title" content="Flights to Laos — LaoWander | Compare Cheap Flights">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <link rel="canonical" href="https://laowander.pages.dev/laowander-flights.html">
 <meta name="description" content="Find and compare cheap flights to Laos. Flights to Vientiane, Luang Prabang and Pakse from Bangkok, Singapore, Hanoi and beyond. Powered by Skyscanner.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -206,6 +210,26 @@ footer{background:var(--surface);border-top:1px solid var(--rim);padding:48px 64
   max-width: 640px;
 }
 
+/* AIRPORT TRANSFER CTA */
+.airport-transfer-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 8px 14px;
+  font-size: 0.78rem;
+  color: var(--gold);
+  border: 1px solid var(--gold-line);
+  border-radius: 24px;
+  text-decoration: none;
+  background: transparent;
+  transition: background 0.2s, border-color 0.2s;
+}
+.airport-transfer-cta:hover {
+  background: var(--gold-dim);
+  border-color: var(--gold);
+}
+
 /* RESPONSIVE */
 @media(max-width:1024px){
   .search-row{flex-wrap:wrap;}
@@ -243,11 +267,12 @@ footer{background:var(--surface);border-top:1px solid var(--rim);padding:48px 64
   "description": "Find and compare cheap flights to Laos. Flights to Vientiane, Luang Prabang and Pakse from Bangkok, Singapore, Hanoi and beyond. Powered by Skyscanner.",
   "url": "https://laowander.pages.dev/laowander-flights.html",
   "image": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=85",
+  "dateModified": "2026-05-21",
   "publisher": {
     "@type": "Organization",
     "name": "LaoWander",
-    "url": "https://laowander.pages.dev/laowander"
-  },
+    "url": "https://laowander.pages.dev"
+  }
 }
 </script>
 <!-- Travelpayouts Drive — lazy loaded to protect Lighthouse score -->
@@ -289,7 +314,7 @@ footer{background:var(--surface);border-top:1px solid var(--rim);padding:48px 64
   </ul>
   <div class="nav-right">
     <div class="nav-sep"></div>
-    <button class="nav-cta" onclick="window.location.href='laowander-itineraries.html'">Plan Your Trip</button>
+    <a href="/#newsletter" class="nav-cta">Get Inspired</a>
     <div class="nav-toggle" id="nav-toggle" onclick="toggleNav()"><span></span><span></span><span></span></div>
   </div>
 </nav>
@@ -303,7 +328,7 @@ footer{background:var(--surface);border-top:1px solid var(--rim);padding:48px 64
   <a href="laowander-guide.html" onclick="closeNav()">Guide</a>
   <a href="laowander-map.html" onclick="closeNav()">🗺 Map</a>
   <a href="laowander-flights.html" onclick="closeNav()">✈ Flights</a>
-  <button class="drawer-cta" onclick="closeNav();window.location.href='laowander-itineraries.html'">Plan Your Trip</button>
+  <a href="/#newsletter" class="drawer-cta" onclick="closeNav()">Get Inspired</a>
 </div>
 
 <!-- HERO -->
@@ -379,7 +404,7 @@ footer{background:var(--surface);border-top:1px solid var(--rim);padding:48px 64
     </div>
 
     <div class="search-note">
-      ℹ️ Powered by <a href="https://www.skyscanner.net" target="_blank" rel="noopener">Skyscanner</a> — we may earn a small commission at no extra cost to you.
+      ℹ️ Powered by <a href="https://www.skyscanner.net" target="_blank" rel="noopener">Skyscanner</a> — we provide the search form, Skyscanner powers the results. Flight searches are free; we don't earn a commission on these clicks.
     </div>
   </div>
 </div>
@@ -485,7 +510,7 @@ footer{background:var(--surface);border-top:1px solid var(--rim);padding:48px 64
         <div class="route-price">$95 <span>one way</span></div>
         <div class="route-airlines">
           <span class="route-airline">AirAsia</span>
-          <span class="route-airline">Malindo Air</span>
+          <span class="route-airline">Batik Air Malaysia</span>
         </div>
         <div class="route-btn">
           <span class="route-btn-link">Search on Skyscanner →</span>
@@ -565,6 +590,7 @@ footer{background:var(--surface);border-top:1px solid var(--rim);padding:48px 64
         <div class="airport-detail">
           <strong>Laos' busiest airport.</strong> Modern international terminal with direct connections to Bangkok, Singapore, Hanoi, KL, Guangzhou and beyond. Visa on arrival available. Tuk-tuk to city centre takes 10 minutes and costs around $3-5.
         </div>
+        <a href="https://klook.tpo.lv/qVUntlJA" class="airport-transfer-cta" rel="noopener sponsored" target="_blank">🚗 Pre-book your airport transfer on Klook →</a>
       </div>
     </div>
     <div class="airport-card">
@@ -580,6 +606,7 @@ footer{background:var(--surface);border-top:1px solid var(--rim);padding:48px 64
         <div class="airport-detail">
           <strong>Most scenic airport in SE Asia.</strong> You land surrounded by jungle and temples — extraordinary arrival. Direct flights from Bangkok, Singapore, Chiang Mai and Hanoi. Walk or tuk-tuk to most hotels in 5-15 minutes.
         </div>
+        <a href="https://klook.tpo.lv/qVUntlJA" class="airport-transfer-cta" rel="noopener sponsored" target="_blank">🚗 Pre-book your airport transfer on Klook →</a>
       </div>
     </div>
     <div class="airport-card">
@@ -595,9 +622,11 @@ footer{background:var(--surface);border-top:1px solid var(--rim);padding:48px 64
         <div class="airport-detail">
           <strong>Gateway to the south.</strong> Best entry point for 4,000 Islands, Bolaven Plateau coffee country and Champasak ruins. Direct flights from Bangkok and Siem Reap. Small and easy to navigate — visa on arrival available.
         </div>
+        <a href="https://klook.tpo.lv/qVUntlJA" class="airport-transfer-cta" rel="noopener sponsored" target="_blank">🚗 Pre-book your airport transfer on Klook →</a>
       </div>
     </div>
   </div>
+  <p style="font-size:.72rem;color:var(--soft);margin-top:18px;">Klook airport transfer bookings include a small commission to LaoWander at no extra cost to you.</p>
 </div>
 
 <div style="background:var(--gold-dim);border:1px solid var(--gold-line);border-radius:14px;padding:18px 22px;margin:32px auto;max-width:1100px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
@@ -631,7 +660,7 @@ footer{background:var(--surface);border-top:1px solid var(--rim);padding:48px 64
       <div class="tip-icon">🛂</div>
       <div>
         <div class="tip-title">Visa on arrival at all 3 airports</div>
-        <div class="tip-desc">Most nationalities can get a visa on arrival at Wattay, Luang Prabang and Pakse airports. Cost is $30-42 USD. Bring 2 passport photos and cash. Alternatively, apply for an e-Visa at laoevisa.gov.la before you fly — saves queuing time.</div>
+        <div class="tip-desc">Most nationalities can get a visa on arrival at Wattay, Luang Prabang and Pakse airports. Cost is approximately $30–50 USD depending on nationality (verify current fee at laoevisa.gov.la). Bring 2 passport photos and cash. Alternatively, apply for an e-Visa at laoevisa.gov.la before you fly — saves queuing time.</div>
       </div>
     </div>
     <div class="tip-card">
@@ -707,9 +736,9 @@ footer{background:var(--surface);border-top:1px solid var(--rim);padding:48px 64
     </div>
     <div class="airline-card">
       <div class="airline-emoji">🇹🇭</div>
-      <div class="airline-name">Thai Airways</div>
+      <div class="airline-name">Thai AirAsia</div>
       <div class="airline-hub">Bangkok · BKK hub</div>
-      <a href="https://www.skyscanner.net/flights/bkk/lpq/cheap-flights-from-bangkok-to-luang-prabang.html" target="_blank" rel="noopener" class="airline-link">Search flights →</a>
+      <a href="https://www.skyscanner.net/flights/bkk/vte/cheap-flights-from-bangkok-to-vientiane.html" target="_blank" rel="noopener" class="airline-link">Search flights →</a>
     </div>
   </div>
 </div>
@@ -755,7 +784,7 @@ footer{background:var(--surface);border-top:1px solid var(--rim);padding:48px 64
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 LaoWander · Independent travel guide</span>
+    <span>© 2026 LaoWander · Independent travel guide</span>
     <span>Affiliate links help keep this site free</span>
   </div>
   <p class="footer-disclosure">LaoWander may earn a commission when you book through our partner links. This never affects the price you pay.</p>
