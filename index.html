@@ -721,27 +721,20 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
 /* ── HAPPENING NOW ── */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s var(--ease),transform .65s var(--ease);}
 .happening-section{position:relative;z-index:1;padding:100px 0;border-top:1px solid var(--rim);}
-.happening-header{padding:0 64px;margin-bottom:40px;}
+.happening-header{padding:0 24px;max-width:780px;margin:0 auto 40px;text-align:center;}
 .happening-kicker{display:inline-flex;align-items:center;gap:8px;font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
 @keyframes pulseDot{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.4);opacity:.55;}}
 .pulse-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:pulseDot 1.5s ease-in-out infinite;}
 .happening-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:900;line-height:1.05;letter-spacing:-.02em;margin-bottom:12px;}
 .happening-title em{font-style:italic;color:var(--gold);}
-.happening-sub{font-size:.9rem;color:var(--soft);line-height:1.7;max-width:520px;}
+.happening-sub{font-size:.9rem;color:var(--soft);line-height:1.7;max-width:520px;margin-left:auto;margin-right:auto;}
 .happening-row-wrap{position:relative;}
-.happening-row-wrap::after{content:'';position:absolute;top:0;right:0;bottom:0;width:80px;background:linear-gradient(to right,transparent,var(--bg));pointer-events:none;z-index:2;}
-.happening-row{display:flex;gap:20px;padding:12px 0 28px;padding-left:64px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:64px;-webkit-overflow-scrolling:touch;scrollbar-width:none;justify-content:center;}
-.happening-row::-webkit-scrollbar{display:none;}
-.happening-row::after{content:'';flex:0 0 64px;}
+.happening-row{display:flex;gap:20px;padding:12px 24px 28px;flex-wrap:wrap;justify-content:center;}
 @media(max-width:860px){
-  .happening-row{padding-left:20px;scroll-padding-left:20px;}
-  .happening-row::after{flex:0 0 20px;}
+  .happening-row{padding:12px 16px 28px;}
 }
-.happening-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:44px;height:44px;background:rgba(26,24,20,.92);backdrop-filter:blur(12px);border:1px solid var(--gold-line);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:1.1rem;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s,background .2s,color .2s;}
-.happening-arrow:hover{background:var(--gold);color:#111009;}
-.happening-arrow.arr-left{left:16px;}
-.happening-arrow.arr-right{right:16px;}
-.happening-row-wrap:hover .happening-arrow{opacity:1;pointer-events:auto;}
+.happening-cta-bottom{display:inline-flex;align-items:center;gap:8px;margin:40px auto 0;padding:12px 26px;font-size:.92rem;font-weight:600;color:var(--gold);border:1px solid var(--gold-line);border-radius:30px;text-decoration:none;background:transparent;transition:background .2s,border-color .2s,color .2s;}
+.happening-cta-bottom:hover{background:var(--gold-dim);border-color:var(--gold);color:var(--gold-bright);}
 .hcard{flex:0 0 320px;height:420px;border-radius:22px;overflow:hidden;position:relative;scroll-snap-align:start;border:1px solid rgba(201,168,76,.12);cursor:pointer;transition:transform .35s var(--ease),border-color .3s,box-shadow .3s;text-decoration:none;color:inherit;display:block;}
 .hcard:hover{transform:scale(1.02);border-color:rgba(201,168,76,.45);box-shadow:0 0 0 1px rgba(201,168,76,.18),0 24px 60px rgba(0,0,0,.6);}
 .hcard-img{position:absolute;inset:0;width:100%;height:100%;}
@@ -804,9 +797,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
 }
 @media(max-width:860px){
   .happening-section{padding:80px 0;}
-  .happening-header{padding:0 20px;}
-  .happening-row-wrap::after{display:none;}
-  .happening-arrow{display:none;}
+  .happening-header{padding:0 16px;}
   .hcard{flex:0 0 80vw;}
 }
 @media(max-width:480px){
@@ -924,7 +915,6 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
     <p class="happening-sub">Three of Laos's most significant — for timing your trip</p>
   </div>
   <div class="happening-row-wrap">
-    <button class="happening-arrow arr-left" aria-label="Scroll left" onclick="this.closest('.happening-row-wrap').querySelector('.happening-row').scrollBy({left:-340,behavior:'smooth'})">&#8592;</button>
     <div class="happening-row">
 
       <!-- Card 1: Boun Ok Phansa -->
@@ -938,7 +928,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
         <div class="hcard-body">
           <div class="hcard-title">Boun Ok Phansa — Light Festival</div>
           <div class="hcard-desc">Thousands of candle-lit boats float down the Mekong</div>
-          <div class="hcard-cta">Explore <span class="cta-arrow">→</span></div>
+
         </div>
       </a>
 
@@ -953,7 +943,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
         <div class="hcard-body">
           <div class="hcard-title">That Luang Festival</div>
           <div class="hcard-desc">National festival at Laos' most sacred stupa</div>
-          <div class="hcard-cta">Explore <span class="cta-arrow">→</span></div>
+
         </div>
       </a>
 
@@ -968,13 +958,15 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
         <div class="hcard-body">
           <div class="hcard-title">Lao New Year — Pi Mai</div>
           <div class="hcard-desc">Three days of water fights and blessings across the country</div>
-          <div class="hcard-cta">Explore <span class="cta-arrow">→</span></div>
+
         </div>
       </a>
 
 
     </div>
-    <button class="happening-arrow arr-right" aria-label="Scroll right" onclick="this.closest('.happening-row-wrap').querySelector('.happening-row').scrollBy({left:340,behavior:'smooth'})">&#8594;</button>
+    <div style="text-align:center;">
+      <a href="laowander-events.html" class="happening-cta-bottom">See all festivals & cultural events →</a>
+    </div>
   </div>
 </section>
 
