@@ -803,6 +803,25 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
 @media(max-width:480px){
   .hcard{flex:0 0 88vw;}
 }
+
+/* SECTION DIVIDERS */
+.kanok-divider {
+  height: 2px;
+  margin: 32px auto 0;
+  max-width: calc(100% - 96px);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #C9A84C 15%,
+    #C9A84C 85%,
+    transparent 100%
+  );
+  opacity: 0.5;
+}
+.kanok-divider--footer {
+  margin: 0 auto 16px;
+  opacity: 0.35;
+}
 </style>
   <!-- Google Analytics — deferred until after window load to not block first paint -->
 <script type="application/ld+json">
@@ -888,6 +907,8 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
     <p class="hero-sub">Temples wrapped in jungle mist. Rivers that move slow. A country that still feels like a secret worth keeping.</p>
   </div>
 </section>
+
+<div class="kanok-divider" aria-hidden="true"></div>
 
 <!-- INTRO TO LAOS -->
 <section class="intro-section reveal">
@@ -1089,7 +1110,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
       <p class="dest-summary-lead">Or more than one. Most travelers need three weeks in Laos. Most plan for one.</p>
     </div>
     <div class="dest-summary-grid">
-      <a href="#" class="dest-summary-card">
+      <a href="luang-prabang.html" class="dest-summary-card">
         <img src="https://images.unsplash.com/photo-1606064195579-a48c728cec35?w=500&q=80&auto=format&fit=crop" alt="Luang Prabang" loading="lazy" decoding="async">
         <div class="dest-summary-overlay"></div>
         <div class="dest-summary-content">
@@ -1097,7 +1118,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
           <h3>Luang Prabang</h3>
         </div>
       </a>
-      <a href="#" class="dest-summary-card">
+      <a href="vientiane.html" class="dest-summary-card">
         <img src="https://images.unsplash.com/photo-1642085085078-2eac87feb4c7?w=500&q=80&auto=format&fit=crop" alt="Vientiane" loading="lazy" decoding="async">
         <div class="dest-summary-overlay"></div>
         <div class="dest-summary-content">
@@ -1105,7 +1126,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
           <h3>Vientiane</h3>
         </div>
       </a>
-      <a href="#" class="dest-summary-card">
+      <a href="vang-vieng.html" class="dest-summary-card">
         <img src="https://images.unsplash.com/photo-1718267104642-147a1373b3c6?w=500&q=80&auto=format&fit=crop" alt="Vang Vieng" loading="lazy" decoding="async">
         <div class="dest-summary-overlay"></div>
         <div class="dest-summary-content">
@@ -1113,7 +1134,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
           <h3>Vang Vieng</h3>
         </div>
       </a>
-      <a href="#" class="dest-summary-card">
+      <a href="nong-khiaw.html" class="dest-summary-card">
         <img src="https://images.unsplash.com/photo-1705917950934-7efe2b6866cc?w=500&q=80&auto=format&fit=crop" alt="Nong Khiaw" loading="lazy" decoding="async">
         <div class="dest-summary-overlay"></div>
         <div class="dest-summary-content">
@@ -1121,7 +1142,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
           <h3>Nong Khiaw</h3>
         </div>
       </a>
-      <a href="#" class="dest-summary-card">
+      <a href="4000-islands.html" class="dest-summary-card">
         <img src="https://images.unsplash.com/photo-1441632260885-881646a7fd4d?w=500&q=80&auto=format&fit=crop" alt="Don Det and the 4,000 Islands" loading="lazy" decoding="async">
         <div class="dest-summary-overlay"></div>
         <div class="dest-summary-content">
@@ -1308,6 +1329,7 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
     </div>
   </div>
   <div class="footer-bottom">
+    <div class="kanok-divider kanok-divider--footer" aria-hidden="true"></div>
     <div class="footer-copy">© 2026 LaoWander. All rights reserved.</div>
     <p class="footer-disclosure">LaoWander may earn a commission when you book through our partner links. This never affects the price you pay.</p>
   </div>
@@ -1402,96 +1424,152 @@ function handleNewsletterSubmit(e) {
 </script>
 <!-- TRIP PLANNER POPUP -->
 <div id="trip-planner-overlay" onclick="closeTripPlanner(event)" style="display:none;position:fixed;inset:0;z-index:500;background:rgba(17,16,9,0.85);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px;">
-  <div id="trip-planner-modal" style="background:var(--surface);border:1px solid var(--gold-line);border-radius:24px;width:100%;max-width:520px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.5);">
+  <div id="trip-planner-modal" style="background:var(--surface);border:1px solid var(--gold-line);border-radius:24px;width:100%;max-width:780px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.5);max-height:90vh;overflow-y:auto;position:relative;">
+    <button onclick="closeTripPlanner()" aria-label="Close" style="position:absolute;top:16px;right:16px;background:rgba(255,248,235,.08);border:1px solid var(--rim);border-radius:50%;width:32px;height:32px;color:var(--muted);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;">✕</button>
 
-    <!-- Header -->
-    <div style="background:linear-gradient(135deg,#1e1a0e,var(--surface));padding:32px 32px 24px;position:relative;">
-      <button onclick="closeTripPlanner()" style="position:absolute;top:16px;right:16px;background:rgba(255,248,235,.08);border:1px solid var(--rim);border-radius:50%;width:32px;height:32px;color:var(--muted);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
-      <div style="font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;"> Trip Planner</div>
-      <div style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--white);line-height:1.1;">Plan your perfect<br><em style="color:var(--gold)">Laos trip</em></div>
-      <p style="font-size:.82rem;color:var(--soft);margin-top:10px;line-height:1.6;">Tell us a bit about your trip and we'll recommend the perfect itinerary.</p>
-    </div>
+    <div class="modal-inner">
 
-    <!-- Steps -->
-    <div style="padding:28px 32px 32px;display:flex;flex-direction:column;gap:24px;">
-
-      <!-- Step 1: Trip length -->
-      <div>
-        <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">How long is your trip?</div>
-        <div style="display:flex;gap:10px;">
-          <div class="tp-option" data-group="days" data-value="5" onclick="selectOption(this)">
-            <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;">5</div>
-            <div style="font-size:.68rem;color:var(--muted);">days</div>
-          </div>
-          <div class="tp-option" data-group="days" data-value="7" onclick="selectOption(this)">
-            <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;">7</div>
-            <div style="font-size:.68rem;color:var(--muted);">days</div>
-          </div>
-          <div class="tp-option" data-group="days" data-value="10" onclick="selectOption(this)">
-            <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:900;">10</div>
-            <div style="font-size:.68rem;color:var(--muted);">days</div>
-          </div>
-          <div class="tp-option" data-group="days" data-value="any" onclick="selectOption(this)">
-            <div style="font-size:.85rem;font-weight:700;">Any</div>
-            <div style="font-size:.68rem;color:var(--muted);">flexible</div>
-          </div>
-        </div>
+      <div class="modal-header">
+        <p class="tp-eyebrow">FIND YOUR LAOS</p>
+        <h2 class="tp-modal-title">Where in Laos <em>calls you?</em></h2>
+        <p class="tp-modal-subtitle">Pick a place and we'll show you what's there. The itinerary, the hours, the rhythm — all come later.</p>
       </div>
 
-      <!-- Step 2: Travel style -->
-      <div>
-        <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">What's your travel style?</div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <div class="tp-option tp-wide" data-group="style" data-value="budget" onclick="selectOption(this)">Budget</div>
-          <div class="tp-option tp-wide" data-group="style" data-value="mid" onclick="selectOption(this)">Mid-range</div>
-          <div class="tp-option tp-wide" data-group="style" data-value="luxury" onclick="selectOption(this)">Luxury</div>
-        </div>
+      <div class="destination-tiles">
+
+        <a href="luang-prabang.html" class="dest-tile">
+          <div class="dest-tile-bg" style="background:linear-gradient(180deg,#2a1f15 0%,#5a3f25 40%,#b8893c 70%,#d4b870 100%);"></div>
+          <div class="dest-tile-overlay"></div>
+          <div class="dest-tile-content">
+            <span class="dest-tile-region" aria-label="Northern Laos">NORTH</span>
+            <h3 class="dest-tile-title">Luang Prabang</h3>
+            <p class="dest-tile-tagline">UNESCO heart, temples, alms ceremony</p>
+          </div>
+        </a>
+
+        <a href="vientiane.html" class="dest-tile">
+          <div class="dest-tile-bg" style="background:linear-gradient(180deg,#1a1815 0%,#3a3528 40%,#7a6f45 70%,#b8a865 100%);"></div>
+          <div class="dest-tile-overlay"></div>
+          <div class="dest-tile-content">
+            <span class="dest-tile-region" aria-label="Capital of Laos">CAPITAL</span>
+            <h3 class="dest-tile-title">Vientiane</h3>
+            <p class="dest-tile-tagline">The comfortable capital, Mekong sunsets</p>
+          </div>
+        </a>
+
+        <a href="vang-vieng.html" class="dest-tile">
+          <div class="dest-tile-bg" style="background:linear-gradient(180deg,#1a2a3a 0%,#3a5a7a 40%,#7a9aba 70%,#c8d8e8 100%);"></div>
+          <div class="dest-tile-overlay"></div>
+          <div class="dest-tile-content">
+            <span class="dest-tile-region" aria-label="Central Laos">CENTRAL</span>
+            <h3 class="dest-tile-title">Vang Vieng</h3>
+            <p class="dest-tile-tagline">Karst peaks, kayaks, slow river days</p>
+          </div>
+        </a>
+
+        <a href="nong-khiaw.html" class="dest-tile">
+          <div class="dest-tile-bg" style="background:linear-gradient(180deg,#15201a 0%,#2a4035 40%,#5a7a6a 70%,#98b8a0 100%);"></div>
+          <div class="dest-tile-overlay"></div>
+          <div class="dest-tile-content">
+            <span class="dest-tile-region" aria-label="Northern Laos">NORTH</span>
+            <h3 class="dest-tile-title">Nong Khiaw</h3>
+            <p class="dest-tile-tagline">Limestone country, kept raw</p>
+          </div>
+        </a>
+
+        <a href="4000-islands.html" class="dest-tile">
+          <div class="dest-tile-bg" style="background:linear-gradient(180deg,#15252a 0%,#2a4a5a 40%,#5a8a9a 70%,#98c8d8 100%);"></div>
+          <div class="dest-tile-overlay"></div>
+          <div class="dest-tile-content">
+            <span class="dest-tile-region" aria-label="Southern Laos">SOUTH</span>
+            <h3 class="dest-tile-title">4000 Islands</h3>
+            <p class="dest-tile-tagline">Hammocks, dolphins, slow water</p>
+          </div>
+        </a>
+
+        <a href="laowander-itineraries.html" class="dest-tile dest-tile-all">
+          <div class="dest-tile-bg" style="background:linear-gradient(180deg,#2a1810 0%,#4a2a18 30%,#7a4a28 60%,#c9883c 100%);"></div>
+          <div class="dest-tile-overlay"></div>
+          <div class="dest-tile-content">
+            <span class="dest-tile-region" aria-label="All of Laos">ALL OF LAOS</span>
+            <h3 class="dest-tile-title">The whole country</h3>
+            <p class="dest-tile-tagline">North to south, the full journey</p>
+          </div>
+        </a>
+
       </div>
 
-      <!-- Step 3: Interests -->
-      <div>
-        <div style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">What are you most interested in?</div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          <div class="tp-tag" data-group="interest" onclick="toggleTag(this)">Temples</div>
-          <div class="tp-tag" data-group="interest" onclick="toggleTag(this)">Nature</div>
-          <div class="tp-tag" data-group="interest" onclick="toggleTag(this)">Food</div>
-          <div class="tp-tag" data-group="interest" onclick="toggleTag(this)">Adventure</div>
-          <div class="tp-tag" data-group="interest" onclick="toggleTag(this)">Wildlife</div>
-          <div class="tp-tag" data-group="interest" onclick="toggleTag(this)">Photography</div>
-          <div class="tp-tag" data-group="interest" onclick="toggleTag(this)">Relaxation</div>
-          <div class="tp-tag" data-group="interest" onclick="toggleTag(this)">Culture</div>
-        </div>
+      <div class="tp-modal-footer">
+        <p>Not sure yet? <a href="laowander-guide.html">Browse the guide</a> · <a href="laowander-itineraries.html">See itineraries</a></p>
       </div>
 
-      <!-- CTA -->
-      <button onclick="goToItinerary()" id="tp-cta" style="width:100%;padding:16px;background:var(--gold);color:#111009;font-size:.88rem;font-weight:700;border-radius:30px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s,transform .2s;opacity:0.5;pointer-events:none;" disabled>
-        Show me my itinerary →
-      </button>
-      <div style="text-align:center;font-size:.72rem;color:var(--muted);">Or <a href="laowander-itineraries.html" style="color:var(--gold);text-decoration:underline;">browse all itineraries</a></div>
     </div>
   </div>
 </div>
 
 <style>
-.tp-option {
-  flex:1;min-width:0;padding:14px 10px;
-  background:var(--raised);border:1px solid var(--rim);
-  border-radius:14px;text-align:center;cursor:pointer;
-  color:var(--white);font-weight:700;font-size:.85rem;
-  transition:all .2s;user-select:none;
-}
-.tp-option.tp-wide { flex:none; padding:12px 18px; }
-.tp-option:hover { border-color:var(--gold-line);background:var(--gold-dim); }
-.tp-option.selected { border-color:var(--gold);background:var(--gold-dim);color:var(--gold); }
-.tp-tag {
-  padding:7px 14px;border-radius:20px;
-  background:var(--raised);border:1px solid var(--rim);
-  font-size:.78rem;color:var(--soft);cursor:pointer;
-  transition:all .2s;user-select:none;
-}
-.tp-tag:hover { border-color:var(--gold-line);color:var(--white); }
-.tp-tag.selected { border-color:var(--gold);background:var(--gold-dim);color:var(--gold); }
 #trip-planner-overlay.open { display:flex !important; }
+.modal-inner { padding:36px 32px 28px; }
+.modal-header { margin-bottom:28px; }
+.tp-eyebrow {
+  font-size:11px;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;color:#C9A84C;margin-bottom:10px;
+}
+.tp-modal-title {
+  font-family:'Playfair Display',serif;font-size:1.875rem;font-weight:900;
+  color:#F4E9CE;line-height:1.15;margin-bottom:10px;
+}
+.tp-modal-title em { color:#E2BC65;font-style:italic; }
+.tp-modal-subtitle {
+  font-size:.875rem;color:#B8B0A0;max-width:460px;line-height:1.6;
+}
+.destination-tiles {
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+  margin-bottom:24px;
+}
+.dest-tile {
+  position:relative;border-radius:4px;overflow:hidden;
+  aspect-ratio:4/5;text-decoration:none;display:block;
+  transition:transform .2s;
+}
+.dest-tile:hover { transform:scale(1.02); }
+.dest-tile-bg { position:absolute;inset:0; }
+.dest-tile-overlay {
+  position:absolute;inset:0;
+  background:linear-gradient(transparent 35%,rgba(20,18,16,0.85) 100%);
+}
+.dest-tile-content {
+  position:absolute;bottom:0;left:0;right:0;padding:16px;
+}
+.dest-tile-region {
+  display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:#C9A84C;margin-bottom:4px;
+  font-variant:small-caps;
+}
+.dest-tile-title {
+  font-family:'Playfair Display',serif;font-size:1.1875rem;
+  font-weight:700;color:#F4E9CE;margin:0 0 4px;line-height:1.2;
+}
+.dest-tile-tagline {
+  font-family:'DM Sans',sans-serif;font-size:.6875rem;
+  color:#B8B0A0;margin:0;line-height:1.4;
+}
+.dest-tile-all { border:1px solid rgba(201,168,76,0.3); }
+.tp-modal-footer {
+  text-align:center;font-size:.75rem;color:#6A6256;padding-top:4px;
+}
+.tp-modal-footer a { color:#C9A84C;text-decoration:none; }
+.tp-modal-footer a:hover { text-decoration:underline; }
+@media (max-width:1024px) and (min-width:641px) {
+  .destination-tiles { grid-template-columns:repeat(2,1fr); }
+  .tp-modal-title { font-size:1.5rem; }
+}
+@media (max-width:640px) {
+  .destination-tiles { grid-template-columns:1fr; }
+  .dest-tile { aspect-ratio:16/7; }
+  .modal-inner { padding:28px 20px 20px; }
+  .tp-modal-title { font-size:1.375rem; }
+}
 </style>
 
 <script>
@@ -1505,36 +1583,6 @@ function closeTripPlanner(e) {
   const el = document.getElementById('trip-planner-overlay');
   el.style.display = 'none';
   el.classList.remove('open');
-}
-function selectOption(el) {
-  const group = el.dataset.group;
-  document.querySelectorAll(`.tp-option[data-group="${group}"]`).forEach(o => o.classList.remove('selected'));
-  el.classList.add('selected');
-  checkReady();
-}
-function toggleTag(el) {
-  el.classList.toggle('selected');
-}
-function checkReady() {
-  const daysSelected = document.querySelector('.tp-option[data-group="days"].selected');
-  const styleSelected = document.querySelector('.tp-option[data-group="style"].selected');
-  const btn = document.getElementById('tp-cta');
-  if (daysSelected && styleSelected) {
-    btn.style.opacity = '1';
-    btn.style.pointerEvents = 'auto';
-    btn.removeAttribute('disabled');
-  } else {
-    btn.style.opacity = '0.5';
-    btn.style.pointerEvents = 'none';
-    btn.setAttribute('disabled','');
-  }
-}
-function goToItinerary() {
-  const days = document.querySelector('.tp-option[data-group="days"].selected')?.dataset.value;
-  const style = document.querySelector('.tp-option[data-group="style"].selected')?.dataset.value;
-  const tabMap = { '5':'5day', '7':'7day', '10':'10day', 'any':'7day' };
-  const tab = tabMap[days] || '7day';
-  window.location.href = `laowander-itineraries.html?tab=${tab}&style=${style}`;
 }
 </script>
 
