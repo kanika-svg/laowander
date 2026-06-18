@@ -267,6 +267,29 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
     });
   })();
 </script>
+<style>
+/* ── DESTINATIONS DROPDOWN ── */
+.nav-item-dropdown{position:relative;list-style:none;}
+.nav-dropdown-trigger{padding:6px 14px;font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,248,235,.6);border-radius:6px;transition:color .2s,background .2s;white-space:nowrap;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;display:block;}
+.nav-dropdown-trigger:hover,.nav-item-dropdown.is-open .nav-dropdown-trigger{color:var(--white);background:rgba(255,248,235,.08);}
+.nav-dropdown{position:absolute;top:100%;left:0;padding-top:10px;min-width:220px;opacity:0;pointer-events:none;transition:opacity .15s ease;z-index:400;}
+.nav-dropdown-panel{background:#1C1915;border:1px solid rgba(201,168,76,.15);border-radius:4px;box-shadow:0 8px 24px rgba(0,0,0,.4);padding:12px;transform:translateY(-6px);transition:transform .15s ease;}
+.nav-item-dropdown.is-open .nav-dropdown{opacity:1;pointer-events:auto;}
+.nav-item-dropdown.is-open .nav-dropdown-panel{transform:translateY(0);}
+.nav-dropdown a{display:block;padding:10px 14px;color:#F4E9CE;font-family:'DM Sans',sans-serif;font-size:13px;border-radius:3px;text-decoration:none;border-left:2px solid transparent;transition:background .15s,border-color .15s,color .15s;}
+.nav-dropdown a:hover{background:rgba(201,168,76,.08);border-left-color:#C9A84C;color:#E2BC65;}
+.nav-dropdown-sep{border-top:1px solid rgba(201,168,76,.15);margin:8px 0;}
+.drawer-accordion-trigger{width:100%;text-align:left;padding:12px 14px;font-size:.88rem;font-weight:500;color:var(--soft);border-radius:8px;background:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;justify-content:space-between;transition:all .2s;}
+.drawer-accordion-trigger:hover{color:var(--white);background:rgba(255,248,235,.05);}
+.drawer-accordion-trigger[aria-expanded="true"]{color:var(--gold-bright);}
+.chevron{font-size:.65rem;color:var(--muted);transition:transform .2s ease;display:inline-block;}
+.drawer-accordion-trigger[aria-expanded="true"] .chevron{transform:rotate(180deg);}
+.drawer-accordion-content{overflow:hidden;max-height:0;transition:max-height .2s ease;}
+.drawer-accordion-content.open{max-height:300px;}
+.drawer-accordion-content a{display:block;padding:10px 14px 10px 28px;font-size:.84rem;color:var(--soft);border-radius:8px;transition:all .2s;text-decoration:none;}
+.drawer-accordion-content a:hover{color:var(--white);background:rgba(255,248,235,.05);}
+.drawer-accordion-content .drawer-all{color:var(--gold);font-size:.78rem;border-top:1px solid var(--rim);margin-top:4px;padding-top:12px;}
+</style>
 </head>
 <body>
 
@@ -276,7 +299,20 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
     <span class="logo-text">Lao<em>Wander</em></span>
   </a>
     <ul class="nav-links">
-    <li><a href="/#destinations">Destinations</a></li>
+    <li class="nav-item-dropdown" id="nav-dest-item">
+      <button class="nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false" id="nav-dest-trigger">Destinations</button>
+      <div class="nav-dropdown" role="menu" id="nav-dest-menu">
+        <div class="nav-dropdown-panel">
+          <a href="luang-prabang.html" role="menuitem">Luang Prabang</a>
+          <a href="vientiane.html" role="menuitem">Vientiane</a>
+          <a href="vang-vieng.html" role="menuitem">Vang Vieng</a>
+          <a href="nong-khiaw.html" role="menuitem">Nong Khiaw</a>
+          <a href="4000-islands.html" role="menuitem">4000 Islands</a>
+          <div class="nav-dropdown-sep" role="separator" aria-hidden="true"></div>
+          <a href="index.html#destinations" role="menuitem" class="nav-dropdown-all">All destinations</a>
+        </div>
+      </div>
+    </li>
     <li><a href="laowander-events.html">Events</a></li>
     <li><a href="laowander-hotels.html">Hotels</a></li>
     <li><a href="laowander-food.html">Food</a></li>
@@ -291,7 +327,15 @@ footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid v
   </div>
 </nav>
 <div class="nav-drawer" id="nav-drawer">
-  <a href="/#destinations" onclick="closeNav()">Destinations</a>
+  <button class="drawer-accordion-trigger" aria-expanded="false" aria-controls="drawer-dest-content" onclick="toggleDrawerAccordion(this)">Destinations<span class="chevron" aria-hidden="true">▼</span></button>
+  <div class="drawer-accordion-content" id="drawer-dest-content">
+    <a href="luang-prabang.html" onclick="closeNav()">Luang Prabang</a>
+    <a href="vientiane.html" onclick="closeNav()">Vientiane</a>
+    <a href="vang-vieng.html" onclick="closeNav()">Vang Vieng</a>
+    <a href="nong-khiaw.html" onclick="closeNav()">Nong Khiaw</a>
+    <a href="4000-islands.html" onclick="closeNav()">4000 Islands</a>
+    <a href="index.html#destinations" onclick="closeNav()" class="drawer-all">All destinations</a>
+  </div>
   <a href="laowander-events.html" onclick="closeNav()">Events</a>
   <a href="laowander-hotels.html" onclick="closeNav()">Hotels</a>
   <a href="laowander-food.html" onclick="closeNav()">Food</a>
@@ -756,6 +800,50 @@ calculate();
       '_blank'
     );
   });
+</script>
+<script>
+/* ── DESTINATIONS DROPDOWN ── */
+(function(){
+  var item=document.getElementById('nav-dest-item');
+  var trigger=document.getElementById('nav-dest-trigger');
+  var menu=document.getElementById('nav-dest-menu');
+  if(!item||!trigger||!menu)return;
+  var hovering=false,pinned=false;
+  function sync(){
+    var open=hovering||pinned;
+    item.classList.toggle('is-open',open);
+    trigger.setAttribute('aria-expanded',open?'true':'false');
+  }
+  function openDest(){pinned=true;sync();}
+  function closeDest(){hovering=false;pinned=false;sync();}
+  function togglePinned(){pinned=!pinned;sync();}
+  item.addEventListener('mouseenter',function(){if(window.innerWidth>=1024){hovering=true;sync();}});
+  item.addEventListener('mouseleave',function(){if(window.innerWidth>=1024){hovering=false;sync();}});
+  trigger.addEventListener('click',function(e){e.stopPropagation();togglePinned();});
+  document.addEventListener('click',function(e){if(!item.contains(e.target))closeDest();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeDest();trigger.focus();}});
+  trigger.addEventListener('keydown',function(e){
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();togglePinned();if(pinned){var f=menu.querySelector('a');if(f)f.focus();}}
+    if(e.key==='ArrowDown'){e.preventDefault();openDest();var f=menu.querySelector('a');if(f)f.focus();}
+  });
+  var links=Array.from(menu.querySelectorAll('a'));
+  links.forEach(function(a,i){
+    a.addEventListener('keydown',function(e){
+      if(e.key==='ArrowDown'){e.preventDefault();(links[i+1]||links[0]).focus();}
+      if(e.key==='ArrowUp'){e.preventDefault();i>0?links[i-1].focus():trigger.focus();}
+      if(e.key==='Escape'){closeDest();trigger.focus();}
+      if(e.key==='Tab'&&!e.shiftKey&&i===links.length-1)closeDest();
+      if(e.key==='Tab'&&e.shiftKey&&i===0)closeDest();
+    });
+  });
+})();
+function toggleDrawerAccordion(btn){
+  var content=document.getElementById(btn.getAttribute('aria-controls'));
+  if(!content)return;
+  var expanded=btn.getAttribute('aria-expanded')==='true';
+  btn.setAttribute('aria-expanded',String(!expanded));
+  content.classList.toggle('open',!expanded);
+}
 </script>
 </body>
 </html>
