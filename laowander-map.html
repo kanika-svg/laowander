@@ -177,6 +177,53 @@ nav{position:fixed;inset:0 0 auto 0;z-index:300;display:flex;align-items:center;
   .sidebar{border-right:none;border-bottom:1px solid var(--rim);}
   .city-list{max-height:260px;}
 }
+
+/* FOOTER */
+footer{position:relative;z-index:1;padding:64px 64px 40px;border-top:1px solid var(--rim);}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px;}
+.footer-brand .logo{font-size:1.3rem;margin-bottom:14px;display:block;}
+.footer-brand p{font-size:.78rem;color:var(--muted);line-height:1.7;max-width:240px;}
+.footer-col h4{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.footer-col a{display:block;font-size:.8rem;color:var(--muted);margin-bottom:10px;transition:color .2s;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:32px;border-top:1px solid var(--rim);}
+.footer-copy{font-size:.72rem;color:var(--muted);}
+.footer-disclosure {
+  margin-top: 8px;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.5;
+  max-width: 640px;
+}
+.kanok-divider {
+  height: 2px;
+  margin: 32px auto 0;
+  max-width: calc(100% - 96px);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #C9A84C 15%,
+    #C9A84C 85%,
+    transparent 100%
+  );
+  opacity: 0.5;
+}
+.kanok-divider--footer {
+  margin: 0 auto 16px;
+  opacity: 0.35;
+}
+@media(max-width:1100px){
+  footer{padding-left:36px;padding-right:36px;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:36px;}
+}
+@media(max-width:860px){
+  footer{padding:48px 20px 28px;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:500px){
+  .footer-top{grid-template-columns:1fr;}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -358,7 +405,7 @@ const CITIES = [
       { type:'restaurant', icon:'🍜', name:'MakPhet Restaurant', meta:'Contemporary Lao · $$', lat:17.9621, lng:102.6133, link:'laowander-food.html' },
       { type:'restaurant', icon:'🍜', name:'Lao Kitchen', meta:'Traditional · $', lat:17.9643, lng:102.6151, link:'laowander-food.html' },
       { type:'restaurant', icon:'☕', name:'Rue Namphu Café', meta:'French-Lao · $', lat:17.9660, lng:102.6158, link:'laowander-food.html' },
-      { type:'attraction', icon:'🏛', name:'Pha That Luang', meta:'National symbol · Free', lat:17.9762, lng:102.6343, link:'https://www.google.com/maps/search/?api=1&query=17.9762,102.6343' },
+      { type:'attraction', icon:'🏛', name:'Pha That Luang', meta:'National symbol · 10,000 LAK (~$0.50)', lat:17.9762, lng:102.6343, link:'https://www.google.com/maps/search/?api=1&query=17.9762,102.6343' },
       { type:'attraction', icon:'🏛', name:'Patuxai Monument', meta:'Victory Gate · Free', lat:17.9692, lng:102.6221, link:'https://www.google.com/maps/search/?api=1&query=17.9692,102.6221' },
     ]
   },
@@ -400,7 +447,7 @@ const CITIES = [
     places:[
       { type:'restaurant', icon:'🍜', name:'Champa Restaurant', meta:'Lao & Thai · $', lat:15.1190, lng:105.7980, link:'laowander-food.html' },
       { type:'restaurant', icon:'🍜', name:'Jasmine Restaurant', meta:'Lao & Khmer · $', lat:15.1210, lng:105.8010, link:'laowander-food.html' },
-      { type:'attraction', icon:'🏛', name:'Wat Phu Champasak', meta:'UNESCO · $5 · 45km', lat:14.8484, lng:105.8483, link:'https://www.google.com/maps/search/?api=1&query=14.8484,105.8483' },
+      { type:'attraction', icon:'🏛', name:'Wat Phu Champasak', meta:'UNESCO · 50,000 LAK (~$2.50) · 45km', lat:14.8484, lng:105.8483, link:'https://www.google.com/maps/search/?api=1&query=14.8484,105.8483' },
       { type:'attraction', icon:'☕', name:'Bolaven Plateau', meta:'Coffee & waterfalls · 60km', lat:15.3000, lng:106.1500, link:'https://www.google.com/maps/search/?api=1&query=15.3,106.15' },
     ]
   },
@@ -409,7 +456,7 @@ const CITIES = [
     lat:13.9731, lng:105.9228,
     desc:'The 4,000 Islands archipelago on the Mekong. Island-hop by boat, watch Irrawaddy dolphins at dawn, and sleep in riverside bungalows.',
     img:'https://res.cloudinary.com/dzxg1vyi8/image/upload/c_fill,g_auto,ar_16:9,y_0.3/v1774005646/sunin_hotel_e1usdh.jpg',
-    bestMonths:[11,12,1,2,3,4],
+    bestMonths:[11,12,1,2,3],
     places:[
       { type:'hotel', icon:'🏨', name:'Sunin Hotel — Don Det', meta:'From $40/night', lat:13.9731, lng:105.9228, link:'https://www.booking.com/hotel/la/sunin-dondet-riverside-okhng.html' },
       { type:'attraction', icon:'🐬', name:'Irrawaddy Dolphin Watching', meta:'Dawn boat tour · $10', lat:14.0050, lng:105.9600, link:'https://www.google.com/maps/search/?api=1&query=14.005,105.96' },
@@ -731,5 +778,45 @@ function toggleDrawerAccordion(btn){
   content.classList.toggle('open',!expanded);
 }
 </script>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="logo">Lao<em>Wander</em></span>
+      <p>An independent travel guide to the most underrated country in Southeast Asia. Made with genuine love for Laos.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="#destinations">Destinations</a>
+      <a href="laowander-map.html">Interactive Map</a>
+      <a href="laowander-events.html">Events &amp; Festivals</a>
+      <a href="laowander-itineraries.html">Itineraries</a>
+    </div>
+    <div class="footer-col">
+      <h4>Plan</h4>
+      <a href="laowander-hotels.html">Hotels &amp; Stays</a>
+      <a href="laowander-food.html">Food &amp; Restaurants</a>
+      <a href="laowander-flights.html">Flights to Laos</a>
+      <a href="laowander-guide.html">Travel Guide</a>
+      <a href="laowander-calculator.html">Budget Calculator</a>
+      <a href="laowander-guide.html#visas">Visas &amp; Entry</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="laowander-about.html">About LaoWander</a>
+      <a href="laowander-phrasebook.html">Lao Phrasebook</a>
+      <a href="laowander-guide.html#transport">Getting Around</a>
+      <a href="laowander-guide.html#health">Health &amp; Safety</a>
+      <a href="laowander-guide.html#language">Language Guide</a>
+      <a href="#newsletter">Newsletter</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="kanok-divider kanok-divider--footer" aria-hidden="true"></div>
+    <div class="footer-copy">© 2026 LaoWander. All rights reserved.</div>
+    <p class="footer-disclosure">LaoWander may earn a commission when you book through our partner links. This never affects the price you pay.</p>
+  </div>
+</footer>
 </body>
 </html>
