@@ -448,13 +448,13 @@ footer {
    DISHES DATA
 ══════════════════════════════════════════ */
 const DISHES = [
-  { name:'Laap', sub:'Minced meat salad with toasted rice powder & herbs', badge:'National dish', emoji:'🥗', gradient:'linear-gradient(135deg,#1a1008,#2a1a08)', img:'https://images.unsplash.com/photo-1555126634-323283e090fa?w=400&q=80' },
-  { name:'Khao Niew', sub:'Sticky rice — eaten by hand with every meal', badge:'Staple', emoji:'🍚', gradient:'linear-gradient(135deg,#1a1410,#241a0c)', img:'https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&q=80' },
-  { name:'Tam Mak Hoong', sub:'Green papaya salad with fish sauce, lime & chilli', badge:'Street favourite', emoji:'🥙', gradient:'linear-gradient(135deg,#0e1a0a,#162210)', img:'https://images.unsplash.com/photo-1511357840105-748c95f0a8ce?w=400&q=80' },
-  { name:'Mok Pa', sub:'Fish steamed in banana leaf with lemongrass & dill', badge:'Classic', emoji:'🐟', gradient:'linear-gradient(135deg,#081418,#0e1e20)', img:'https://images.unsplash.com/photo-1484723091739-30990ff15fdb?w=400&q=80' },
-  { name:'Or Lam', sub:'Luang Prabang buffalo stew with sakhaan wood & eggplant', badge:'LP specialty', emoji:'🫕', gradient:'linear-gradient(135deg,#1a0e08,#241408)', img:'https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=400&q=80' },
-  { name:'Khao Piak Sen', sub:'Lao rice noodle soup — lighter & more fragrant than pho', badge:'Breakfast', emoji:'🍲', gradient:'linear-gradient(135deg,#181008,#201408)', img:'https://images.unsplash.com/photo-1555126634-323283e090fa?w=400&q=80' },
-  { name:'Beer Lao', sub:'The crisp national lager — $1.50 anywhere, any time', badge:'Essential', emoji:'🍺', gradient:'linear-gradient(135deg,#1a1408,#241e08)', img:'https://images.unsplash.com/photo-1546171753-97d7676e4602?w=400&q=80' },
+  { name:'Laap', sub:'Minced meat salad with toasted rice powder & herbs', badge:'National dish', emoji:'🥗', gradient:'linear-gradient(135deg,#1a1008,#2a1a08)', img:'https://res.cloudinary.com/dzxg1vyi8/image/upload/c_fill,g_auto,ar_4:3,w_500,q_auto,f_auto/v1782647824/pork-larb-11_d0v2n1.jpg' },
+  { name:'Khao Niew', sub:'Sticky rice — eaten by hand with every meal', badge:'Staple', emoji:'🍚', gradient:'linear-gradient(135deg,#1a1410,#241a0c)', img:'https://res.cloudinary.com/dzxg1vyi8/image/upload/c_fill,g_auto,ar_4:3,w_500,q_auto,f_auto/v1782647827/Khaow_niao_yicluc.jpg' },
+  { name:'Tam Mak Hoong', sub:'Green papaya salad with fish sauce, lime & chilli', badge:'Street favourite', emoji:'🥙', gradient:'linear-gradient(135deg,#0e1a0a,#162210)', img:'https://res.cloudinary.com/dzxg1vyi8/image/upload/c_fill,g_auto,ar_4:3,w_500,q_auto,f_auto/v1782647862/Tam-Mak-Hoong-Lao-Green-Papaya-Salad2-480x270_vuza4t.png' },
+  { name:'Mok Pa', sub:'Fish steamed in banana leaf with lemongrass & dill', badge:'Classic', emoji:'🐟', gradient:'linear-gradient(135deg,#081418,#0e1e20)', img:'https://res.cloudinary.com/dzxg1vyi8/image/upload/c_fill,g_auto,ar_4:3,w_500,q_auto,f_auto/v1782647861/7-11-24-Mok-Pa-Cropped_jewkmj.jpg' },
+  { name:'Or Lam', sub:'Luang Prabang buffalo stew with sakhaan wood & eggplant', badge:'LP specialty', emoji:'🫕', gradient:'linear-gradient(135deg,#1a0e08,#241408)', img:'https://res.cloudinary.com/dzxg1vyi8/image/upload/c_fill,g_auto,ar_4:3,w_500,q_auto,f_auto/v1782647862/or_lam_mit_rind_vooypu.jpg' },
+  { name:'Khao Piak Sen', sub:'Lao rice noodle soup — lighter & more fragrant than pho', badge:'Breakfast', emoji:'🍲', gradient:'linear-gradient(135deg,#181008,#201408)', img:'https://res.cloudinary.com/dzxg1vyi8/image/upload/c_fill,g_auto,ar_4:3,w_500,q_auto,f_auto/v1782647862/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__07__20190718-Khao-piak-sen-laotian-noodle-soup-liz-clayman-25-9ed0f66181f440bdacbd24f99bb852c5_ykqj9n.jpg' },
+  { name:'Beer Lao', sub:'The crisp national lager — $1.50 anywhere, any time', badge:'Essential', emoji:'🍺', gradient:'linear-gradient(135deg,#1a1408,#241e08)', img:'https://res.cloudinary.com/dzxg1vyi8/image/upload/c_fill,g_auto,ar_4:3,w_500,q_auto,f_auto/v1782647862/beer_lao_usir0o.jpg' },
   { name:'Bolaven Coffee', sub:'Rich dark roast from the southern highlands plateau', badge:'Southern highlands', emoji:'☕', gradient:'linear-gradient(135deg,#160e06,#201208)', img:'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80' },
 ];
 
@@ -470,7 +470,7 @@ const CITIES = [
     restaurants:[
       { id:'rl-makphet', name:'MakPhet', type:'Contemporary Lao', price:'$$',
         desc:'A contemporary Lao restaurant in central Vientiane with a social enterprise mission — MakPhet trains at-risk youth in hospitality and culinary skills. Known for refined takes on traditional Lao dishes including duck laap and aubergine dip.',
-        tags:['Social enterprise','Award-winning','Garden seating'],
+        tags:['Social enterprise','Garden seating'],
         gradient:'linear-gradient(135deg,#1a1208,#251808)',
         gmaps:'https://www.google.com/maps/dir/?api=1&destination=17.9618,102.6134&destination_place_name=MakPhet+Restaurant'},
       { id:'rl-lao-kitchen', name:'Lao Kitchen', type:'Traditional Lao', price:'$',
@@ -496,8 +496,8 @@ const CITIES = [
     ],
     streetfood:[
       { name:'Talat Sao Night Market', where:'Talat Sao, Central Vientiane', desc:'The heart of Vientiane street food. Dozens of vendors line the roads after dark with grilled skewers, nam khao (crispy rice salad), noodle soups, and fresh fruit smoothies.', price:'2,000–15,000 LAK', emoji:'🌙' },
-      { name:'Mekong Riverside Stalls', where:'Fa Ngum Road, Mekong riverside', desc:'Watch the sun set over the Mekong while eating grilled fish, spring rolls and sticky rice from the open-air stalls along the waterfront. Cold Beer Lao mandatory.', price:'5,000–20,000 LAK', emoji:'🌅' },
-      { name:'Khao Jee Sandwich', where:'Morning street stalls, city-wide', desc:'The Lao baguette sandwich — French colonial legacy. Fluffy baguette stuffed with pâté, cucumber, coriander and chilli. The best breakfast for 10,000 LAK.', price:'8,000–12,000 LAK', emoji:'🥖' },
+      { name:'Mekong Riverside Stalls', where:'Fa Ngum Road, Mekong riverside', desc:'Watch the sun set over the Mekong while eating grilled fish, spring rolls and sticky rice from the open-air stalls along the waterfront. Cold Beer Lao optional but recommended.', price:'5,000–20,000 LAK', emoji:'🌅' },
+      { name:'Khao Jee Sandwich', where:'Morning street stalls, city-wide', desc:'The Lao baguette sandwich — French colonial legacy. Fluffy baguette stuffed with pâté, cucumber, coriander and chilli. A great breakfast for around 10,000 LAK.', price:'8,000–12,000 LAK', emoji:'🥖' },
       { name:'Nam Khao at Kualao', where:'Samsenthai Road', desc:'Deep-fried crispy rice salad tossed with sour pork, fresh herbs, coconut and lime. A Vientiane invention — crispy rice tossed with sour pork and herbs.', price:'25,000–35,000 LAK', emoji:'🥗' },
     ]
   },
@@ -586,7 +586,7 @@ const CITIES = [
     ],
     streetfood:[
       { name:'Pakse Morning Market', where:'Day Market, central Pakse', desc:'A working local market in southern Laos. Fresh Mekong river fish, wild Bolaven mushrooms, smoked meats and every exotic jungle herb you\'ve never seen. Arrive by 7am for the best selection.', price:'Free to browse', emoji:'🌅' },
-      { name:'Don Det Grilled Fish', where:'Don Det island, 4,000 Islands', desc:'At sunset, guesthouses and riverside stalls on Don Det fire up grills with freshly caught Mekong fish. Served with sticky rice, lime and chilli paste — and a cold Beer Lao. Pure bliss.', price:'20,000–35,000 LAK', emoji:'🐟' },
+      { name:'Don Det Grilled Fish', where:'Don Det island, 4,000 Islands', desc:'At sunset, guesthouses and riverside stalls on Don Det fire up grills with freshly caught Mekong fish. Served with sticky rice, lime and chilli paste — and a cold Beer Lao.', price:'20,000–35,000 LAK', emoji:'🐟' },
       { name:'Bolaven Coffee Stalls', where:'Paksong town, Bolaven Plateau', desc:'Buy freshly roasted coffee beans directly from farmers at roadside stalls on the plateau road. The most direct source — straight from the farmers. Bring an empty bag or two.', price:'$5–12 per 250g', emoji:'☕' },
     ]
   },
@@ -744,7 +744,7 @@ observeReveal();
   <div class="footer-top">
     <div class="footer-brand">
       <a href="/" class="logo">Lao<em>Wander</em></a>
-      <p>An independent travel guide to the most underrated country in Southeast Asia. Made with genuine love for Laos.</p>
+      <p>An independent travel guide to one of Southeast Asia's most underrated countries. Made with genuine love for Laos.</p>
     </div>
     <div class="footer-col">
       <h4>Explore</h4>
