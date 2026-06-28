@@ -51,7 +51,19 @@
       "Read(//d/tmp/**)",
       "Read(//c/Users/ROG/AppData/Local/Temp/**)",
       "Bash(pkill -f \"8843\")",
-      "Bash(rm -rf /tmp/pwtest)"
+      "Bash(rm -rf /tmp/pwtest)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}  content-type:%{content_type}  size:%{size_download}\\\\n\" \"https://images.unsplash.com/photo-1606064195579-a48c728cec35?w=1600&q=80&fit=crop\")",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}  content-type:%{content_type}  size:%{size_download}\\\\n\" \"https://images.unsplash.com/photo-1599638818166-7823b3fb8f67?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\")",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}  content-type:%{content_type}  size:%{size_download}\\\\n\" \"https://images.unsplash.com/photo-1718267104642-147a1373b3c6?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\")",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}  content-type:%{content_type}  size:%{size_download}\\\\n\" \"https://images.unsplash.com/photo-1705917950934-7efe2b6866cc?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\")",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}  content-type:%{content_type}  size:%{size_download}\\\\n\" \"https://images.unsplash.com/photo-1441632260885-881646a7fd4d?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\")",
+      "Bash(pkill -f \"http.server 8123\")",
+      "Bash(awk '/id=\"pi-mai\"/,/<\\\\/section>/' laowander-events.html)",
+      "Bash(awk '/id=\"boun-ok-phansa\"/,/<\\\\/section>/' laowander-events.html)",
+      "Bash(curl *)",
+      "Bash(awk '/<footer/{flag=1} flag{print NR\": \"$0} /<\\\\/footer>/{flag=0}' laowander-backup.html)",
+      "Bash(awk '/<footer/{flag=1} flag{print NR\": \"$0} /<\\\\/footer>/{flag=0}' laowander-flights.html)",
+      "Bash(awk '/<footer/{flag=1} flag{print NR\": \"$0} /<\\\\/footer>/{flag=0}' laowander-map.html)"
     ]
   }
 }

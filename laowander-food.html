@@ -455,7 +455,7 @@ const DISHES = [
   { name:'Or Lam', sub:'Luang Prabang buffalo stew with sakhaan wood & eggplant', badge:'LP specialty', emoji:'🫕', gradient:'linear-gradient(135deg,#1a0e08,#241408)', img:'https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=400&q=80' },
   { name:'Khao Piak Sen', sub:'Lao rice noodle soup — lighter & more fragrant than pho', badge:'Breakfast', emoji:'🍲', gradient:'linear-gradient(135deg,#181008,#201408)', img:'https://images.unsplash.com/photo-1555126634-323283e090fa?w=400&q=80' },
   { name:'Beer Lao', sub:'The crisp national lager — $1.50 anywhere, any time', badge:'Essential', emoji:'🍺', gradient:'linear-gradient(135deg,#1a1408,#241e08)', img:'https://images.unsplash.com/photo-1546171753-97d7676e4602?w=400&q=80' },
-  { name:'Bolaven Coffee', sub:'Rich dark roast from the southern highlands plateau', badge:'Best in SE Asia', emoji:'☕', gradient:'linear-gradient(135deg,#160e06,#201208)', img:'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80' },
+  { name:'Bolaven Coffee', sub:'Rich dark roast from the southern highlands plateau', badge:'Southern highlands', emoji:'☕', gradient:'linear-gradient(135deg,#160e06,#201208)', img:'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80' },
 ];
 
 /* ══════════════════════════════════════════
@@ -498,7 +498,7 @@ const CITIES = [
       { name:'Talat Sao Night Market', where:'Talat Sao, Central Vientiane', desc:'The heart of Vientiane street food. Dozens of vendors line the roads after dark with grilled skewers, nam khao (crispy rice salad), noodle soups, and fresh fruit smoothies.', price:'2,000–15,000 LAK', emoji:'🌙' },
       { name:'Mekong Riverside Stalls', where:'Fa Ngum Road, Mekong riverside', desc:'Watch the sun set over the Mekong while eating grilled fish, spring rolls and sticky rice from the open-air stalls along the waterfront. Cold Beer Lao mandatory.', price:'5,000–20,000 LAK', emoji:'🌅' },
       { name:'Khao Jee Sandwich', where:'Morning street stalls, city-wide', desc:'The Lao baguette sandwich — French colonial legacy. Fluffy baguette stuffed with pâté, cucumber, coriander and chilli. The best breakfast for 10,000 LAK.', price:'8,000–12,000 LAK', emoji:'🥖' },
-      { name:'Nam Khao at Kualao', where:'Samsenthai Road', desc:'Deep-fried crispy rice salad tossed with sour pork, fresh herbs, coconut and lime. A Vientiane invention found nowhere better than here. Prepare for addiction.', price:'25,000–35,000 LAK', emoji:'🥗' },
+      { name:'Nam Khao at Kualao', where:'Samsenthai Road', desc:'Deep-fried crispy rice salad tossed with sour pork, fresh herbs, coconut and lime. A Vientiane invention — crispy rice tossed with sour pork and herbs.', price:'25,000–35,000 LAK', emoji:'🥗' },
     ]
   },
   {
@@ -534,7 +534,7 @@ const CITIES = [
         gmaps:'https://www.google.com/maps/dir/?api=1&destination=19.8890,102.1350&destination_place_name=Blue+Lagoon+Bakery+Luang+Prabang'},
     ],
     streetfood:[
-      { name:'Sisavangvong Night Market', where:'Sisavangvong Road, Old Town', desc:'Luang Prabang\'s legendary nightly market. Over 100 vendor stalls with buffet-style Lao dishes — fill a plate for under 15,000 LAK. The best budget meal in the country. Comes alive at 5:30pm.', price:'10,000–15,000 LAK plate', emoji:'🌙' },
+      { name:'Sisavangvong Night Market', where:'Sisavangvong Road, Old Town', desc:'Luang Prabang\'s legendary nightly market. Over 100 vendor stalls with buffet-style Lao dishes — fill a plate for under 15,000 LAK. One of the cheapest hot meals in the country. Comes alive at 5:30pm.', price:'10,000–15,000 LAK plate', emoji:'🌙' },
       { name:'Morning Fresh Market', where:'Near Phousi Market, 5–7am', desc:'Where monks, nuns and local cooks buy their ingredients at dawn. Watch the incredible abundance of fresh herbs, river fish, wild mushrooms and insects laid out on bamboo mats. Arrive early.', price:'Free to browse', emoji:'🌅' },
       { name:'Or Lam Street Stalls', where:'Ban Xieng Mouane village', desc:'The real LP specialty — buffalo or lam stew with sakhaan bark and Lao eggplant, available from village home-kitchen stalls. This is Luang Prabang\'s soul food.', price:'15,000–25,000 LAK', emoji:'🫕' },
       { name:'Deli café baguettes', where:'Th Kitsalat Road', desc:'French bread culture lives on — vendors sell freshly baked baguettes stuffed with scrambled eggs, Lao pâté and fresh greens from wooden carts every morning until 10am.', price:'8,000–15,000 LAK', emoji:'🥖' },
@@ -559,7 +559,7 @@ const CITIES = [
     ],
     streetfood:[
       { name:'Vang Vieng Street Night Market', where:'Main Street, central Vang Vieng', desc:'Nightly market with bbq skewers, fresh fruit shakes, fried banana pancakes and cheap noodle soups. The banana-Nutella pancakes have fuelled a generation of backpackers.', price:'5,000–20,000 LAK', emoji:'🍌' },
-      { name:'Khao Tom (Rice Porridge)', where:'Early morning stalls, riverside road', desc:'Local breakfast staple — thick, comforting rice porridge with ginger and green onion, served with a raw egg stirred in. The best hangover cure in Southeast Asia and it costs 10,000 LAK.', price:'8,000–12,000 LAK', emoji:'🍚' },
+      { name:'Khao Tom (Rice Porridge)', where:'Early morning stalls, riverside road', desc:'Local breakfast staple — thick, comforting rice porridge with ginger and green onion, served with a raw egg stirred in. A comforting morning staple, and it costs about 10,000 LAK.', price:'8,000–12,000 LAK', emoji:'🍚' },
     ]
   },
   {
@@ -585,9 +585,9 @@ const CITIES = [
         gmaps:'https://www.google.com/maps/dir/?api=1&destination=15.1205,105.7981&destination_place_name=Jasmine+Restaurant+Pakse'},
     ],
     streetfood:[
-      { name:'Pakse Morning Market', where:'Day Market, central Pakse', desc:'The most authentic market in southern Laos. Fresh Mekong river fish, wild Bolaven mushrooms, smoked meats and every exotic jungle herb you\'ve never seen. Arrive by 7am for the best selection.', price:'Free to browse', emoji:'🌅' },
+      { name:'Pakse Morning Market', where:'Day Market, central Pakse', desc:'A working local market in southern Laos. Fresh Mekong river fish, wild Bolaven mushrooms, smoked meats and every exotic jungle herb you\'ve never seen. Arrive by 7am for the best selection.', price:'Free to browse', emoji:'🌅' },
       { name:'Don Det Grilled Fish', where:'Don Det island, 4,000 Islands', desc:'At sunset, guesthouses and riverside stalls on Don Det fire up grills with freshly caught Mekong fish. Served with sticky rice, lime and chilli paste — and a cold Beer Lao. Pure bliss.', price:'20,000–35,000 LAK', emoji:'🐟' },
-      { name:'Bolaven Coffee Stalls', where:'Paksong town, Bolaven Plateau', desc:'Buy freshly roasted coffee beans directly from farmers at roadside stalls on the plateau road. The best price and the most direct source. Bring an empty bag or two.', price:'$5–12 per 250g', emoji:'☕' },
+      { name:'Bolaven Coffee Stalls', where:'Paksong town, Bolaven Plateau', desc:'Buy freshly roasted coffee beans directly from farmers at roadside stalls on the plateau road. The most direct source — straight from the farmers. Bring an empty bag or two.', price:'$5–12 per 250g', emoji:'☕' },
     ]
   },
 ];
